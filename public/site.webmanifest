@@ -1,7 +1,7 @@
 {
   "name": "Mi Portafolio - Desarrollador Full Stack",
   "short_name": "Mi Portafolio",
-  "description": "Portafolio personal de desarrollo web con proyectos, blog y información profesional",
+  "description": "Portafolio personal de desarrollo web",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -19,36 +19,6 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
-    }
-  ],
-  "categories": ["portfolio", "developer", "technology"],
-  "screenshots": [
-    {
-      "src": "/screenshots/desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/screenshots/mobile.png", 
-      "sizes": "640x1136",
-      "type": "image/png",
-      "form_factor": "narrow"
     }
   ]
 }

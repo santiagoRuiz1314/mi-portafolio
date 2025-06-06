@@ -38,7 +38,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="creator" content={pageAuthor} />
       <meta name="publisher" content={pageAuthor} />
 
-      {/* Viewport */}
+      {/* Viewport - solo una vez */}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       {/* Language */}
@@ -47,7 +47,6 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
       {/* Robots */}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
       {/* Open Graph */}
       <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
@@ -74,47 +73,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         <meta name="twitter:creator" content={`@${siteConfig.social.twitter.split('/').pop() || ''}`} />
       )}
 
-      {/* Icons */}
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="shortcut icon" href="/favicon-16x16.png" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-      {/* Manifest */}
-      <link rel="manifest" href="/site.webmanifest" />
-
       {/* Canonical URL */}
       <link rel="canonical" href={pageUrl} />
-
-      {/* DNS Prefetch */}
-      <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-      <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-
-      {/* Preconnect */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-      {/* Fonts */}
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-
-      {/* Theme Color */}
-      <meta name="theme-color" content="#3b82f6" />
-      <meta name="msapplication-TileColor" content="#3b82f6" />
-
-      {/* Apple Meta Tags */}
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="apple-mobile-web-app-title" content={pageTitle} />
-
-      {/* Microsoft Meta Tags */}
-      <meta name="msapplication-config" content="/browserconfig.xml" />
-
-      {/* Additional Meta Tags for better SEO */}
-      <meta name="format-detection" content="telephone=no" />
-      <meta name="HandheldFriendly" content="true" />
-      <meta name="MobileOptimized" content="320" />
 
       {/* Structured Data */}
       <script
@@ -139,8 +99,8 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         }}
       />
 
-      {/* Google Analytics */}
-      {process.env.NEXT_PUBLIC_GA_ID && (
+      {/* Google Analytics - solo en producción */}
+      {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
         <>
           <script
             async
@@ -153,8 +113,6 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                  page_title: document.title,
-                  page_location: window.location.href,
                   anonymize_ip: true,
                   cookie_flags: 'secure;samesite=strict'
                 });
@@ -162,26 +120,6 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
             }}
           />
         </>
-      )}
-
-      {/* Google Tag Manager */}
-      {process.env.NEXT_PUBLIC_GTM_ID && (
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
-            `,
-          }}
-        />
-      )}
-
-      {/* Verification Tags */}
-      {process.env.GOOGLE_SITE_VERIFICATION && (
-        <meta name="google-site-verification" content={process.env.GOOGLE_SITE_VERIFICATION} />
       )}
 
       {/* Custom Children */}

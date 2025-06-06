@@ -1,18 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false, // Temporalmente deshabilitado para evitar hydration issues
+  reactStrictMode: true, // Habilitar para detectar problemas
   swcMinify: true,
   
-  // Configuración de imágenes
+  // Configuración de imágenes mejorada
   images: {
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
-    unoptimized: true, // Simplifica el manejo de imágenes
+    unoptimized: false, // Cambiar a false para optimización
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // Configuración básica
   compress: true,
   trailingSlash: false,
+  poweredByHeader: false,
 
   // Variables de entorno públicas
   env: {
@@ -20,10 +23,54 @@ const nextConfig = {
     SITE_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   },
 
-  // Configuración experimental para mejorar hydration
+  // Configuración experimental mejorada
   experimental: {
-    // Optimizaciones que pueden ayudar
+    // Remover configuraciones problemáticas
     optimizeCss: false,
+  },
+
+  // Configuración de webpack para evitar problemas de hidratación
+  webpack: (config, { dev, isServer }) => {
+    // Optimizaciones solo para producción
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          vendor: {
+            name: 'vendor',
+            chunks: 'all',
+            test: /node_modules/,
+          },
+        },
+      };
+    }
+    
+    return config;
+  },
+
+  // Headers de seguridad
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
   },
 };
 
