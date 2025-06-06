@@ -67,15 +67,6 @@ module.exports = {
         '128': '32rem',
       },
       
-      // Tamaños de texto
-      fontSize: {
-        '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '3.5rem' }],
-        '6xl': ['3.75rem', { lineHeight: '4.25rem' }],
-      },
-      
       // Animaciones personalizadas
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -85,7 +76,6 @@ module.exports = {
         'slide-in-right': 'slideInRight 0.5s ease-out',
         'bounce-gentle': 'bounceGentle 2s infinite',
         'pulse-gentle': 'pulseGentle 2s infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
       },
       
       // Keyframes para animaciones
@@ -118,10 +108,6 @@ module.exports = {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0.7' },
         },
-        glow: {
-          '0%': { boxShadow: '0 0 5px rgba(59, 130, 246, 0.5)' },
-          '100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.8)' },
-        },
       },
       
       // Sombras personalizadas
@@ -129,81 +115,12 @@ module.exports = {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.01)',
         'hard': '0 10px 40px rgba(0, 0, 0, 0.1)',
-        'glow': '0 0 20px rgba(59, 130, 246, 0.3)',
-        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.4)',
-      },
-      
-      // Gradientes
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-pattern': 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%)',
-      },
-      
-      // Bordes redondeados
-      borderRadius: {
-        '4xl': '2rem',
-        '5xl': '2.5rem',
-      },
-      
-      // Breakpoints personalizados
-      screens: {
-        'xs': '475px',
-        '3xl': '1600px',
-      },
-      
-      // Z-index
-      zIndex: {
-        '60': '60',
-        '70': '70',
-        '80': '80',
-        '90': '90',
-        '100': '100',
-      },
-      
-      // Aspect ratios
-      aspectRatio: {
-        '4/3': '4 / 3',
-        '3/2': '3 / 2',
-        '2/3': '2 / 3',
-        '9/16': '9 / 16',
       },
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    
     // Plugin personalizado para utilidades adicionales
     function({ addUtilities, addComponents, theme }) {
-      // Utilidades personalizadas
-      addUtilities({
-        '.text-balance': {
-          'text-wrap': 'balance',
-        },
-        '.text-pretty': {
-          'text-wrap': 'pretty',
-        },
-        '.scrollbar-hide': {
-          '-ms-overflow-style': 'none',
-          'scrollbar-width': 'none',
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
-        },
-        '.glass': {
-          'backdrop-filter': 'blur(10px)',
-          'background-color': 'rgba(255, 255, 255, 0.1)',
-          'border': '1px solid rgba(255, 255, 255, 0.2)',
-        },
-        '.glass-dark': {
-          'backdrop-filter': 'blur(10px)',
-          'background-color': 'rgba(0, 0, 0, 0.1)',
-          'border': '1px solid rgba(255, 255, 255, 0.1)',
-        },
-      });
-
       // Componentes personalizados
       addComponents({
         '.btn': {
@@ -240,23 +157,6 @@ module.exports = {
             backgroundColor: theme('colors.secondary.200'),
             transform: 'translateY(-1px)',
           },
-        },
-        '.card': {
-          backgroundColor: theme('colors.white'),
-          borderRadius: theme('borderRadius.xl'),
-          padding: theme('spacing.6'),
-          boxShadow: theme('boxShadow.soft'),
-          border: `1px solid ${theme('colors.secondary.200')}`,
-          transition: 'all 0.3s ease-in-out',
-          '&:hover': {
-            boxShadow: theme('boxShadow.medium'),
-            transform: 'translateY(-2px)',
-          },
-        },
-        '.card-dark': {
-          backgroundColor: theme('colors.secondary.800'),
-          color: theme('colors.white'),
-          border: `1px solid ${theme('colors.secondary.700')}`,
         },
       });
     },

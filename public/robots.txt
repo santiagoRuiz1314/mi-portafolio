@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos sensibles
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: *.json$
+Disallow: *.xml$
+
+# Permitir específicamente
+Allow: /api/og/
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://tu-dominio.com/sitemap.xml

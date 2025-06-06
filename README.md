@@ -1,34 +1,14 @@
-# 🌟 Portafolio Personal
+# 🚀 Configuración del Portafolio
 
-Un portafolio web moderno y responsivo construido con Next.js, TypeScript y Tailwind CSS.
+Esta guía te ayudará a configurar y ejecutar tu portafolio personal correctamente.
 
-![Portafolio Preview](./public/images/preview.png)
+## 📋 Requisitos previos
 
-## ✨ Características
+- Node.js 18+ 
+- npm 8+ (o yarn/pnpm)
+- Git
 
-- **🎨 Diseño Moderno**: Interfaz limpia y profesional con modo oscuro
-- **📱 Totalmente Responsivo**: Optimizado para todos los dispositivos
-- **⚡ Rendimiento Optimizado**: Carga rápida con Next.js y optimizaciones
-- **🔍 SEO Optimizado**: Meta tags y sitemap para mejor posicionamiento
-- **📝 Blog Integrado**: Sistema de blog con Markdown
-- **💼 Proyectos**: Showcase de proyectos con galería
-- **📧 Formulario de Contacto**: Formulario funcional con validación
-- **🌙 Modo Oscuro**: Alternancia entre tema claro y oscuro
-- **♿ Accesible**: Cumple con estándares de accesibilidad
-- **🎯 TypeScript**: Tipado estático para mejor desarrollo
-
-## 🛠️ Tecnologías
-
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Estilos**: Tailwind CSS, CSS Modules
-- **Animaciones**: Framer Motion
-- **Iconos**: Lucide React
-- **Markdown**: Gray Matter, Remark
-- **Email**: Nodemailer
-- **Linting**: ESLint, Prettier
-- **Análisis**: Bundle Analyzer
-
-## 🚀 Instalación
+## 🛠️ Instalación
 
 1. **Clona el repositorio**
    ```bash
@@ -39,212 +19,191 @@ Un portafolio web moderno y responsivo construido con Next.js, TypeScript y Tail
 2. **Instala las dependencias**
    ```bash
    npm install
-   # o
-   yarn install
-   # o
-   pnpm install
    ```
 
 3. **Configura las variables de entorno**
    ```bash
    cp .env.example .env.local
    ```
-   Edita `.env.local` con tus valores.
+   
+   Edita `.env.local` con tu información:
+   ```bash
+   NEXT_PUBLIC_SITE_NAME="Tu Nombre"
+   NEXT_PUBLIC_CONTACT_EMAIL="tu@email.com"
+   NEXT_PUBLIC_GITHUB_URL="https://github.com/tu-usuario"
+   # ... resto de configuraciones
+   ```
 
 4. **Ejecuta el servidor de desarrollo**
    ```bash
    npm run dev
-   # o
-   yarn dev
-   # o
-   pnpm dev
    ```
 
 5. **Abre tu navegador**
-   Navega a [http://localhost:3000](http://localhost:3000)
-
-## 📁 Estructura del Proyecto
-
-```
-src/
-├── components/          # Componentes reutilizables
-│   ├── AboutCard.tsx   # Tarjeta de información personal
-│   ├── BlogCard.tsx    # Tarjeta de artículo del blog
-│   ├── ContactForm.tsx # Formulario de contacto
-│   ├── Footer.tsx      # Pie de página
-│   ├── HeroSection.tsx # Sección principal
-│   ├── Layout.tsx      # Layout principal
-│   ├── Navbar.tsx      # Barra de navegación
-│   ├── ProjectCard.tsx # Tarjeta de proyecto
-│   ├── SEOHead.tsx     # Meta tags SEO
-│   └── SkillBadge.tsx  # Badge de habilidades
-├── pages/              # Páginas de Next.js
-│   ├── about.tsx       # Página sobre mí
-│   ├── contact.tsx     # Página de contacto
-│   ├── index.tsx       # Página principal
-│   ├── projects.tsx    # Página de proyectos
-│   └── skills.tsx      # Página de habilidades
-├── blog/               # Sistema de blog
-│   ├── [slug].tsx      # Página de artículo individual
-│   ├── index.tsx       # Lista de artículos
-│   └── 404.tsx         # Página de error
-├── data/               # Datos del sitio
-│   └── posts/          # Artículos en Markdown
-├── lib/                # Utilidades y configuraciones
-│   ├── email.ts        # Configuración de email
-│   ├── markdown.ts     # Procesamiento de Markdown
-│   └── posts.ts        # Manejo de artículos
-├── hooks/              # Hooks personalizados
-├── types/              # Tipos de TypeScript
-├── utils/              # Funciones utilitarias
-└── styles/             # Estilos globales
-```
-
-## ⚙️ Scripts Disponibles
-
-```bash
-# Desarrollo
-npm run dev          # Servidor de desarrollo
-npm run build        # Construcción para producción
-npm run start        # Servidor de producción
-npm run export       # Exportación estática
-
-# Calidad de código
-npm run lint         # Ejecutar ESLint
-npm run lint:fix     # Corregir errores de ESLint
-npm run type-check   # Verificar tipos de TypeScript
-
-# Análisis
-npm run analyze      # Analizar bundle
-npm run clean        # Limpiar archivos de construcción
-```
+   Ve a [http://localhost:3000](http://localhost:3000)
 
 ## 🎨 Personalización
 
-### 1. Información Personal
-Edita los archivos en `src/utils/constants.ts` para actualizar tu información personal.
+### 1. Información personal
+Edita `src/utils/constants.ts` para actualizar:
+- Nombre y título profesional
+- Información de contacto
+- Biografía y experiencia
+- Redes sociales
 
-### 2. Colores y Tema
-Modifica `tailwind.config.js` para personalizar la paleta de colores:
+### 2. Proyectos
+Actualiza `src/utils/sample-data.ts` en la sección `SAMPLE_PROJECTS`:
+```typescript
+{
+  id: 'mi-proyecto',
+  title: 'Mi Proyecto Increíble',
+  description: 'Descripción del proyecto...',
+  image: '/images/proyectos/mi-proyecto.jpg',
+  technologies: ['React', 'Next.js', 'TypeScript'],
+  // ...
+}
+```
 
+### 3. Habilidades
+Modifica `SAMPLE_SKILLS` en el mismo archivo:
+```typescript
+{
+  id: 'react',
+  name: 'React',
+  level: 5, // 1-5
+  category: 'Frontend',
+  icon: '⚛️',
+  // ...
+}
+```
+
+### 4. Imágenes
+Coloca tus imágenes en:
+- `public/images/foto-perfil.jpg` - Tu foto de perfil
+- `public/images/proyectos/` - Capturas de tus proyectos
+- `public/images/blog/` - Imágenes para artículos
+- `public/favicon.ico` - Tu favicon
+
+### 5. Colores y tema
+Edita `tailwind.config.js` para cambiar la paleta de colores:
 ```javascript
 colors: {
   primary: {
     // Tus colores primarios
-  },
-  secondary: {
-    // Tus colores secundarios
+    500: '#3b82f6', // Azul por defecto
   }
 }
 ```
 
-### 3. Contenido
-- **Proyectos**: Añade tus proyectos en `src/data/projects.ts`
-- **Habilidades**: Actualiza `src/data/skills.ts`
-- **Blog**: Crea archivos `.md` en `src/data/posts/`
+## 📝 Creando contenido
 
-### 4. Imágenes
-Coloca tus imágenes en:
-- `public/images/` - Imágenes generales
-- `public/images/proyectos/` - Imágenes de proyectos
-- `public/images/blog/` - Imágenes de artículos
-
-## 📝 Creando Contenido
-
-### Blog Posts
-Crea archivos Markdown en `src/data/posts/`:
-
+### Blog posts
+Crea archivos `.md` en `src/data/posts/`:
 ```markdown
 ---
-title: "Título del Artículo"
+title: "Mi artículo"
 date: "2025-01-15"
-excerpt: "Descripción breve del artículo"
-coverImage: "/images/blog/mi-articulo.jpg"
-tags: ["nextjs", "react", "typescript"]
+excerpt: "Descripción breve..."
+tags: ["react", "tutorial"]
+featured: true
+published: true
 ---
 
-# Contenido del artículo
-
-Tu contenido aquí...
+# Contenido del artículo...
 ```
 
-### Proyectos
-Añade proyectos en el archivo correspondiente:
-
-```typescript
-{
-  id: 'mi-proyecto',
-  title: 'Mi Proyecto',
-  description: 'Descripción del proyecto',
-  image: '/images/proyectos/mi-proyecto.jpg',
-  technologies: ['Next.js', 'TypeScript'],
-  githubUrl: 'https://github.com/usuario/proyecto',
-  liveUrl: 'https://mi-proyecto.com'
-}
-```
+### Nuevos proyectos
+1. Añade el proyecto a `SAMPLE_PROJECTS`
+2. Añade las imágenes correspondientes
+3. El proyecto aparecerá automáticamente
 
 ## 🚀 Despliegue
 
 ### Vercel (Recomendado)
-1. Conecta tu repositorio con [Vercel](https://vercel.com)
+1. Conecta tu repositorio a [Vercel](https://vercel.com)
 2. Configura las variables de entorno
-3. ¡Despliega automáticamente!
+3. Deploy automático en cada push
 
 ### Netlify
 1. Ejecuta `npm run build && npm run export`
 2. Sube la carpeta `out/` a Netlify
 
 ### GitHub Pages
-1. Configura GitHub Pages en tu repositorio
-2. Usa GitHub Actions para automatizar el despliegue
+1. Habilita GitHub Pages en tu repositorio
+2. Configura GitHub Actions para deploy automático
 
-## 🔧 Configuración Avanzada
+## 📧 Configuración del formulario de contacto
 
-### Variables de Entorno
-Consulta `.env.example` para todas las variables disponibles.
+Para que el formulario funcione, configura las variables de email en `.env.local`:
 
-### Optimizaciones de SEO
-- Sitemap automático en `/sitemap.xml`
-- Robots.txt en `/robots.txt`
-- Meta tags optimizados
-- Schema.org markup
-
-### Análisis de Performance
 ```bash
-npm run analyze
+# Gmail (recomendado)
+SMTP_HOST="smtp.gmail.com"
+SMTP_PORT="587"
+SMTP_USER="tu-email@gmail.com"
+SMTP_PASS="tu-app-password"  # Contraseña de aplicación, no tu contraseña normal
 ```
 
-## 📊 Métricas y Analytics
+**Nota**: Para Gmail, necesitas generar una "contraseña de aplicación" en tu cuenta de Google.
 
-- **Core Web Vitals**: Optimizado para LCP, FID, CLS
-- **Lighthouse Score**: 90+ en todas las categorías
-- **Bundle Size**: Optimizado con code splitting
+## 🎯 Optimizaciones recomendadas
 
-## 🤝 Contribución
+### SEO
+- Actualiza `src/lib/seo.ts` con tu información
+- Añade Google Analytics en las variables de entorno
+- Genera un sitemap actualizado
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-caracteristica`)
-3. Commit tus cambios (`git commit -m 'Añadir nueva característica'`)
-4. Push a la rama (`git push origin feature/nueva-caracteristica`)
-5. Abre un Pull Request
+### Performance
+- Optimiza imágenes (usa WebP cuando sea posible)
+- Las imágenes grandes deberían ser máximo 1920px de ancho
+- Comprime imágenes antes de subirlas
 
-## 📄 Licencia
+### Accesibilidad
+- Añade texto alternativo a todas las imágenes
+- Usa colores con suficiente contraste
+- Prueba la navegación con teclado
 
-Este proyecto está bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
+## 🐛 Problemas comunes
 
-## 🙏 Agradecimientos
+### Error de módulos no encontrados
+```bash
+# Limpia node_modules y reinstala
+rm -rf node_modules package-lock.json
+npm install
+```
 
-- [Next.js](https://nextjs.org/) - Framework de React
-- [Tailwind CSS](https://tailwindcss.com/) - Framework de CSS
-- [Lucide](https://lucide.dev/) - Iconos
-- [Framer Motion](https://www.framer.com/motion/) - Animaciones
+### Problemas con Tailwind CSS
+```bash
+# Verifica que tailwind.config.js esté correctamente configurado
+npm run build
+```
 
-## 📞 Contacto
+### Imágenes no cargan
+- Verifica que las rutas sean correctas (comienzan con `/`)
+- Asegúrate de que las imágenes estén en `public/`
 
-- **Email**: tu-email@ejemplo.com
-- **LinkedIn**: [tu-perfil](https://linkedin.com/in/tu-perfil)
-- **GitHub**: [tu-usuario](https://github.com/tu-usuario)
+### Formulario de contacto no funciona
+- Verifica las variables de entorno de email
+- Revisa la consola del navegador para errores
+- Prueba primero en desarrollo local
 
----
+## 📞 Soporte
 
-⭐ Si este proyecto te ha sido útil, ¡no olvides darle una estrella!
+Si tienes problemas:
+1. Revisa la consola del navegador
+2. Verifica que todas las dependencias estén instaladas
+3. Asegúrate de que las variables de entorno estén configuradas
+4. Revisa que las imágenes existan en las rutas especificadas
+
+## 🎉 ¡Listo!
+
+Tu portafolio debería estar funcionando. Personalízalo con tu información y proyectos, y tendrás un sitio web profesional en pocos minutos.
+
+### Próximos pasos
+- [ ] Personalizar información personal
+- [ ] Añadir tus proyectos reales
+- [ ] Configurar analytics
+- [ ] Optimizar SEO
+- [ ] Desplegar a producción
+
+¡Buena suerte con tu nuevo portafolio! 🚀
