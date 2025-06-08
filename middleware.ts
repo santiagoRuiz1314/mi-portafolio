@@ -88,7 +88,7 @@ export function middleware(request: NextRequest) {
   // Rate limiting simple (en producción usar una solución más robusta)
   if (pathname.startsWith('/api/')) {
     const ip = request.ip || request.headers.get('x-forwarded-for') || 'anonymous';
-    const rateLimitKey = `rate_limit_${ip}`;
+
     
     // En un entorno real, usar Redis o similar para rate limiting
     // Aquí solo es un ejemplo básico
