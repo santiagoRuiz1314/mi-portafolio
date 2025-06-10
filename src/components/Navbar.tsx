@@ -21,17 +21,17 @@ const navigation: NavItem[] = [
 
 const socialLinks = [
   {
-    href: process.env.NEXT_PUBLIC_GITHUB_URL || '#',
+    href: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
     icon: Github,
     label: 'GitHub',
   },
   {
-    href: process.env.NEXT_PUBLIC_LINKEDIN_URL || '#',
+    href: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
     icon: Linkedin,
     label: 'LinkedIn',
   },
   {
-    href: 'mailto:' + (process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contacto@ejemplo.com'),
+    href: 'mailto:' + (process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'santiago06ruiz@gmail.com'),
     icon: Mail,
     label: 'Email',
   },

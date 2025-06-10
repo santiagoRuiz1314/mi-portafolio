@@ -26,7 +26,7 @@ export const siteConfig = {
     url: 'https://tu-dominio.com',
   },
   social: {
-    twitter: process.env.NEXT_PUBLIC_TWITTER_URL || '',
+    twitter: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://x.com/',
     github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
     linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
   },

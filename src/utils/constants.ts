@@ -20,11 +20,11 @@ export const SITE_CONFIG = {
 export const SOCIAL_LINKS = {
   github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
   linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
-  twitter: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com/tu-usuario',
-  instagram: 'https://instagram.com/tu-usuario',
-  youtube: 'https://youtube.com/c/tu-canal',
-  dribbble: 'https://dribbble.com/tu-usuario',
-  behance: 'https://behance.net/tu-usuario',
+  twitter: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com',
+  instagram: 'https://instagram.com',
+  youtube: 'https://youtube.com',
+  dribbble: 'https://dribbble.com',
+  behance: 'https://behance.net',
 };
 
 // Información personal detallada
