@@ -46,16 +46,6 @@ export function useAnalytics() {
       },
     },
 
-    // Blog
-    blog: {
-      readPost: (slug: string) => {
-        console.log('Blog post read:', slug);
-      },
-      sharePost: (slug: string, platform: string) => {
-        console.log('Blog post shared:', { slug, platform });
-      },
-    },
-
     // Contacto
     contact: {
       formSubmit: () => {

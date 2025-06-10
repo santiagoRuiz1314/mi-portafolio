@@ -80,7 +80,6 @@ export const NAVIGATION = [
   { href: '/about', label: 'Sobre mí', icon: 'User' },
   { href: '/projects', label: 'Proyectos', icon: 'FolderOpen' },
   { href: '/skills', label: 'Habilidades', icon: 'Code' },
-  { href: '/blog', label: 'Blog', icon: 'BookOpen' },
   { href: '/contact', label: 'Contacto', icon: 'Mail' },
 ];
 
@@ -179,7 +178,6 @@ export const API_CONFIG = {
     contact: '/api/contact',
     newsletter: '/api/newsletter',
     projects: '/api/projects',
-    blog: '/api/blog',
   },
   timeout: 10000,
 };
@@ -251,12 +249,6 @@ export const PERFORMANCE_CONFIG = {
 
 // Configuración de contenido
 export const CONTENT_CONFIG = {
-  blog: {
-    postsPerPage: 10,
-    excerptLength: 160,
-    enableComments: false,
-    enableShare: true,
-  },
   projects: {
     projectsPerPage: 12,
     enableFiltering: true,

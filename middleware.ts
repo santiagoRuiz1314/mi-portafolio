@@ -55,16 +55,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // Manejo de rutas de blog antiguas
-  if (pathname.startsWith('/blog/')) {
-    const slug = pathname.replace('/blog/', '');
-    if (slug && !slug.includes('/')) {
-      // Redireccionar rutas de blog antiguas al nuevo formato
-      url.pathname = `/blog/${slug}`;
-      return NextResponse.rewrite(url);
-    }
-  }
-
   // Bloquear acceso a archivos sensibles
   const blockedPaths = [
     '.env',
@@ -117,15 +107,6 @@ export function middleware(request: NextRequest) {
   if (process.env.NODE_ENV === 'development') {
     console.log(`${request.method} ${pathname} - ${request.headers.get('user-agent')}`);
   }
-
-  // Reescritura de rutas para internacionalización (si se implementa en el futuro)
-  // const locales = ['en', 'es', 'fr'];
-  // const defaultLocale = 'en';
-  // 
-  // if (!locales.some(locale => pathname.startsWith(`/${locale}`))) {
-  //   url.pathname = `/${defaultLocale}${pathname}`;
-  //   return NextResponse.rewrite(url);
-  // }
 
   return response;
 }

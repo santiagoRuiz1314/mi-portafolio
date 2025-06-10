@@ -16,7 +16,6 @@ const navigation: NavItem[] = [
   { href: '/about', label: 'Sobre mí' },
   { href: '/projects', label: 'Proyectos' },
   { href: '/skills', label: 'Habilidades' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contacto' },
 ];
 

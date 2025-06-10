@@ -1,8 +1,7 @@
-// sample-data.ts - Datos de ejemplo para proyectos, habilidades y posts
+// sample-data.ts - Datos de ejemplo para proyectos y habilidades
 
 import type { Project } from '@/components/ProjectCard';
 import type { Skill } from '@/components/SkillBadge';
-import type { BlogPost } from '@/components/BlogCard';
 
 // Proyectos de ejemplo
 export const SAMPLE_PROJECTS: Project[] = [
@@ -302,112 +301,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     description: 'Plataforma para React Native',
     yearsOfExperience: 1,
     projects: ['weather-app']
-  }
-];
-
-// Posts de blog de ejemplo
-export const SAMPLE_BLOG_POSTS: BlogPost[] = [
-  {
-    slug: 'mi-primer-post',
-    title: 'Mi primer post en el blog',
-    excerpt: 'Este es mi primer artículo donde comparto mis experiencias como desarrollador y mis planes para el futuro.',
-    coverImage: '/images/blog/ejemplo-articulo.jpg',
-    date: '2025-01-15',
-    readingTime: 5,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['personal', 'introducción', 'desarrollo'],
-    featured: true,
-    published: true,
-    category: 'Personal'
-  },
-  {
-    slug: 'aprendiendo-react',
-    title: 'Aprendiendo React en 2025',
-    excerpt: 'Una guía completa sobre cómo empezar con React en 2025, desde los conceptos básicos hasta las mejores prácticas.',
-    coverImage: '/images/blog/react-tutorial.jpg',
-    date: '2025-02-20',
-    readingTime: 12,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['react', 'javascript', 'tutorial', 'frontend'],
-    featured: true,
-    published: true,
-    category: 'Tutorial'
-  },
-  {
-    slug: 'nextjs-vs-react',
-    title: 'Next.js vs React: ¿Cuál elegir en 2025?',
-    excerpt: 'Comparamos Next.js y React para ayudarte a decidir cuál es la mejor opción para tu próximo proyecto.',
-    coverImage: '/images/blog/nextjs-vs-react.jpg',
-    date: '2025-03-10',
-    readingTime: 8,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['nextjs', 'react', 'comparación', 'frameworks'],
-    featured: false,
-    published: true,
-    category: 'Comparación'
-  },
-  {
-    slug: 'typescript-para-principiantes',
-    title: 'TypeScript para principiantes',
-    excerpt: 'Introducción práctica a TypeScript con ejemplos reales y casos de uso comunes en el desarrollo web.',
-    coverImage: '/images/blog/typescript-intro.jpg',
-    date: '2025-03-25',
-    readingTime: 10,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['typescript', 'javascript', 'tipos', 'tutorial'],
-    featured: false,
-    published: true,
-    category: 'Tutorial'
-  },
-  {
-    slug: 'mejores-practicas-css',
-    title: 'Mejores prácticas de CSS en 2025',
-    excerpt: 'Técnicas modernas y mejores prácticas para escribir CSS mantenible y escalable en proyectos grandes.',
-    coverImage: '/images/blog/css-best-practices.jpg',
-    date: '2025-04-05',
-    readingTime: 7,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['css', 'mejores-practicas', 'frontend', 'styling'],
-    featured: false,
-    published: true,
-    category: 'Mejores Prácticas'
-  },
-  {
-    slug: 'herramientas-desarrollo-2025',
-    title: 'Herramientas de desarrollo que uso en 2025',
-    excerpt: 'Una lista detallada de las herramientas, extensiones y recursos que utilizo diariamente como desarrollador.',
-    coverImage: '/images/blog/dev-tools-2025.jpg',
-    date: '2025-04-20',
-    readingTime: 6,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['herramientas', 'productividad', 'desarrollo', 'setup'],
-    featured: false,
-    published: false,
-    category: 'Herramientas'
   }
 ];
 

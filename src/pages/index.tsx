@@ -4,7 +4,6 @@ import { ArrowRight, Code, Users, Coffee, Award } from 'lucide-react';
 import { Layout } from '@/components/Layout';
 import { HeroSection } from '@/components/HeroSection';
 import { ProjectCard } from '@/components/ProjectCard';
-import { BlogCard } from '@/components/BlogCard';
 import { SkillBadge } from '@/components/SkillBadge';
 import { useAnalytics } from '@/lib/analytics';
 
@@ -65,26 +64,6 @@ const SAMPLE_PROJECTS = [
   }
 ];
 
-const SAMPLE_BLOG_POSTS = [
-  {
-    slug: 'mi-primer-post',
-    title: 'Mi primer post en el blog',
-    excerpt: 'Este es mi primer artículo donde comparto mis experiencias como desarrollador.',
-    coverImage: '/images/blog/ejemplo-articulo.jpg',
-    date: '2025-01-15',
-    readingTime: 5,
-    author: {
-      name: 'Tu Nombre',
-      avatar: '/images/foto-perfil.jpg',
-      bio: 'Desarrollador Full Stack'
-    },
-    tags: ['personal', 'introducción'],
-    featured: true,
-    published: true,
-    category: 'Personal'
-  }
-];
-
 const SAMPLE_SKILLS = [
   {
     id: 'react',
@@ -136,15 +115,10 @@ const HomePage: React.FC = () => {
   const analytics = useAnalytics();
 
   const featuredProjects = SAMPLE_PROJECTS.filter(project => project.featured).slice(0, 3);
-  const recentPosts = SAMPLE_BLOG_POSTS.filter(post => post.published).slice(0, 3);
   const topSkills = SAMPLE_SKILLS.filter(skill => skill.level >= 4).slice(0, 8);
 
   const handleViewAllProjects = () => {
     analytics.navigation.menuClick('projects');
-  };
-
-  const handleViewAllPosts = () => {
-    analytics.navigation.menuClick('blog');
   };
 
   const stats = [
@@ -325,44 +299,6 @@ const HomePage: React.FC = () => {
               className="btn btn-primary inline-flex items-center space-x-2"
             >
               <span>Ver todos los proyectos</span>
-              <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Últimos artículos
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Comparto conocimientos, tutoriales y reflexiones sobre desarrollo web
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {recentPosts.map((post) => (
-              <BlogCard
-                key={post.slug}
-                post={post}
-                variant="default"
-                showAuthor={false}
-                showReadingTime={true}
-                showExcerpt={true}
-              />
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/blog"
-              onClick={handleViewAllPosts}
-              className="btn btn-secondary inline-flex items-center space-x-2"
-            >
-              <span>Ver todos los artículos</span>
               <ArrowRight size={18} />
             </Link>
           </div>
