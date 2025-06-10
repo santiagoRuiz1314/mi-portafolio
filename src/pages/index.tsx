@@ -9,45 +9,45 @@ import { useAnalytics } from '@/lib/analytics';
 
 // Datos temporales hasta que crees los archivos de datos centralizados
 const SITE_CONFIG = {
-  author: 'Tu Nombre',
-  title: 'Desarrollador Full Stack',
-  subtitle: 'Creando experiencias digitales excepcionales',
-  description: 'Desarrollador web apasionado especializado en React, Next.js y tecnologías modernas.',
+  author: 'Santiago Steven Ruiz Carreño',
+  title: 'Full Stack Developer',
+  subtitle: 'Creating exceptional digital experiences',
+  description: 'I’m a university student training to become a developer. I’ve built projects with HTML, CSS, and JavaScript, and I’m always looking to learn more. Passionate about tech, teamwork, and continuous growth, I enjoy turning ideas into real solutions.',
   profileImage: '/images/foto-perfil.jpg',
   location: 'Bucaramanga, Colombia',
   availableForWork: true,
   cvUrl: '/cv.pdf',
-  yearsOfExperience: 5,
+  yearsOfExperience: 1,
 };
 
 const PERSONAL_INFO = {
   bio: 'Soy un desarrollador full stack con más de 5 años de experiencia creando aplicaciones web modernas y escalables.',
-  interests: ['Desarrollo Web', 'Inteligencia Artificial', 'Fotografía', 'Música', 'Lectura', 'Viajes']
+  interests: ['Web Development', 'Learning Programming Languages', 'Photography', 'Teamwork', 'Traveling', 'Music']
 };
 
 const PORTFOLIO_STATS = {
-  projectsCompleted: 50,
-  clientsSatisfied: 30,
-  yearsOfExperience: 5,
-  technologiesUsed: 25,
+  projectsCompleted: 3,
+  clientsSatisfied: 3,
+  yearsOfExperience: 1,
+  technologiesUsed: 10,
 };
 
 // Datos de ejemplo temporales
 const SAMPLE_PROJECTS = [
   {
-    id: 'ecommerce-app',
-    title: 'E-commerce Moderno',
-    description: 'Plataforma de comercio electrónico completa con carrito de compras y procesamiento de pagos.',
+    id: 'Webpage_Unab',
+    title: 'Student Webpage',
+    description: 'It is a website created so that students can register for events, as well as view their free hours and other personal information.',
     image: '/images/proyectos/proyecto-a-desktop.png',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    githubUrl: 'https://github.com/tu-usuario/ecommerce-app',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'React Router', 'Headless UI', 'Vite', "Docker"],
+    githubUrl: 'https://github.com/santiagoRuiz1314/Webpage_Unab',
     liveUrl: 'https://ecommerce-demo.vercel.app',
     featured: true,
     status: 'completed' as const,
-    startDate: '2024-01-15',
-    endDate: '2024-03-20',
-    category: 'E-commerce',
-    tags: ['Full Stack', 'Pagos'],
+    startDate: '2025-04-04',
+    endDate: '2025-05-20',
+    category: 'Webpage',
+    tags: ['Full Stack', 'Webpage', 'productivity'],
   },
   {
     id: 'task-manager',
@@ -55,7 +55,7 @@ const SAMPLE_PROJECTS = [
     description: 'Aplicación de gestión de tareas con colaboración en tiempo real.',
     image: '/images/proyectos/proyecto-b-hero.png',
     technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-    githubUrl: 'https://github.com/tu-usuario/task-manager',
+    githubUrl: 'https://github.com/santiagoRuiz1314',
     featured: true,
     status: 'completed' as const,
     startDate: '2023-11-01',

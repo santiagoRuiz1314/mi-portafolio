@@ -6,30 +6,30 @@ import type { Skill } from '@/components/SkillBadge';
 // Proyectos de ejemplo
 export const SAMPLE_PROJECTS: Project[] = [
   {
-    id: 'ecommerce-app',
-    title: 'E-commerce Moderno',
-    description: 'Plataforma de comercio electrónico completa con carrito de compras, procesamiento de pagos y panel de administración.',
-    longDescription: 'Una aplicación de e-commerce full-stack construida con Next.js y TypeScript. Incluye autenticación de usuarios, gestión de productos, carrito de compras, integración con Stripe para pagos, y un panel de administración completo.',
+    id: 'Webpage_Unab',
+    title: 'Student Webpage',
+    description: 'It is a website created so that students can register for events, as well as view their free hours and other personal information.',
+    longDescription: 'This is a web platform designed to allow students to register for events that grant them free hours required for graduation. The platform was created with the goal of offering students a more visual, intuitive, and comprehensive service, making it easier to track their progress, manage their time, and access relevant academic and personal information. It aims to streamline the event registration process while improving the overall user experience for students.',
     image: '/images/proyectos/proyecto-a-desktop.png',
     images: [
       '/images/proyectos/proyecto-a-desktop.png',
       '/images/proyectos/proyecto-a-mobile.png',
       '/images/proyectos/proyecto-a-admin.png'
     ],
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Prisma', 'PostgreSQL', 'Stripe'],
-    githubUrl: 'https://github.com/tu-usuario/ecommerce-app',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'React Router', 'Headless UI', 'Vite', "Docker"],
+    githubUrl: 'https://github.com/santiagoRuiz1314/Webpage_Unab',
     liveUrl: 'https://ecommerce-demo.vercel.app',
     featured: true,
     status: 'completed',
-    startDate: '2024-01-15',
-    endDate: '2024-03-20',
-    category: 'E-commerce',
-    tags: ['Full Stack', 'Pagos', 'Admin Dashboard'],
+    startDate: '2025-04-04',
+    endDate: '2025-05-20',
+    category: 'Webpage',
+    tags: ['Full Stack', 'Webpage', 'productivity'],
     highlights: [
-      'Procesamiento de pagos con Stripe',
-      'Panel de administración completo',
-      'Búsqueda y filtros avanzados',
-      'Responsive design'
+      'Event registration with tracked accumulated hours',
+      'Student dashboard displaying free hours and personal information',
+      'Intuitive and user-friendly interface',
+      'Responsive design for mobile and desktop devices'
     ]
   },
   {
@@ -38,7 +38,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     description: 'Aplicación de gestión de tareas y proyectos con colaboración en tiempo real y notificaciones.',
     image: '/images/proyectos/proyecto-b-hero.png',
     technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
-    githubUrl: 'https://github.com/tu-usuario/task-manager',
+    githubUrl: 'https://github.com/santiagoRuiz1314/task-manager',
     liveUrl: 'https://task-manager-demo.netlify.app',
     featured: false,
     status: 'completed',

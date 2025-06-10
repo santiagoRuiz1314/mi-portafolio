@@ -1,16 +1,16 @@
 // Información personal y configuración del sitio
 export const SITE_CONFIG = {
   name: 'Mi Portafolio',
-  author: 'Tu Nombre',
-  title: 'Desarrollador Full Stack',
-  subtitle: 'Creando experiencias digitales excepcionales',
-  description: 'Desarrollador web apasionado especializado en React, Next.js y tecnologías modernas. Me enfoco en crear aplicaciones web escalables y experiencias de usuario intuitivas.',
+  author: 'Santiago Steven Ruiz Carreño',
+  title: 'Full Stack Developer',
+  subtitle: 'Creating exceptional digital experiences',
+  description: 'I’m a university student training to become a developer. I’ve built projects with HTML, CSS, and JavaScript, and I’m always looking to learn more. Passionate about tech, teamwork, and continuous growth, I enjoy turning ideas into real solutions.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://tu-dominio.com',
-  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contacto@ejemplo.com',
-  phone: '+57 300 123 4567',
+  email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'santiago06ruiz@gmail.com',
+  phone: '+57 305 383 0143',
   location: 'Bucaramanga, Colombia',
-  birthDate: '1995-06-15',
-  yearsOfExperience: 5,
+  birthDate: '2006-11-13',
+  yearsOfExperience: 1,
   availableForWork: true,
   profileImage: '/images/foto-perfil.jpg',
   cvUrl: '/cv.pdf',
@@ -18,8 +18,8 @@ export const SITE_CONFIG = {
 
 // Redes sociales
 export const SOCIAL_LINKS = {
-  github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/tu-usuario',
-  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/tu-perfil',
+  github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
   twitter: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com/tu-usuario',
   instagram: 'https://instagram.com/tu-usuario',
   youtube: 'https://youtube.com/c/tu-canal',
@@ -29,30 +29,30 @@ export const SOCIAL_LINKS = {
 
 // Información personal detallada
 export const PERSONAL_INFO = {
-  bio: `Soy un desarrollador full stack con más de ${SITE_CONFIG.yearsOfExperience} años de experiencia creando aplicaciones web modernas y escalables. 
+  bio: `I'm a full stack developer with over ${SITE_CONFIG.yearsOfExperience} ears of experience building modern and scalable web applications.
   
-  Mi pasión por la tecnología comenzó desde temprana edad, y desde entonces he estado constantemente aprendiendo y adaptándome a las nuevas tendencias del desarrollo web. Me especializo en el ecosistema de JavaScript, particularmente en React, Next.js, Node.js y TypeScript.
+  I'm a university student training to become a full stack developer. I've worked on several projects using HTML, CSS, and JavaScript, and I'm always looking to learn new technologies and frameworks.
   
-  Creo firmemente en escribir código limpio, mantenible y bien documentado. Me encanta trabajar en equipo y siempre estoy dispuesto a compartir conocimientos y aprender de otros desarrolladores.`,
+  I strongly believe in writing clean, maintainable, and well-documented code. I enjoy working in a team and am always eager to share knowledge and learn from other developers.`,
   
   interests: [
-    'Desarrollo Web',
-    'Inteligencia Artificial',
-    'Fotografía',
-    'Música',
-    'Lectura',
-    'Viajes',
+    'Web Development',
+    'Learning Programming Languages',
+    'Photography',
+    'Teamwork',
+    'Music',
+    'Traveling',
     'Gaming',
-    'Tecnología',
+    'Technology',
   ],
   
   values: [
-    'Código limpio y mantenible',
-    'Aprendizaje continuo',
-    'Colaboración en equipo',
-    'Innovación constante',
-    'Atención al detalle',
-    'Comunicación efectiva',
+    'Continuous Learning',
+    'Team Collaboration',
+    'Technical Curiosity',
+    'Clean and Understandable Code',
+    'Constant Innovation',
+    'Problem Solving',
   ],
   
   achievements: [
@@ -100,7 +100,7 @@ export const SEO_CONFIG = {
     'nextjs',
     'typescript',
     'javascript',
-    'node.js',
+    'python',
     'portafolio',
     'bucaramanga',
     'colombia',
