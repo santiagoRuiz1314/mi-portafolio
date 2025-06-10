@@ -7,7 +7,7 @@ export const siteConfig = {
   description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Portafolio personal de desarrollo web',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://tu-dominio.com',
   ogImage: '/images/og-image.jpg',
-  creator: 'Tu Nombre',
+  creator: 'Santiago Steven Ruiz Carreño',
   keywords: [
     'desarrollador web',
     'frontend',
@@ -21,14 +21,14 @@ export const siteConfig = {
     'programador',
   ],
   author: {
-    name: 'Tu Nombre',
-    email: 'tu-email@ejemplo.com',
+    name: 'Santiago Steven Ruiz Carreño',
+    email: 'santiago06ruiz@gmail.com',
     url: 'https://tu-dominio.com',
   },
   social: {
     twitter: process.env.NEXT_PUBLIC_TWITTER_URL || '',
-    github: process.env.NEXT_PUBLIC_GITHUB_URL || '',
-    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || '',
+    github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
+    linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
   },
 };
 

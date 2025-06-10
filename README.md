@@ -30,7 +30,7 @@ Esta guía te ayudará a configurar y ejecutar tu portafolio personal correctame
    ```bash
    NEXT_PUBLIC_SITE_NAME="Tu Nombre"
    NEXT_PUBLIC_CONTACT_EMAIL="tu@email.com"
-   NEXT_PUBLIC_GITHUB_URL="https://github.com/santiagoRuiz1314"
+   NEXT_PUBLIC_GITHUB_URL="https://github.com/tu-usuario"
    # ... resto de configuraciones
    ```
 
