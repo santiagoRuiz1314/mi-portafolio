@@ -12,11 +12,11 @@ interface NavItem {
 }
 
 const navigation: NavItem[] = [
-  { href: '/', label: 'Inicio' },
-  { href: '/about', label: 'Sobre mí' },
-  { href: '/projects', label: 'Proyectos' },
-  { href: '/skills', label: 'Habilidades' },
-  { href: '/contact', label: 'Contacto' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Me' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const socialLinks = [

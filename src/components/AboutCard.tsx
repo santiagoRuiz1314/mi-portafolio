@@ -154,7 +154,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       {/* Bio */}
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-          Sobre mí
+          About me
         </h3>
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           {info.bio}

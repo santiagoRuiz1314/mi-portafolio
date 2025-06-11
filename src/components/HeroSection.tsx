@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [currentWord, setCurrentWord] = useState(0);
   const analytics = useAnalytics();
 
-  const animatedWords = ['Desarrollador', 'Creativo', 'Innovador', 'Profesional'];
+  const animatedWords = ['Developer', 'Creative', 'Innovative', 'Professional'];
 
   useEffect(() => {
     setIsVisible(true);
@@ -91,14 +91,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {availableForWork && (
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full text-sm font-medium">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Disponible para nuevos proyectos</span>
+                <span>Available for new projects</span>
               </div>
             )}
 
             {/* Greeting */}
             <div className="space-y-2">
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                👋 Hola, soy
+                👋 Hello, I'm
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
                 {name}
@@ -108,7 +108,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Animated Title */}
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-2xl sm:text-3xl lg:text-4xl font-semibold">
-                <span className="text-gray-700 dark:text-gray-300">Soy</span>
+                <span className="text-gray-700 dark:text-gray-300">I'm</span>
                 <span className="text-primary-600 dark:text-primary-400 min-w-[200px] transition-all duration-500">
                   {animatedWords[currentWord]}
                 </span>
@@ -134,16 +134,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-900 dark:text-white">
                   <Code size={24} className="text-primary-600 dark:text-primary-400" />
-                  <span>50+</span>
+                  <span>3+</span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Proyectos</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Projects</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-900 dark:text-white">
                   <Coffee size={24} className="text-primary-600 dark:text-primary-400" />
-                  <span>3+</span>
+                  <span>1+</span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Años exp.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Yrs. exp.</p>
               </div>
             </div>
 
@@ -155,7 +155,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="btn btn-primary flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
               >
                 <Mail size={18} />
-                <span>Contactar</span>
+                <span>Contact</span>
               </Link>
               
               <a
@@ -165,7 +165,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 className="btn btn-secondary flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all hover:shadow-lg"
               >
                 <Download size={18} />
-                <span>Descargar CV</span>
+                <span>Download CV</span>
               </a>
             </div>
           </div>
@@ -211,7 +211,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="flex flex-col items-center space-y-2 text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors group"
             aria-label="Scroll hacia abajo"
           >
-            <span className="text-sm font-medium">Explorar</span>
+            <span className="text-sm font-medium">Explore</span>
             <ArrowDown size={20} className="animate-bounce group-hover:text-primary-600 dark:group-hover:text-primary-400" />
           </button>
         </div>

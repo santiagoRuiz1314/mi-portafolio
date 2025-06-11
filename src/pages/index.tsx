@@ -9,7 +9,7 @@ import { useAnalytics } from '@/lib/analytics';
 
 // Datos temporales hasta que crees los archivos de datos centralizados
 const SITE_CONFIG = {
-  author: 'Santiago Steven Ruiz Carreño',
+  author: 'Santiago Ruiz ',
   title: 'Full Stack Developer',
   subtitle: 'Creating exceptional digital experiences',
   description: 'I’m a university student training to become a developer. I’ve built projects with HTML, CSS, and JavaScript, and I’m always looking to learn more. Passionate about tech, teamwork, and continuous growth, I enjoy turning ideas into real solutions.',
@@ -21,7 +21,7 @@ const SITE_CONFIG = {
 };
 
 const PERSONAL_INFO = {
-  bio: 'Soy un desarrollador full stack con más de 5 años de experiencia creando aplicaciones web modernas y escalables.',
+  bio: 'I’m a full-stack developer seeking to learn and innovate by building modern, scalable web applications.',
   interests: ['Web Development', 'Learning Programming Languages', 'Photography', 'Teamwork', 'Traveling', 'Music']
 };
 
@@ -125,25 +125,25 @@ const HomePage: React.FC = () => {
     {
       icon: Code,
       value: PORTFOLIO_STATS.projectsCompleted,
-      label: 'Proyectos Completados',
+      label: 'Finished Projects',
       suffix: '+'
     },
     {
       icon: Users,
       value: PORTFOLIO_STATS.clientsSatisfied,
-      label: 'Clientes Satisfechos',
+      label: 'Satisfied Clients',
       suffix: '+'
     },
     {
       icon: Coffee,
       value: PORTFOLIO_STATS.yearsOfExperience,
-      label: 'Años de Experiencia',
+      label: 'Years of Experience ',
       suffix: '+'
     },
     {
       icon: Award,
       value: PORTFOLIO_STATS.technologiesUsed,
-      label: 'Tecnologías Dominadas',
+      label: 'Tech Stack',
       suffix: '+'
     }
   ];
@@ -153,7 +153,7 @@ const HomePage: React.FC = () => {
       seo={{
         title: `${SITE_CONFIG.author} - ${SITE_CONFIG.title}`,
         description: SITE_CONFIG.description,
-        keywords: ['desarrollador', 'frontend', 'backend', 'react', 'nextjs', 'typescript'],
+        keywords: ['developer', 'frontend', 'backend', 'React', 'Next.js', 'TypeScript'],
       }}
     >
       {/* Hero Section */}
@@ -174,11 +174,11 @@ const HomePage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Sobre mí
+                About me
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Desarrollador apasionado con {SITE_CONFIG.yearsOfExperience}+ años de experiencia 
-                creando soluciones digitales innovadoras
+                Passionate developer with {SITE_CONFIG.yearsOfExperience}+ years of experience 
+                creating innovative digital solutions.
               </p>
             </div>
 
@@ -203,7 +203,7 @@ const HomePage: React.FC = () => {
                   href="/about"
                   className="inline-flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors font-medium"
                 >
-                  <span>Conocer más</span>
+                  <span>Learn more</span>
                   <ArrowRight size={18} />
                 </Link>
               </div>
@@ -237,10 +237,10 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Tecnologías que domino
+              Technologies
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Stack tecnológico moderno para crear aplicaciones web escalables y de alto rendimiento
+              Modern tech stack for building scalable and high-performance web applications.
             </p>
           </div>
 
@@ -261,7 +261,7 @@ const HomePage: React.FC = () => {
               href="/skills"
               className="btn btn-secondary inline-flex items-center space-x-2"
             >
-              <span>Ver todas las habilidades</span>
+              <span>View all skills</span>
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -273,10 +273,10 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Proyectos destacados
+              Featured projects
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Una selección de mis trabajos más recientes y representativos
+              A selection of my most recent and representative work
             </p>
           </div>
 
@@ -298,7 +298,7 @@ const HomePage: React.FC = () => {
               onClick={handleViewAllProjects}
               className="btn btn-primary inline-flex items-center space-x-2"
             >
-              <span>Ver todos los proyectos</span>
+              <span>View all projects</span>
               <ArrowRight size={18} />
             </Link>
           </div>
@@ -310,11 +310,11 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Tienes un proyecto en mente?
+              Do you have a project in mind?
             </h2>
             <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-              Estoy disponible para nuevos proyectos y colaboraciones. 
-              ¡Hablemos sobre cómo puedo ayudarte a hacer realidad tu idea!
+              I'm available for new projects and collaborations.
+              Let's talk about how I can help bring your idea to life!
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -322,7 +322,7 @@ const HomePage: React.FC = () => {
                 href="/contact"
                 className="btn bg-white text-primary-600 hover:bg-gray-100 inline-flex items-center space-x-2 px-8 py-3 rounded-lg font-medium transition-all"
               >
-                <span>Contactar ahora</span>
+                <span>Contact now</span>
                 <ArrowRight size={18} />
               </Link>
               
@@ -330,7 +330,7 @@ const HomePage: React.FC = () => {
                 href="/projects"
                 className="btn border-2 border-white text-white hover:bg-white hover:text-primary-600 inline-flex items-center space-x-2 px-8 py-3 rounded-lg font-medium transition-all"
               >
-                <span>Ver mi trabajo</span>
+                <span>View my work</span>
               </Link>
             </div>
           </div>

@@ -26,14 +26,14 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { href: '/', label: 'Inicio' },
-  { href: '/about', label: 'Sobre mí' },
-  { href: '/projects', label: 'Proyectos' },
-  { href: '/skills', label: 'Habilidades' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Me' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/skills', label: 'Skills' },
 ];
 
 const resourceLinks = [
-  { href: '/contact', label: 'Contacto' },
+  { href: '/contact', label: 'contact' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ];
 
@@ -72,8 +72,8 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-              Desarrollador web apasionado por crear experiencias digitales excepcionales. 
-              Especializado en React, Next.js y tecnologías modernas.
+              Passionate web developer focused on creating exceptional digital experiences.
+              Specialized in React, Next.js, and modern technologies.
             </p>
             
             {/* Social Links */}
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Navegación
+              Navigation
             </h3>
             <ul className="space-y-3">
               {quickLinks.map(({ href, label }) => (
@@ -121,7 +121,7 @@ export const Footer: React.FC = () => {
           {/* Resources */}
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">
-              Recursos
+              Resources
             </h3>
             <ul className="space-y-3">
               {resourceLinks.map(({ href, label }) => (
@@ -144,9 +144,9 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             {/* Copyright */}
             <div className="flex items-center space-x-1 text-sm text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
-              <span>© {currentYear} Mi Portafolio. Hecho con</span>
+              <span>© {currentYear} Mi Portafolio. Built with</span>
               <Heart size={14} className="text-red-500 fill-current" />
-              <span>usando</span>
+              <span>using</span>
               <a
                 href="https://nextjs.org"
                 target="_blank"
@@ -163,7 +163,7 @@ export const Footer: React.FC = () => {
               className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               aria-label="Volver al inicio"
             >
-              <span>Volver arriba</span>
+              <span>Back to Top</span>
               <ArrowUp size={16} />
             </button>
           </div>
@@ -172,7 +172,7 @@ export const Footer: React.FC = () => {
         {/* Additional Info */}
         <div className="mt-4 text-center">
           <p className="text-xs text-gray-500 dark:text-gray-500">
-            Desarrollado con las mejores prácticas de accesibilidad y SEO
+            Developed with best practices in accessibility.
           </p>
         </div>
       </div>

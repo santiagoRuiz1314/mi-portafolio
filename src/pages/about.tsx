@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
   return (
     <Layout
       seo={{
-        title: 'Sobre mí',
+        title: 'About me',
         description: `Conoce más sobre ${SITE_CONFIG.author}, ${SITE_CONFIG.title} con ${SITE_CONFIG.yearsOfExperience}+ años de experiencia.`,
         keywords: ['sobre mi', 'desarrollador', 'experiencia', 'habilidades'],
       }}
