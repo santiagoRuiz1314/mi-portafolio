@@ -27,8 +27,8 @@ const AboutPage: React.FC = () => {
     <Layout
       seo={{
         title: 'About me',
-        description: `Conoce más sobre ${SITE_CONFIG.author}, ${SITE_CONFIG.title} con ${SITE_CONFIG.yearsOfExperience}+ años de experiencia.`,
-        keywords: ['sobre mi', 'desarrollador', 'experiencia', 'habilidades'],
+        description: `Learn more about ${SITE_CONFIG.author}, ${SITE_CONFIG.title} with over ${SITE_CONFIG.yearsOfExperience}+ years of experience.`,
+        keywords: ['about me', 'developer', 'experience', 'skills'],
       }}
     >
       {/* Hero Section */}
@@ -36,10 +36,10 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Sobre mí
+              About Me
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              Conoce mi historia, experiencia y lo que me motiva como desarrollador
+              Get to know my story, experience, and what drives me as a developer
             </p>
           </div>
 
@@ -61,10 +61,10 @@ const AboutPage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Habilidades principales
+                Key Skills
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400">
-                Tecnologías y herramientas que utilizo diariamente
+                Technologies and tools I use 
               </p>
             </div>
 

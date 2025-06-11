@@ -24,7 +24,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     startDate: '2025-04-04',
     endDate: '2025-05-20',
     category: 'Webpage',
-    tags: ['Full Stack', 'Webpage', 'productivity'],
+    tags: ['Full Stack', 'Webpage', 'Admin Dashboard'],
     highlights: [
       'Event registration with tracked accumulated hours',
       'Student dashboard displaying free hours and personal information',
@@ -38,7 +38,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     description: 'Aplicación de gestión de tareas y proyectos con colaboración en tiempo real y notificaciones.',
     image: '/images/proyectos/proyecto-b-hero.png',
     technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
-    githubUrl: 'https://github.com/santiagoRuiz1314/task-manager',
+    githubUrl: 'https://github.com/tu-usuario/task-manager',
     liveUrl: 'https://task-manager-demo.netlify.app',
     featured: false,
     status: 'completed',

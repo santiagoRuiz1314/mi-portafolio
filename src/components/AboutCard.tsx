@@ -124,13 +124,13 @@ export const AboutCard: React.FC<AboutCardProps> = ({
             
             <div className="flex items-center justify-center md:justify-start space-x-2 text-gray-600 dark:text-gray-400">
               <Coffee size={16} />
-              <span>{info.yearsOfExperience}+ años exp.</span>
+              <span>{info.yearsOfExperience}+ Yrs. exp.</span>
             </div>
             
             {info.birthDate && (
               <div className="flex items-center justify-center md:justify-start space-x-2 text-gray-600 dark:text-gray-400">
                 <Calendar size={16} />
-                <span>{calculateAge(info.birthDate)} años</span>
+                <span>{calculateAge(info.birthDate)} years</span>
               </div>
             )}
             
@@ -165,7 +165,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       {showContact && (
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Contacto
+            Contact
           </h3>
           <div className="space-y-2">
             <a
@@ -193,7 +193,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       {showInterests && info.interests.length > 0 && (
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Intereses
+            Interests
           </h3>
           <div className="flex flex-wrap gap-2">
             {info.interests.map((interest, index) => (
@@ -212,7 +212,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       {info.values.length > 0 && (
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Valores
+            Values
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {info.values.map((value, index) => (
@@ -232,7 +232,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       {showAchievements && info.achievements && info.achievements.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Logros destacados
+            Key Achievements
           </h3>
           <div className="space-y-3">
             {info.achievements.slice(0, 3).map((achievement, index) => (

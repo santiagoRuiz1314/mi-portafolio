@@ -57,19 +57,19 @@ export const PERSONAL_INFO = {
   
   achievements: [
     {
-      title: 'Certificación en React',
-      description: 'Completé la certificación avanzada en React y Next.js',
+      title: 'Graduate from high school',
+      description: 'Finish my studies',
+      date: '2023',
+    },
+    {
+      title: 'Begin my studies at UNAB',
+      description: 'Start studying my degree at university',
       date: '2024',
     },
     {
-      title: 'Proyecto Open Source',
-      description: 'Contribuí a un proyecto open source con más de 1k estrellas en GitHub',
-      date: '2023',
-    },
-    {
-      title: 'Líder Técnico',
-      description: 'Lideré un equipo de 5 desarrolladores en proyecto enterprise',
-      date: '2023',
+      title: 'keep learning',
+      description: 'keep improving project by project to become a full-stack developer',
+      date: '2025',
     },
   ],
 };
