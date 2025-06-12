@@ -119,18 +119,18 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              ¡Hablemos de tu proyecto!
+              Let’s Talk About Your Project!
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Estoy siempre interesado en nuevos desafíos y oportunidades de colaboración. 
-              ¿Tienes una idea genial? ¡Me encantaría escucharla!
+              I’m always interested in new challenges and collaboration opportunities. 
+              Got a great idea? I’d love to hear about it!
             </p>
             
             {/* Status Badge */}
             {SITE_CONFIG.availableForWork && (
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full text-sm font-medium mb-8">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Disponible para nuevos proyectos</span>
+                <span>Available for new projects</span>
               </div>
             )}
           </div>
@@ -142,7 +142,7 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              ¿En qué puedo ayudarte?
+              How can I help you?
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -210,7 +210,7 @@ export const SAMPLE_SKILLS: Skill[] = [
     id: 'postgresql',
     name: 'PostgreSQL',
     level: 4,
-    category: 'Bases de Datos',
+    category: 'Databases',
     icon: '🐘',
     description: 'Base de datos relacional avanzada',
     yearsOfExperience: 3,
@@ -252,7 +252,7 @@ export const SAMPLE_SKILLS: Skill[] = [
     id: 'git',
     name: 'Git',
     level: 5,
-    category: 'Herramientas',
+    category: 'Tools',
     icon: '📚',
     description: 'Control de versiones',
     yearsOfExperience: 5,
@@ -309,42 +309,42 @@ export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
     name: 'Frontend',
-    description: 'Tecnologías para la interfaz de usuario',
+    description: 'UI Technologies',
     icon: '🎨',
     color: 'blue'
   },
   {
     id: 'backend',
     name: 'Backend',
-    description: 'Tecnologías del lado del servidor',
+    description: 'Server-Side Technologies',
     icon: '⚙️',
     color: 'green'
   },
   {
     id: 'database',
     name: 'Bases de Datos',
-    description: 'Sistemas de gestión de datos',
+    description: 'Data Management Systems',
     icon: '🗄️',
     color: 'purple'
   },
   {
     id: 'devops',
     name: 'DevOps',
-    description: 'Herramientas de desarrollo y operaciones',
+    description: 'Development and Operations Tools',
     icon: '🚀',
     color: 'orange'
   },
   {
     id: 'mobile',
     name: 'Mobile',
-    description: 'Desarrollo de aplicaciones móviles',
+    description: 'Mobile App Development',
     icon: '📱',
     color: 'pink'
   },
   {
     id: 'tools',
-    name: 'Herramientas',
-    description: 'Herramientas de desarrollo',
+    name: 'Tools',
+    description: 'Development Tools',
     icon: '🛠️',
     color: 'gray'
   }
@@ -354,17 +354,17 @@ export const SKILL_CATEGORIES = [
 export const PROJECT_CATEGORIES = [
   {
     id: 'all',
-    name: 'Todos',
+    name: 'All',
     description: 'Todos los proyectos'
   },
   {
-    id: 'ecommerce',
-    name: 'E-commerce',
+    id: 'webpage',
+    name: 'Webpage',
     description: 'Plataformas de comercio electrónico'
   },
   {
     id: 'productivity',
-    name: 'Productividad',
+    name: 'productivity',
     description: 'Aplicaciones de gestión y productividad'
   },
   {
@@ -379,7 +379,7 @@ export const PROJECT_CATEGORIES = [
   },
   {
     id: 'ai',
-    name: 'Inteligencia Artificial',
+    name: 'AI',
     description: 'Proyectos con IA y ML'
   },
   {

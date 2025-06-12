@@ -39,10 +39,10 @@ const ProjectsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Mis Proyectos
+              My Projects
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Una selección de proyectos que demuestran mis habilidades técnicas y creatividad
+              A selection of projects that showcase my technical skills and creativity
             </p>
             
             {/* Search and Filter */}
@@ -52,7 +52,7 @@ const ProjectsPage: React.FC = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                 <input
                   type="text"
-                  placeholder="Buscar proyectos..."
+                  placeholder="Search Projects..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg 
@@ -113,7 +113,7 @@ const ProjectsPage: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             {featuredProjects.length > 0 && (
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-                Otros Proyectos
+                Other Projects
               </h2>
             )}
             
@@ -145,7 +145,7 @@ const ProjectsPage: React.FC = () => {
             {filteredProjects.length > 0 && (
               <div className="text-center mt-12">
                 <p className="text-gray-600 dark:text-gray-400">
-                  Mostrando {filteredProjects.length} de {SAMPLE_PROJECTS.length} proyectos
+                  Showing {filteredProjects.length} of {SAMPLE_PROJECTS.length} projects
                 </p>
               </div>
             )}
@@ -158,17 +158,17 @@ const ProjectsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              ¿Te gusta lo que ves?
+              Like what you see?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Si tienes un proyecto en mente, me encantaría trabajar contigo
+              If you're planning a project, I’d be happy to collaborate with you.
             </p>
             <a
               href="/contact"
               className="inline-flex items-center px-8 py-3 bg-white text-primary-600 
                        font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Contáctame
+              Contact Me
             </a>
           </div>
         </div>

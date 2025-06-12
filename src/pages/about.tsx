@@ -90,7 +90,7 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              Mi trayectoria
+              My Journey
             </h2>
             
             <div className="relative">
@@ -100,28 +100,22 @@ const AboutPage: React.FC = () => {
               <div className="space-y-8">
                 {[
                   {
-                    year: '2024',
-                    title: 'Desarrollador Full Stack Senior',
+                    year: '2025',
+                    title: 'Junior Developer ',
                     company: 'Freelance',
-                    description: 'Trabajando en proyectos diversos usando React, Next.js, Node.js y Python.'
+                    description: 'Currently working on a variety of projects using React, Next.js, Node.js, and Python.'
+                  },
+                  {
+                    year: '2024',
+                    title: 'Student',
+                    company: 'UNAB',
+                    description: 'started my Systems Engineering degree at UNAB.'
                   },
                   {
                     year: '2023',
-                    title: 'Líder Técnico Frontend',
-                    company: 'TechCorp',
-                    description: 'Lideré un equipo de 5 desarrolladores en la migración de una aplicación legacy a React.'
-                  },
-                  {
-                    year: '2022',
-                    title: 'Desarrollador Frontend',
-                    company: 'StartupXYZ',
-                    description: 'Desarrollé la interfaz de usuario de una aplicación SaaS usando React y TypeScript.'
-                  },
-                  {
-                    year: '2020',
-                    title: 'Desarrollador Junior',
-                    company: 'WebStudio',
-                    description: 'Comencé mi carrera profesional trabajando en sitios web con HTML, CSS y JavaScript.'
+                    title: 'Graduate from high school',
+                    company: 'Agustiniano Tagaste High School',
+                    description: 'Finished my studies in school, and while exploring my interests, I discovered a passion for coding.'
                   }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-start">

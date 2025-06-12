@@ -167,12 +167,12 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
           {skill.certified && (
             <span className="text-xs text-green-600 dark:text-green-400 flex items-center">
               <span className="mr-1">✓</span>
-              Certificado
+              
             </span>
           )}
           {skill.projects && skill.projects.length > 0 && (
             <div className="text-xs text-gray-400 dark:text-gray-500">
-              {skill.projects.length} proyecto{skill.projects.length !== 1 ? 's' : ''}
+              {skill.projects.length} proyect{skill.projects.length !== 1 ? 's' : ''}
             </div>
           )}
         </div>
