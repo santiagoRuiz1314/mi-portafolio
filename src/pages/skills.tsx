@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import { Layout } from '@/components/Layout';
 import { SkillBadge } from '@/components/SkillBadge';
 import { SAMPLE_SKILLS, SKILL_CATEGORIES } from '@/utils/sample-data';
-import { Code, Database, Palette, Wrench, Smartphone, Cloud } from 'lucide-react';
+import { Code, Database, Palette, Wrench, Smartphone, Cloud, Filter, Search } from 'lucide-react';
 
 const SkillsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [viewMode, setViewMode] = useState<'grid' | 'compact'>('grid');
 
-  // Filtrar habilidades por categoría - CORREGIDO: usar toLowerCase() consistentemente
-  const filteredSkills = selectedCategory === 'all' 
-    ? SAMPLE_SKILLS 
-    : SAMPLE_SKILLS.filter(skill => 
-        skill.category.toLowerCase() === selectedCategory.toLowerCase()
-      );
+  // Filtrar habilidades por categoría y búsqueda
+  const filteredSkills = SAMPLE_SKILLS.filter(skill => {
+    const matchesCategory = selectedCategory === 'all' || 
+      skill.category.toLowerCase() === selectedCategory.toLowerCase();
+    
+    const matchesSearch = searchTerm === '' ||
+      skill.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      skill.description?.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    return matchesCategory && matchesSearch;
+  });
 
-  // Agrupar habilidades por categoría - CORREGIDO: usar category.name para hacer match
+  // Agrupar habilidades por categoría
   const skillsByCategory = SKILL_CATEGORIES.reduce((acc, category) => {
     acc[category.id] = SAMPLE_SKILLS.filter(skill => 
       skill.category.toLowerCase() === category.name.toLowerCase()
@@ -22,23 +29,36 @@ const SkillsPage: React.FC = () => {
     return acc;
   }, {} as Record<string, typeof SAMPLE_SKILLS>);
 
-  // CORREGIDO: Mapeo de iconos actualizado para coincidir con los datos reales
   const categoryIcons = {
     frontend: Palette,
     backend: Code,
-    database: Database,
-    databases: Database, // Alias para "Bases de Datos"
+    databases: Database,
     devops: Cloud,
-    mobile: Smartphone,
     tools: Wrench,
+    cloud: Cloud,
+  };
+
+  const getStatsForCategory = (categoryName: string) => {
+    const skills = SAMPLE_SKILLS.filter(skill => 
+      skill.category.toLowerCase() === categoryName.toLowerCase()
+    );
+    const avgExperience = skills.reduce((sum, skill) => 
+      sum + (skill.yearsOfExperience || 0), 0) / skills.length;
+    const certifiedCount = skills.filter(skill => skill.certified).length;
+    
+    return {
+      total: skills.length,
+      avgExperience: Math.round(avgExperience * 10) / 10,
+      certified: certifiedCount
+    };
   };
 
   return (
     <Layout
       seo={{
-        title: 'Habilidades',
-        description: 'Conoce mis habilidades técnicas en desarrollo web, desde frontend hasta backend, bases de datos y herramientas.',
-        keywords: ['habilidades', 'skills', 'tecnologías', 'frontend', 'backend', 'desarrollo'],
+        title: 'Skills & Technologies',
+        description: 'Explore my technical skills and expertise across frontend, backend, databases, and development tools.',
+        keywords: ['skills', 'technologies', 'frontend', 'backend', 'development', 'programming'],
       }}
     >
       {/* Hero Section */}
@@ -46,64 +66,101 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              My Skills
+              Skills & Technologies
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Technologies and tools I specialize in to develop full-featured digital solutions
+              Technologies and tools I use to create exceptional digital experiences
             </p>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3">
-              <button
-                onClick={() => setSelectedCategory('all')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === 'all'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}
-              >
-                All
-              </button>
-              {SKILL_CATEGORIES.map((category) => (
+            {/* Search and Filters */}
+            <div className="max-w-2xl mx-auto space-y-4">
+              {/* Search Bar */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <input
+                  type="text"
+                  placeholder="Search technologies..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl 
+                           bg-white dark:bg-gray-800 text-gray-900 dark:text-white
+                           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+                           shadow-sm"
+                />
+              </div>
+
+              {/* Category Filter */}
+              <div className="flex flex-wrap justify-center gap-2">
                 <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.name)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory.toLowerCase() === category.name.toLowerCase()
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  onClick={() => setSelectedCategory('all')}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    selectedCategory === 'all'
+                      ? 'bg-primary-600 text-white shadow-md transform scale-105'
+                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
                   }`}
                 >
-                  {category.icon} {category.name}
+                  All Technologies
                 </button>
-              ))}
+                {SKILL_CATEGORIES.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.name)}
+                    className={`inline-flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                      selectedCategory.toLowerCase() === category.name.toLowerCase()
+                        ? 'bg-primary-600 text-white shadow-md transform scale-105'
+                        : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    <span>{category.icon}</span>
+                    <span>{category.name}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* View Mode Toggle */}
+              <div className="flex justify-center">
+                <div className="inline-flex rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 p-1">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                      viewMode === 'grid'
+                        ? 'bg-primary-600 text-white'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    Grid View
+                  </button>
+                  <button
+                    onClick={() => setViewMode('compact')}
+                    className={`px-4 py-2 text-sm font-medium rounded-md transition-all ${
+                      viewMode === 'compact'
+                        ? 'bg-primary-600 text-white'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    Compact View
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills by Category */}
+      {/* Skills Display */}
       {selectedCategory === 'all' ? (
-        // Mostrar todas las categorías
+        // Mostrar todas las categorías organizadas
         <div className="py-20">
           {SKILL_CATEGORIES.map((category, index) => {
             const skills = skillsByCategory[category.id] || [];
-            if (skills.length === 0) return null;
+            if (skills.filter(skill => 
+              searchTerm === '' || 
+              skill.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              skill.description?.toLowerCase().includes(searchTerm.toLowerCase())
+            ).length === 0) return null;
 
-            // CORREGIDO: Mejorar el mapeo de iconos con fallback
-            const getIconComponent = (categoryId: string) => {
-              const iconMap: Record<string, React.ComponentType<any>> = {
-                frontend: Palette,
-                backend: Code,
-                database: Database,
-                devops: Cloud,
-                mobile: Smartphone,
-                tools: Wrench,
-              };
-              return iconMap[categoryId] || Code;
-            };
-
-            const IconComponent = getIconComponent(category.id);
+            const IconComponent = categoryIcons[category.id as keyof typeof categoryIcons] || Code;
+            const stats = getStatsForCategory(category.name);
 
             return (
               <section 
@@ -112,34 +169,62 @@ const SkillsPage: React.FC = () => {
               >
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="max-w-6xl mx-auto">
-                    <div className="flex items-center justify-center mb-12">
-                      <div className="flex items-center space-x-3">
-                        <div className="p-3 bg-primary-100 dark:bg-primary-800 rounded-lg">
-                          <IconComponent size={24} className="text-primary-600 dark:text-primary-400" />
+                    {/* Category Header */}
+                    <div className="text-center mb-12">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 dark:bg-primary-800 rounded-2xl mb-4">
+                        <IconComponent size={32} className="text-primary-600 dark:text-primary-400" />
+                      </div>
+                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                        {category.name}
+                      </h2>
+                      <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                        {category.description}
+                      </p>
+                      
+                      {/* Category Stats */}
+                      <div className="flex justify-center space-x-6 text-sm">
+                        <div className="text-center">
+                          <span className="block text-2xl font-bold text-primary-600 dark:text-primary-400">
+                            {stats.total}
+                          </span>
+                          <span className="text-gray-500 dark:text-gray-400">Technologies</span>
                         </div>
                         <div className="text-center">
-                          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                            {category.name}
-                          </h2>
-                          <p className="text-gray-600 dark:text-gray-400">
-                            {category.description}
-                          </p>
+                          <span className="block text-2xl font-bold text-primary-600 dark:text-primary-400">
+                            {stats.avgExperience}
+                          </span>
+                          <span className="text-gray-500 dark:text-gray-400">Avg. Years</span>
+                        </div>
+                        <div className="text-center">
+                          <span className="block text-2xl font-bold text-primary-600 dark:text-primary-400">
+                            {stats.certified}
+                          </span>
+                          <span className="text-gray-500 dark:text-gray-400">Certified</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* CORREGIDO: Props válidas para SkillBadge */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {skills.map((skill) => (
-                        <SkillBadge
-                          key={skill.id}
-                          skill={skill}
-                          variant="large" // CAMBIADO: usar 'large' en lugar de 'detailed'
-                          showCategory={false}
-                          interactive={false}
-                          // REMOVIDO: showLevel (deprecated)
-                        />
-                      ))}
+                    {/* Skills Grid */}
+                    <div className={
+                      viewMode === 'compact' 
+                        ? 'grid grid-cols-1 md:grid-cols-2 gap-4'
+                        : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+                    }>
+                      {skills
+                        .filter(skill => 
+                          searchTerm === '' || 
+                          skill.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          skill.description?.toLowerCase().includes(searchTerm.toLowerCase())
+                        )
+                        .map((skill) => (
+                          <SkillBadge
+                            key={skill.id}
+                            skill={skill}
+                            variant={viewMode === 'compact' ? 'compact' : 'large'}
+                            showCategory={false}
+                            interactive={true}
+                          />
+                        ))}
                     </div>
                   </div>
                 </div>
@@ -153,26 +238,28 @@ const SkillsPage: React.FC = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
               {filteredSkills.length === 0 ? (
-                // AGREGADO: Manejo de estado vacío
                 <div className="text-center py-16">
-                  <div className="text-6xl mb-4">🔍</div>
+                  <Filter size={48} className="mx-auto text-gray-400 mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    No skills found
+                    No technologies found
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    No skills found in this category. Try selecting a different category.
+                    Try adjusting your search terms or selecting a different category.
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className={
+                  viewMode === 'compact' 
+                    ? 'grid grid-cols-1 md:grid-cols-2 gap-4'
+                    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
+                }>
                   {filteredSkills.map((skill) => (
                     <SkillBadge
                       key={skill.id}
                       skill={skill}
-                      variant="large" // CAMBIADO: usar 'large' en lugar de 'detailed'
-                      showCategory={false}
-                      interactive={false}
-                      // REMOVIDO: showLevel (deprecated)
+                      variant={viewMode === 'compact' ? 'compact' : 'large'}
+                      showCategory={selectedCategory === 'all'}
+                      interactive={true}
                     />
                   ))}
                 </div>
@@ -182,73 +269,124 @@ const SkillsPage: React.FC = () => {
         </section>
       )}
 
-      {/* Stats Section */}
+      {/* Overall Stats Section */}
       <section className="py-20 bg-primary-600 dark:bg-primary-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-12">
-              Experience
+              Technical Experience
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
+              <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
                   {SAMPLE_SKILLS.length}+
                 </div>
                 <p className="text-primary-100">Technologies</p>
               </div>
-              <div>
-                <div className="text-4xl font-bold text-white mb-2">1+</div>
-                <p className="text-primary-100">Years of Experience</p>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">
+                  {Math.max(...SAMPLE_SKILLS.map(s => s.yearsOfExperience || 0))}+
+                </div>
+                <p className="text-primary-100">Years Experience</p>
               </div>
-              <div>
+              <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
                   {SAMPLE_SKILLS.filter(s => s.certified).length}
                 </div>
                 <p className="text-primary-100">Certifications</p>
               </div>
-              <div>
+              <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
                   {SKILL_CATEGORIES.length}
                 </div>
-                <p className="text-primary-100">Areas</p>
+                <p className="text-primary-100">Specialization Areas</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Learning Section */}
+      {/* Learning & Growth Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Always Learning
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-              Technology moves fast, and I keep up. 
-              These are some tools I'm currently exploring.
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+                Continuous Learning
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                Technology evolves rapidly, and I stay ahead of the curve. 
+                Here are some technologies I'm currently exploring and learning.
+              </p>
+            </div>
             
-            <div className="flex flex-wrap justify-center gap-3">
+            {/* Learning Technologies */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
               {[
-                'Astro',
-                'Svelte',
-                'Rust',
-                'Go',
-                'WebAssembly',
-                'Three.js',
-                'GraphQL',
-                'Supabase'
-              ].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 
-                           rounded-full text-sm border-2 border-dashed border-gray-300 dark:border-gray-600"
+                { name: 'Astro', category: 'Frontend' },
+                { name: 'Svelte', category: 'Frontend' },
+                { name: 'Rust', category: 'Systems' },
+                { name: 'Go', category: 'Backend' },
+                { name: 'WebAssembly', category: 'Performance' },
+                { name: 'Three.js', category: '3D Graphics' },
+                { name: 'GraphQL', category: 'API' },
+                { name: 'Supabase', category: 'Backend' }
+              ].map((tech, index) => (
+                <div
+                  key={index}
+                  className="group p-4 bg-white dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center hover:border-primary-400 dark:hover:border-primary-500 transition-all duration-200 hover:shadow-md"
                 >
-                  🚀 {tech}
-                </span>
+                  <div className="text-2xl mb-2">🚀</div>
+                  <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
+                    {tech.name}
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    {tech.category}
+                  </div>
+                </div>
               ))}
+            </div>
+
+            {/* Learning Philosophy */}
+            <div className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 text-center">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                My Learning Philosophy
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                I believe in staying curious and continuously expanding my technical toolkit. 
+                Every project is an opportunity to learn something new, whether it's a cutting-edge framework, 
+                a better development practice, or a more efficient way to solve problems. 
+                This mindset keeps me adaptable and ready for the ever-evolving landscape of technology.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Ready to Work Together?
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+              Let's discuss how my skills can help bring your project to life.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="btn btn-primary px-8 py-3 text-lg rounded-xl"
+              >
+                Start a Project
+              </a>
+              <a
+                href="/projects"
+                className="btn btn-secondary px-8 py-3 text-lg rounded-xl"
+              >
+                View My Work
+              </a>
             </div>
           </div>
         </div>

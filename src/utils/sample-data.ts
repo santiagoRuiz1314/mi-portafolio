@@ -103,6 +103,8 @@ export const SAMPLE_PROJECTS: Project[] = [
 ];
 
 // Habilidades de ejemplo
+// src/utils/sample-data.ts - Sección de habilidades actualizada
+
 export const SAMPLE_SKILLS: Skill[] = [
   // Frontend
   {
@@ -110,7 +112,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'React',
     level: 5,
     category: 'Frontend',
-    icon: '⚛️',
     description: 'Biblioteca para construir interfaces de usuario',
     yearsOfExperience: 4,
     certified: true,
@@ -121,7 +122,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Next.js',
     level: 5,
     category: 'Frontend',
-    icon: '▲',
     description: 'Framework de React para aplicaciones web',
     yearsOfExperience: 3,
     certified: true,
@@ -132,29 +132,56 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'TypeScript',
     level: 4,
     category: 'Lenguajes',
-    icon: '🔷',
     description: 'JavaScript con tipado estático',
     yearsOfExperience: 3,
     certified: false,
     projects: ['ecommerce-app', 'portfolio-cms']
   },
   {
+    id: 'javascript',
+    name: 'JavaScript',
+    level: 5,
+    category: 'Lenguajes',
+    description: 'Lenguaje de programación para web',
+    yearsOfExperience: 5,
+    certified: false,
+    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+  },
+  {
     id: 'tailwindcss',
     name: 'Tailwind CSS',
     level: 5,
     category: 'Frontend',
-    icon: '🎨',
     description: 'Framework CSS utility-first',
     yearsOfExperience: 2,
     certified: false,
     projects: ['ecommerce-app', 'portfolio-cms']
   },
   {
+    id: 'html5',
+    name: 'HTML5',
+    level: 5,
+    category: 'Frontend',
+    description: 'Lenguaje de marcado para web',
+    yearsOfExperience: 5,
+    certified: false,
+    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+  },
+  {
+    id: 'css3',
+    name: 'CSS3',
+    level: 5,
+    category: 'Frontend',
+    description: 'Hojas de estilo en cascada',
+    yearsOfExperience: 5,
+    certified: false,
+    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+  },
+  {
     id: 'vuejs',
     name: 'Vue.js',
     level: 4,
     category: 'Frontend',
-    icon: '💚',
     description: 'Framework progresivo de JavaScript',
     yearsOfExperience: 2,
     certified: false,
@@ -167,7 +194,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Node.js',
     level: 4,
     category: 'Backend',
-    icon: '🟢',
     description: 'Runtime de JavaScript para servidor',
     yearsOfExperience: 4,
     certified: false,
@@ -178,7 +204,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Python',
     level: 4,
     category: 'Backend',
-    icon: '🐍',
     description: 'Lenguaje de programación versátil',
     yearsOfExperience: 3,
     certified: true,
@@ -189,20 +214,9 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Express.js',
     level: 4,
     category: 'Backend',
-    icon: '🚀',
     description: 'Framework web para Node.js',
     yearsOfExperience: 3,
     projects: ['task-manager']
-  },
-  {
-    id: 'fastapi',
-    name: 'FastAPI',
-    level: 3,
-    category: 'Backend',
-    icon: '⚡',
-    description: 'Framework moderno para APIs en Python',
-    yearsOfExperience: 1,
-    projects: ['ai-chat-bot']
   },
 
   // Bases de Datos
@@ -211,7 +225,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'PostgreSQL',
     level: 4,
     category: 'Databases',
-    icon: '🐘',
     description: 'Base de datos relacional avanzada',
     yearsOfExperience: 3,
     projects: ['ecommerce-app']
@@ -221,19 +234,8 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'MongoDB',
     level: 4,
     category: 'Bases de Datos',
-    icon: '🍃',
     description: 'Base de datos NoSQL',
     yearsOfExperience: 3,
-    projects: ['task-manager']
-  },
-  {
-    id: 'redis',
-    name: 'Redis',
-    level: 3,
-    category: 'Bases de Datos',
-    icon: '📮',
-    description: 'Cache y almacén de datos en memoria',
-    yearsOfExperience: 2,
     projects: ['task-manager']
   },
 
@@ -243,7 +245,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Docker',
     level: 3,
     category: 'DevOps',
-    icon: '🐳',
     description: 'Plataforma de contenedores',
     yearsOfExperience: 2,
     projects: ['ecommerce-app', 'ai-chat-bot']
@@ -253,7 +254,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Git',
     level: 5,
     category: 'Tools',
-    icon: '📚',
     description: 'Control de versiones',
     yearsOfExperience: 5,
     certified: false,
@@ -264,7 +264,6 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'AWS',
     level: 3,
     category: 'Cloud',
-    icon: '☁️',
     description: 'Servicios en la nube de Amazon',
     yearsOfExperience: 2,
     certified: true,
@@ -275,36 +274,13 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Vercel',
     level: 4,
     category: 'Cloud',
-    icon: '▲',
     description: 'Plataforma de deployment',
     yearsOfExperience: 2,
     projects: ['ecommerce-app', 'portfolio-cms']
-  },
-
-  // Mobile
-  {
-    id: 'react-native',
-    name: 'React Native',
-    level: 3,
-    category: 'Mobile',
-    icon: '📱',
-    description: 'Framework para apps móviles',
-    yearsOfExperience: 1,
-    projects: ['weather-app']
-  },
-  {
-    id: 'expo',
-    name: 'Expo',
-    level: 3,
-    category: 'Mobile',
-    icon: '🚀',
-    description: 'Plataforma para React Native',
-    yearsOfExperience: 1,
-    projects: ['weather-app']
   }
 ];
 
-// Categorías de habilidades
+// Categorías actualizadas para mejor organización
 export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
@@ -321,8 +297,8 @@ export const SKILL_CATEGORIES = [
     color: 'green'
   },
   {
-    id: 'database',
-    name: 'Bases de Datos',
+    id: 'databases',
+    name: 'Databases',
     description: 'Data Management Systems',
     icon: '🗄️',
     color: 'purple'
@@ -335,21 +311,20 @@ export const SKILL_CATEGORIES = [
     color: 'orange'
   },
   {
-    id: 'mobile',
-    name: 'Mobile',
-    description: 'Mobile App Development',
-    icon: '📱',
-    color: 'pink'
-  },
-  {
     id: 'tools',
     name: 'Tools',
     description: 'Development Tools',
     icon: '🛠️',
     color: 'gray'
+  },
+  {
+    id: 'cloud',
+    name: 'Cloud',
+    description: 'Cloud Platforms',
+    icon: '☁️',
+    color: 'indigo'
   }
 ];
-
 // Categorías de proyectos
 export const PROJECT_CATEGORIES = [
   {
