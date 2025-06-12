@@ -122,12 +122,12 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
           <div className="flex flex-col items-center space-y-1">
             {skill.yearsOfExperience && (
               <div className="text-xs text-primary-600 dark:text-primary-400 font-medium">
-                {skill.yearsOfExperience} año{skill.yearsOfExperience !== 1 ? 's' : ''} de experiencia
+                {skill.yearsOfExperience} year{skill.yearsOfExperience !== 1 ? 's' : ''} 
               </div>
             )}
             {skill.certified && (
               <span className="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100 rounded-full">
-                Certificado
+                
               </span>
             )}
             {skill.projects && skill.projects.length > 0 && (
@@ -167,12 +167,12 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
           {skill.certified && (
             <span className="text-xs text-green-600 dark:text-green-400 flex items-center">
               <span className="mr-1">✓</span>
-              Certificado
+              
             </span>
           )}
           {skill.projects && skill.projects.length > 0 && (
             <div className="text-xs text-gray-400 dark:text-gray-500">
-              {skill.projects.length} proyecto{skill.projects.length !== 1 ? 's' : ''}
+              {skill.projects.length} proyect{skill.projects.length !== 1 ? 's' : ''}
             </div>
           )}
         </div>

@@ -7,12 +7,14 @@ import { Code, Database, Palette, Wrench, Smartphone, Cloud } from 'lucide-react
 const SkillsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Filtrar habilidades por categoría
+  // Filtrar habilidades por categoría - CORREGIDO: usar toLowerCase() consistentemente
   const filteredSkills = selectedCategory === 'all' 
     ? SAMPLE_SKILLS 
-    : SAMPLE_SKILLS.filter(skill => skill.category.toLowerCase() === selectedCategory.toLowerCase());
+    : SAMPLE_SKILLS.filter(skill => 
+        skill.category.toLowerCase() === selectedCategory.toLowerCase()
+      );
 
-  // Agrupar habilidades por categoría
+  // Agrupar habilidades por categoría - CORREGIDO: usar category.name para hacer match
   const skillsByCategory = SKILL_CATEGORIES.reduce((acc, category) => {
     acc[category.id] = SAMPLE_SKILLS.filter(skill => 
       skill.category.toLowerCase() === category.name.toLowerCase()
@@ -20,10 +22,12 @@ const SkillsPage: React.FC = () => {
     return acc;
   }, {} as Record<string, typeof SAMPLE_SKILLS>);
 
+  // CORREGIDO: Mapeo de iconos actualizado para coincidir con los datos reales
   const categoryIcons = {
     frontend: Palette,
     backend: Code,
     database: Database,
+    databases: Database, // Alias para "Bases de Datos"
     devops: Cloud,
     mobile: Smartphone,
     tools: Wrench,
@@ -42,10 +46,10 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Mis Habilidades
+              My Skills
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Tecnologías y herramientas que domino para crear soluciones digitales completas
+              Technologies and tools I specialize in to develop full-featured digital solutions
             </p>
 
             {/* Category Filter */}
@@ -58,7 +62,7 @@ const SkillsPage: React.FC = () => {
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
               >
-                Todas
+                All
               </button>
               {SKILL_CATEGORIES.map((category) => (
                 <button
@@ -86,7 +90,20 @@ const SkillsPage: React.FC = () => {
             const skills = skillsByCategory[category.id] || [];
             if (skills.length === 0) return null;
 
-            const IconComponent = categoryIcons[category.id as keyof typeof categoryIcons] || Code;
+            // CORREGIDO: Mejorar el mapeo de iconos con fallback
+            const getIconComponent = (categoryId: string) => {
+              const iconMap: Record<string, React.ComponentType<any>> = {
+                frontend: Palette,
+                backend: Code,
+                database: Database,
+                devops: Cloud,
+                mobile: Smartphone,
+                tools: Wrench,
+              };
+              return iconMap[categoryId] || Code;
+            };
+
+            const IconComponent = getIconComponent(category.id);
 
             return (
               <section 
@@ -111,15 +128,16 @@ const SkillsPage: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* CORREGIDO: Props válidas para SkillBadge */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {skills.map((skill) => (
                         <SkillBadge
                           key={skill.id}
                           skill={skill}
-                          variant="detailed"
-                          showLevel={true}
+                          variant="large" // CAMBIADO: usar 'large' en lugar de 'detailed'
                           showCategory={false}
                           interactive={false}
+                          // REMOVIDO: showLevel (deprecated)
                         />
                       ))}
                     </div>
@@ -134,18 +152,31 @@ const SkillsPage: React.FC = () => {
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredSkills.map((skill) => (
-                  <SkillBadge
-                    key={skill.id}
-                    skill={skill}
-                    variant="detailed"
-                    showLevel={true}
-                    showCategory={false}
-                    interactive={false}
-                  />
-                ))}
-              </div>
+              {filteredSkills.length === 0 ? (
+                // AGREGADO: Manejo de estado vacío
+                <div className="text-center py-16">
+                  <div className="text-6xl mb-4">🔍</div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    No skills found
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    No skills found in this category. Try selecting a different category.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {filteredSkills.map((skill) => (
+                    <SkillBadge
+                      key={skill.id}
+                      skill={skill}
+                      variant="large" // CAMBIADO: usar 'large' en lugar de 'detailed'
+                      showCategory={false}
+                      interactive={false}
+                      // REMOVIDO: showLevel (deprecated)
+                    />
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -156,7 +187,7 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-12">
-              Experiencia en números
+              Experience
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -164,23 +195,23 @@ const SkillsPage: React.FC = () => {
                 <div className="text-4xl font-bold text-white mb-2">
                   {SAMPLE_SKILLS.length}+
                 </div>
-                <p className="text-primary-100">Tecnologías</p>
+                <p className="text-primary-100">Technologies</p>
               </div>
               <div>
-                <div className="text-4xl font-bold text-white mb-2">5+</div>
-                <p className="text-primary-100">Años de experiencia</p>
+                <div className="text-4xl font-bold text-white mb-2">1+</div>
+                <p className="text-primary-100">Years of Experience</p>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">
                   {SAMPLE_SKILLS.filter(s => s.certified).length}
                 </div>
-                <p className="text-primary-100">Certificaciones</p>
+                <p className="text-primary-100">Certifications</p>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">
                   {SKILL_CATEGORIES.length}
                 </div>
-                <p className="text-primary-100">Áreas de expertise</p>
+                <p className="text-primary-100">Areas</p>
               </div>
             </div>
           </div>
@@ -192,11 +223,11 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-              Siempre aprendiendo
+              Always Learning
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-              La tecnología evoluciona constantemente, y yo también. Estas son algunas de las 
-              tecnologías que estoy explorando actualmente:
+              Technology moves fast, and I keep up. 
+              These are some tools I'm currently exploring.
             </p>
             
             <div className="flex flex-wrap justify-center gap-3">

@@ -37,28 +37,28 @@ const ContactPage: React.FC = () => {
       label: 'Email',
       value: SITE_CONFIG.email,
       href: `mailto:${SITE_CONFIG.email}`,
-      description: 'Respondo emails en 24 horas'
+      description: 'I reply to emails within 24 hours'
     },
     {
       icon: Phone,
-      label: 'Teléfono',
+      label: 'Phone',
       value: SITE_CONFIG.phone,
       href: `tel:${SITE_CONFIG.phone}`,
-      description: 'Disponible de 9 AM a 6 PM COT'
+      description: 'Available from 9 AM to 6 PM COT'
     },
     {
       icon: MapPin,
-      label: 'Ubicación',
+      label: 'Location',
       value: SITE_CONFIG.location,
       href: 'https://maps.google.com/?q=Bucaramanga,Colombia',
       description: 'Colombia (GMT-5)'
     },
     {
       icon: Clock,
-      label: 'Horario',
-      value: 'Lun - Vie, 9 AM - 6 PM',
+      label: 'Hours',
+      value: 'Mon - Fri, 9 AM - 6 PM',
       href: null,
-      description: 'Zona horaria: COT (GMT-5)'
+      description: 'Time zone: COT (GMT-5)'
     }
   ];
 
@@ -67,42 +67,42 @@ const ContactPage: React.FC = () => {
       name: 'GitHub',
       url: SOCIAL_LINKS.github,
       icon: '🔗',
-      description: 'Revisa mi código'
+      description: 'Check out my code'
     },
     {
       name: 'LinkedIn',
       url: SOCIAL_LINKS.linkedin,
       icon: '💼',
-      description: 'Conectemos profesionalmente'
+      description: 'Let’s connect professionally'
     },
     {
-      name: 'Twitter',
+      name: 'X',
       url: SOCIAL_LINKS.twitter,
-      icon: '🐦',
-      description: 'Sígueme para updates'
+      icon: '𝕏',
+      description: 'Follow me for updates'
     }
   ];
 
   const reasons = [
     {
       icon: '🚀',
-      title: 'Proyectos nuevos',
-      description: 'Desarrollo de aplicaciones web modernas y escalables'
+      title: 'New Projects',
+      description: 'Building modern, scalable web applications'
     },
     {
       icon: '🛠️',
-      title: 'Consultoría técnica',
-      description: 'Asesoramiento en arquitectura y tecnologías web'
+      title: 'Tech Consulting',
+      description: 'Web Architecture & Technology Consulting'
     },
     {
       icon: '👥',
-      title: 'Colaboraciones',
-      description: 'Trabajo en equipo en proyectos interesantes'
+      title: 'Team Projects',
+      description: 'Building great things together'
     },
     {
       icon: '📚',
-      title: 'Mentoría',
-      description: 'Guío a desarrolladores junior en su crecimiento'
+      title: 'Open-minded',
+      description: 'I work with an open and collaborative mindset'
     }
   ];
 
@@ -119,18 +119,18 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              ¡Hablemos de tu proyecto!
+              Let’s Talk About Your Project!
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Estoy siempre interesado en nuevos desafíos y oportunidades de colaboración. 
-              ¿Tienes una idea genial? ¡Me encantaría escucharla!
+              I’m always interested in new challenges and collaboration opportunities. 
+              Got a great idea? I’d love to hear about it!
             </p>
             
             {/* Status Badge */}
             {SITE_CONFIG.availableForWork && (
               <div className="inline-flex items-center space-x-2 px-4 py-2 bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-100 rounded-full text-sm font-medium mb-8">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Disponible para nuevos proyectos</span>
+                <span>Available for new projects</span>
               </div>
             )}
           </div>
@@ -142,7 +142,7 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              ¿En qué puedo ayudarte?
+              How can I help you?
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -174,11 +174,11 @@ const ContactPage: React.FC = () => {
               <div>
                 <div className="mb-8">
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                    Envíame un mensaje
+                    Get in touch
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Completa el formulario y te responderé lo antes posible. 
-                    También puedes contactarme directamente usando la información de la derecha.
+                    Fill out the form and I’ll get back to you as soon as possible. 
+                    You can also contact me directly using the information on the right. 
                   </p>
                 </div>
 
@@ -187,10 +187,10 @@ const ContactPage: React.FC = () => {
                   variant="default"
                   showSubject={true}
                   placeholder={{
-                    name: 'Tu nombre completo',
-                    email: 'tu@email.com',
-                    subject: '¿En qué proyecto trabajamos juntos?',
-                    message: 'Cuéntame sobre tu proyecto, presupuesto estimado y timeline...'
+                    name: 'Your full name',
+                    email: 'you@email.com',
+                    subject: 'What project are we working on together?',
+                    message: 'Tell me about your project, estimated budget, and timeline...'
                   }}
                 />
               </div>
@@ -199,10 +199,10 @@ const ContactPage: React.FC = () => {
               <div className="space-y-8">
                 <div>
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                    Información de contacto
+                    Contact Information
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400 mb-8">
-                    Prefiere una comunicación más directa? Aquí tienes varias formas de contactarme.
+                     Prefer a more direct communication? Here are several ways to reach me.
                   </p>
                 </div>
 
@@ -245,7 +245,7 @@ const ContactPage: React.FC = () => {
                 {/* Social Links */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    También me encuentras en
+                    You can also find me on
                   </h3>
                   <div className="grid grid-cols-1 gap-3">
                     {socialLinks.map((social, index) => (
@@ -275,12 +275,12 @@ const ContactPage: React.FC = () => {
                   <div className="flex items-center space-x-3 mb-3">
                     <MessageCircle className="text-primary-600 dark:text-primary-400" size={24} />
                     <h3 className="font-semibold text-primary-900 dark:text-primary-100">
-                      Respuesta rápida garantizada
+                      Guaranteed quick response
                     </h3>
                   </div>
                   <p className="text-primary-800 dark:text-primary-200 text-sm">
-                    Me comprometo a responder todos los mensajes en un máximo de 24 horas. 
-                    Para consultas urgentes, puedes contactarme directamente por WhatsApp o teléfono.
+                    I commit to responding to all messages within 24 hours.
+                    For urgent inquiries, feel free to contact me directly via WhatsApp or phone.
                   </p>
                 </div>
               </div>
@@ -294,26 +294,26 @@ const ContactPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">
-              Preguntas frecuentes
+              Frequently Asked Questions
             </h2>
             
             <div className="space-y-6">
               {[
                 {
-                  question: '¿Cuánto cuesta desarrollar mi proyecto?',
-                  answer: 'El costo depende de varios factores como complejidad, tiempo de desarrollo, y características específicas. Después de nuestra primera conversación, te proporcionaré una cotización detallada y transparente.'
+                  question: 'How much does it cost to develop my project?',
+                  answer: 'The cost depends on several factors such as complexity, development time, and specific features. After our first conversation, I’ll provide you with a detailed and transparent quote.'
                 },
                 {
-                  question: '¿Cuánto tiempo toma completar un proyecto?',
-                  answer: 'Los timeframes varían según el alcance: sitios web simples (2-4 semanas), aplicaciones web complejas (6-12 semanas), aplicaciones móviles (8-16 semanas). Siempre incluyo tiempo para pruebas y refinamientos.'
+                  question: 'How long does it take to complete a project?',
+                  answer: 'Timeframes vary depending on scope: simple websites (2–4 weeks), complex web apps (6–12 weeks), mobile apps (8–16 weeks). I always include time for testing and refinements.'
                 },
                 {
-                  question: '¿Trabajas con presupuestos pequeños?',
-                  answer: 'Sí, trabajo con startups y pequeñas empresas. Ofrezco opciones flexibles como desarrollo por fases, MVP (producto mínimo viable), y planes de pago adaptados a tu presupuesto.'
+                  question: 'Do you work with small budgets?',
+                  answer: 'Yes, I work with startups and small businesses. I offer flexible options like phased development, MVPs (minimum viable products), and payment plans tailored to your budget.'
                 },
                 {
-                  question: '¿Qué incluye el servicio de desarrollo?',
-                  answer: 'Incluyo diseño responsive, optimización SEO, testing, deployment, documentación, y soporte post-lanzamiento. También proporciono capacitación para que puedas gestionar el contenido básico.'
+                  question: 'What does the development service include?',
+                  answer: 'It includes responsive design, SEO optimization, testing, deployment, documentation, and post-launch support. I also provide training so you can manage the basic content.'
                 }
               ].map((faq, index) => (
                 <details

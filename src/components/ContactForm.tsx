@@ -243,7 +243,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           {/* Name Field */}
           <div className="form-group">
             <label htmlFor="name" className="form-label">
-              Nombre *
+              Name *
             </label>
             <input
               type="text"
@@ -295,7 +295,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         {showSubject && (
           <div className="form-group">
             <label htmlFor="subject" className="form-label">
-              Asunto *
+              Subject *
             </label>
             <input
               type="text"
@@ -321,7 +321,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         {/* Message Field */}
         <div className="form-group">
           <label htmlFor="message" className="form-label">
-            Mensaje *
+            Message *
           </label>
           <textarea
             id="message"
@@ -367,7 +367,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             ) : (
               <>
                 <Send size={18} />
-                <span>Enviar mensaje</span>
+                <span>Send message</span>
               </>
             )}
           </button>
@@ -375,8 +375,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
         {/* Privacy Note */}
         <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-          Al enviar este formulario, aceptas que tus datos sean utilizados únicamente para responder tu consulta.
-          No compartimos tu información con terceros.
+          By submitting this form, you agree that your data will be used solely to respond to your inquiry.
+          We do not share your information with third parties.
         </p>
       </form>
     </div>
