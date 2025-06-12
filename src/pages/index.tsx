@@ -244,14 +244,15 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
+          {/* Versión compacta para la página principal */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {topSkills.map((skill) => (
               <SkillBadge
                 key={skill.id}
                 skill={skill}
-                variant="default"
-                showLevel={true}
+                variant="compact"
                 showCategory={false}
+                interactive={true}
               />
             ))}
           </div>
