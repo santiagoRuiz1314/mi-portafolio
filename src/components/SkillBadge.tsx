@@ -77,8 +77,6 @@ export interface Skill {
   icon?: LucideIcon | string;
   color?: string;
   description?: string;
-  yearsOfExperience?: number;
-  certified?: boolean;
   projects?: string[];
 }
 
@@ -181,10 +179,10 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
             </div>
           )}
         </div>
-        {skill.certified && (
+        {skill.projects && skill.projects.length > 0 && (
           <div className="flex-shrink-0">
-            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100">
-              ✓
+            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-800 dark:text-primary-100">
+              {skill.projects.length}
             </span>
           </div>
         )}
@@ -226,26 +224,11 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
           )}
           
           <div className="flex flex-col items-center space-y-2">
-            {skill.yearsOfExperience && (
+            {skill.projects && skill.projects.length > 0 && (
               <div className="text-sm font-medium text-primary-600 dark:text-primary-400">
-                {skill.yearsOfExperience} year{skill.yearsOfExperience !== 1 ? 's' : ''} exp.
+                Used in {skill.projects.length} project{skill.projects.length !== 1 ? 's' : ''}
               </div>
             )}
-            
-            <div className="flex items-center space-x-3 text-xs text-gray-500 dark:text-gray-400">
-              {skill.certified && (
-                <span className="flex items-center space-x-1">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  <span>Certified</span>
-                </span>
-              )}
-              
-              {skill.projects && skill.projects.length > 0 && (
-                <span>
-                  {skill.projects.length} project{skill.projects.length !== 1 ? 's' : ''}
-                </span>
-              )}
-            </div>
           </div>
         </div>
       </div>
@@ -279,13 +262,6 @@ export const SkillBadge: React.FC<SkillBadgeProps> = ({
         )}
         
         <div className="flex flex-wrap justify-center items-center gap-2">
-          {skill.certified && (
-            <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100 rounded-full">
-              <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></span>
-              Certified
-            </span>
-          )}
-          
           {skill.projects && skill.projects.length > 0 && (
             <span className="text-xs text-gray-400 dark:text-gray-500">
               {skill.projects.length} project{skill.projects.length !== 1 ? 's' : ''}

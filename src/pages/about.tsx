@@ -55,35 +55,34 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-    {/* Skills Section */}
-    <section className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Key Skills
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Technologies and tools I use 
-            </p>
-          </div>
+      {/* Skills Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                Key Skills
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Technologies and tools I use to build amazing projects
+              </p>
+            </div>
 
-          {/* Versión simplificada sin barras de progreso */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topSkills.map((skill) => (
-              <SkillBadge
-                key={skill.id}
-                skill={skill}
-                variant="default"
-                showCategory={true}
-                interactive={false}
-              />
-            ))}
+            {/* Skills Grid - Actualizada sin certificaciones ni años de experiencia */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {topSkills.map((skill) => (
+                <SkillBadge
+                  key={skill.id}
+                  skill={skill}
+                  variant="default"
+                  showCategory={true}
+                  interactive={false}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
+      </section>
 
       {/* Experience Timeline */}
       <section className="py-20">
@@ -109,7 +108,7 @@ const AboutPage: React.FC = () => {
                     year: '2024',
                     title: 'Student',
                     company: 'UNAB',
-                    description: 'started my Systems Engineering degree at UNAB.'
+                    description: 'Started my Systems Engineering degree at UNAB.'
                   },
                   {
                     year: '2023',

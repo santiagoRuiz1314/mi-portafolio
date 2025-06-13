@@ -42,14 +42,12 @@ const SkillsPage: React.FC = () => {
     const skills = SAMPLE_SKILLS.filter(skill => 
       skill.category.toLowerCase() === categoryName.toLowerCase()
     );
-    const avgExperience = skills.reduce((sum, skill) => 
-      sum + (skill.yearsOfExperience || 0), 0) / skills.length;
-    const certifiedCount = skills.filter(skill => skill.certified).length;
+    const projectCount = skills.reduce((sum, skill) => 
+      sum + (skill.projects?.length || 0), 0);
     
     return {
       total: skills.length,
-      avgExperience: Math.round(avgExperience * 10) / 10,
-      certified: certifiedCount
+      totalProjects: projectCount
     };
   };
 
@@ -191,15 +189,9 @@ const SkillsPage: React.FC = () => {
                         </div>
                         <div className="text-center">
                           <span className="block text-2xl font-bold text-primary-600 dark:text-primary-400">
-                            {stats.avgExperience}
+                            {stats.totalProjects}
                           </span>
-                          <span className="text-gray-500 dark:text-gray-400">Avg. Years</span>
-                        </div>
-                        <div className="text-center">
-                          <span className="block text-2xl font-bold text-primary-600 dark:text-primary-400">
-                            {stats.certified}
-                          </span>
-                          <span className="text-gray-500 dark:text-gray-400">Certified</span>
+                          <span className="text-gray-500 dark:text-gray-400">Total Projects</span>
                         </div>
                       </div>
                     </div>
@@ -274,7 +266,7 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-12">
-              Technical Experience
+              Technical Expertise
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -286,21 +278,21 @@ const SkillsPage: React.FC = () => {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
-                  {Math.max(...SAMPLE_SKILLS.map(s => s.yearsOfExperience || 0))}+
-                </div>
-                <p className="text-primary-100">Years Experience</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">
-                  {SAMPLE_SKILLS.filter(s => s.certified).length}
-                </div>
-                <p className="text-primary-100">Certifications</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">
                   {SKILL_CATEGORIES.length}
                 </div>
                 <p className="text-primary-100">Specialization Areas</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">
+                  {SAMPLE_SKILLS.reduce((sum, skill) => sum + (skill.projects?.length || 0), 0)}
+                </div>
+                <p className="text-primary-100">Project Applications</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">
+                  {Math.max(...SAMPLE_SKILLS.map(s => s.level || 0))}
+                </div>
+                <p className="text-primary-100">Max Proficiency</p>
               </div>
             </div>
           </div>

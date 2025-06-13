@@ -1,9 +1,9 @@
-// sample-data.ts - Datos de ejemplo para proyectos y habilidades
+// sample-data.ts - Datos de ejemplo para proyectos y habilidades (ACTUALIZADO)
 
 import type { Project } from '@/components/ProjectCard';
 import type { Skill } from '@/components/SkillBadge';
 
-// Proyectos de ejemplo
+// Proyectos de ejemplo (sin cambios)
 export const SAMPLE_PROJECTS: Project[] = [
   {
     id: 'Webpage_Unab',
@@ -102,9 +102,7 @@ export const SAMPLE_PROJECTS: Project[] = [
   }
 ];
 
-// Habilidades de ejemplo
-// src/utils/sample-data.ts - Sección de habilidades actualizada
-
+// Habilidades de ejemplo - ACTUALIZADAS (sin yearsOfExperience y certified)
 export const SAMPLE_SKILLS: Skill[] = [
   // Frontend
   {
@@ -112,79 +110,63 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'React',
     level: 5,
     category: 'Frontend',
-    description: 'Biblioteca para construir interfaces de usuario',
-    yearsOfExperience: 4,
-    certified: true,
-    projects: ['ecommerce-app', 'task-manager', 'portfolio-cms']
+    description: 'Modern library for building interactive user interfaces',
+    projects: ['Webpage_Unab', 'task-manager', 'portfolio-cms']
   },
   {
     id: 'nextjs',
     name: 'Next.js',
     level: 5,
     category: 'Frontend',
-    description: 'Framework de React para aplicaciones web',
-    yearsOfExperience: 3,
-    certified: true,
-    projects: ['ecommerce-app', 'portfolio-cms']
+    description: 'React framework for production-ready web applications',
+    projects: ['Webpage_Unab', 'portfolio-cms']
   },
   {
     id: 'typescript',
     name: 'TypeScript',
     level: 4,
-    category: 'Lenguajes',
-    description: 'JavaScript con tipado estático',
-    yearsOfExperience: 3,
-    certified: false,
-    projects: ['ecommerce-app', 'portfolio-cms']
+    category: 'Languages',
+    description: 'JavaScript with static typing for better development experience',
+    projects: ['Webpage_Unab', 'portfolio-cms']
   },
   {
     id: 'javascript',
     name: 'JavaScript',
     level: 5,
-    category: 'Lenguajes',
-    description: 'Lenguaje de programación para web',
-    yearsOfExperience: 5,
-    certified: false,
-    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+    category: 'Languages',
+    description: 'Core programming language for web development',
+    projects: ['Webpage_Unab', 'task-manager', 'crypto-tracker']
   },
   {
     id: 'tailwindcss',
     name: 'Tailwind CSS',
     level: 5,
     category: 'Frontend',
-    description: 'Framework CSS utility-first',
-    yearsOfExperience: 2,
-    certified: false,
-    projects: ['ecommerce-app', 'portfolio-cms']
+    description: 'Utility-first CSS framework for rapid UI development',
+    projects: ['Webpage_Unab', 'portfolio-cms']
   },
   {
     id: 'html5',
     name: 'HTML5',
     level: 5,
     category: 'Frontend',
-    description: 'Lenguaje de marcado para web',
-    yearsOfExperience: 5,
-    certified: false,
-    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+    description: 'Semantic markup language for web structure',
+    projects: ['Webpage_Unab', 'task-manager', 'crypto-tracker']
   },
   {
     id: 'css3',
     name: 'CSS3',
     level: 5,
     category: 'Frontend',
-    description: 'Hojas de estilo en cascada',
-    yearsOfExperience: 5,
-    certified: false,
-    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+    description: 'Stylesheets for modern web design and animations',
+    projects: ['Webpage_Unab', 'task-manager', 'crypto-tracker']
   },
   {
     id: 'vuejs',
     name: 'Vue.js',
     level: 4,
     category: 'Frontend',
-    description: 'Framework progresivo de JavaScript',
-    yearsOfExperience: 2,
-    certified: false,
+    description: 'Progressive JavaScript framework for building UIs',
     projects: ['crypto-tracker']
   },
 
@@ -194,9 +176,7 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Node.js',
     level: 4,
     category: 'Backend',
-    description: 'Runtime de JavaScript para servidor',
-    yearsOfExperience: 4,
-    certified: false,
+    description: 'JavaScript runtime for server-side development',
     projects: ['task-manager', 'ai-chat-bot']
   },
   {
@@ -204,9 +184,7 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Python',
     level: 4,
     category: 'Backend',
-    description: 'Lenguaje de programación versátil',
-    yearsOfExperience: 3,
-    certified: true,
+    description: 'Versatile programming language for backend and AI',
     projects: ['ai-chat-bot']
   },
   {
@@ -214,69 +192,60 @@ export const SAMPLE_SKILLS: Skill[] = [
     name: 'Express.js',
     level: 4,
     category: 'Backend',
-    description: 'Framework web para Node.js',
-    yearsOfExperience: 3,
+    description: 'Fast and minimalist web framework for Node.js',
     projects: ['task-manager']
   },
 
-  // Bases de Datos
+  // Databases
   {
     id: 'postgresql',
     name: 'PostgreSQL',
     level: 4,
     category: 'Databases',
-    description: 'Base de datos relacional avanzada',
-    yearsOfExperience: 3,
-    projects: ['ecommerce-app']
+    description: 'Advanced open-source relational database',
+    projects: ['Webpage_Unab']
   },
   {
     id: 'mongodb',
     name: 'MongoDB',
     level: 4,
-    category: 'Bases de Datos',
-    description: 'Base de datos NoSQL',
-    yearsOfExperience: 3,
+    category: 'Databases',
+    description: 'NoSQL document database for flexible data storage',
     projects: ['task-manager']
   },
 
-  // DevOps y Herramientas
+  // DevOps and Tools
   {
     id: 'docker',
     name: 'Docker',
     level: 3,
     category: 'DevOps',
-    description: 'Plataforma de contenedores',
-    yearsOfExperience: 2,
-    projects: ['ecommerce-app', 'ai-chat-bot']
+    description: 'Containerization platform for consistent deployments',
+    projects: ['Webpage_Unab', 'ai-chat-bot']
   },
   {
     id: 'git',
     name: 'Git',
     level: 5,
     category: 'Tools',
-    description: 'Control de versiones',
-    yearsOfExperience: 5,
-    certified: false,
-    projects: ['ecommerce-app', 'task-manager', 'crypto-tracker']
+    description: 'Distributed version control system',
+    projects: ['Webpage_Unab', 'task-manager', 'crypto-tracker']
   },
   {
     id: 'aws',
     name: 'AWS',
     level: 3,
     category: 'Cloud',
-    description: 'Servicios en la nube de Amazon',
-    yearsOfExperience: 2,
-    certified: true,
-    projects: ['ecommerce-app']
+    description: 'Amazon cloud services for scalable applications',
+    projects: ['Webpage_Unab']
   },
   {
     id: 'vercel',
     name: 'Vercel',
     level: 4,
     category: 'Cloud',
-    description: 'Plataforma de deployment',
-    yearsOfExperience: 2,
-    projects: ['ecommerce-app', 'portfolio-cms']
+    description: 'Modern deployment platform for frontend projects',
+    projects: ['Webpage_Unab', 'portfolio-cms']
   }
 ];
 
@@ -285,7 +254,7 @@ export const SKILL_CATEGORIES = [
   {
     id: 'frontend',
     name: 'Frontend',
-    description: 'UI Technologies',
+    description: 'UI Technologies & Frameworks',
     icon: '🎨',
     color: 'blue'
   },
@@ -306,26 +275,27 @@ export const SKILL_CATEGORIES = [
   {
     id: 'devops',
     name: 'DevOps',
-    description: 'Development and Operations Tools',
+    description: 'Development & Operations Tools',
     icon: '🚀',
     color: 'orange'
   },
   {
     id: 'tools',
     name: 'Tools',
-    description: 'Development Tools',
+    description: 'Development Tools & Utilities',
     icon: '🛠️',
     color: 'gray'
   },
   {
     id: 'cloud',
     name: 'Cloud',
-    description: 'Cloud Platforms',
+    description: 'Cloud Platforms & Services',
     icon: '☁️',
     color: 'indigo'
   }
 ];
-// Categorías de proyectos
+
+// Categorías de proyectos (sin cambios)
 export const PROJECT_CATEGORIES = [
   {
     id: 'all',
@@ -364,7 +334,7 @@ export const PROJECT_CATEGORIES = [
   }
 ];
 
-// Testimonios (opcional)
+// Testimonios (sin cambios)
 export const TESTIMONIALS = [
   {
     id: 'testimonial-1',
@@ -398,7 +368,7 @@ export const TESTIMONIALS = [
   }
 ];
 
-// FAQ (Preguntas frecuentes)
+// FAQ (sin cambios)
 export const FAQ_DATA = [
   {
     question: '¿Qué tecnologías utilizas principalmente?',
