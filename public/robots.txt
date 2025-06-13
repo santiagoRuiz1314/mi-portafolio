@@ -1,19 +1,35 @@
 User-agent: *
 Allow: /
 
+# Permitir rutas esenciales para SEO y funcionamiento
+Allow: /api/og/
+Allow: /_next/image/
+Allow: /_next/static/
+Allow: /sitemap.xml
+Allow: /robots.txt
+
 # Bloquear archivos sensibles
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
-Disallow: *.json$
-Disallow: *.xml$
+Disallow: /*.json$
+Disallow: /*.xml$
 
-# Permitir específicamente
+# Excepciones específicas para archivos necesarios
 Allow: /api/og/
 Allow: /sitemap.xml
-Allow: /robots.txt
+Allow: /site.webmanifest
 
-# Crawl delay
+# Bloquear archivos de configuración y desarrollo
+Disallow: /*.env*
+Disallow: /package*.json
+Disallow: /tsconfig.json
+Disallow: /tailwind.config.js
+Disallow: /next.config.js
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl delay para ser amigable con los servidores
 Crawl-delay: 1
 
 # Sitemap

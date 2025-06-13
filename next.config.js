@@ -1,53 +1,39 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true, // Habilitar para detectar problemas
+  reactStrictMode: true,
   swcMinify: true,
   
   // Configuración de imágenes mejorada
   images: {
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
-    unoptimized: false, // Cambiar a false para optimización
+    unoptimized: false,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Configuración básica
   compress: true,
   trailingSlash: false,
   poweredByHeader: false,
 
-  // Variables de entorno públicas
   env: {
     SITE_NAME: 'Mi Portafolio',
     SITE_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   },
 
-  // Configuración experimental mejorada
   experimental: {
-    // Remover configuraciones problemáticas
     optimizeCss: false,
   },
 
-  // Configuración de webpack para evitar problemas de hidratación
-  webpack: (config, { dev, isServer }) => {
-    // Optimizaciones solo para producción
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          default: false,
-          vendors: false,
-          vendor: {
-            name: 'vendor',
-            chunks: 'all',
-            test: /node_modules/,
-          },
-        },
-      };
-    }
-    
-    return config;
+  // Redirecciones para sitemap dinámico
+  async redirects() {
+    return [
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap.xml',
+        permanent: true,
+      },
+    ];
   },
 
   // Headers de seguridad
@@ -70,7 +56,40 @@ const nextConfig = {
           },
         ],
       },
+      // Headers específicos para sitemap
+      {
+        source: '/api/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
     ];
+  },
+
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          vendor: {
+            name: 'vendor',
+            chunks: 'all',
+            test: /node_modules/,
+          },
+        },
+      };
+    }
+    
+    return config;
   },
 };
 
