@@ -25,19 +25,11 @@ interface AboutInfo {
 
 interface AboutCardProps {
   info: AboutInfo;
-  variant?: 'default' | 'detailed' | 'compact';
-  showContact?: boolean;
-  showInterests?: boolean;
-  showAchievements?: boolean;
   className?: string;
 }
 
 export const AboutCard: React.FC<AboutCardProps> = ({
   info,
-  variant = 'default',
-  showContact = true,
-  showInterests = true,
-  showAchievements = false,
   className,
 }) => {
   const calculateAge = (birthDate: string) => {
@@ -55,43 +47,9 @@ export const AboutCard: React.FC<AboutCardProps> = ({
 
   const cardClasses = cn(
     'bg-white dark:bg-gray-800 rounded-xl shadow-soft border border-gray-200 dark:border-gray-700',
-    'transition-all duration-300 hover:shadow-medium',
-    {
-      'p-6': variant === 'default',
-      'p-8': variant === 'detailed',
-      'p-4': variant === 'compact',
-    },
+    'transition-all duration-300 hover:shadow-medium p-8',
     className
   );
-
-  if (variant === 'compact') {
-    return (
-      <div className={cardClasses}>
-        <div className="flex items-center space-x-4">
-          <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-            <Image
-              src={info.profileImage}
-              alt={`Foto de ${info.name}`}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white truncate">
-              {info.name}
-            </h3>
-            <p className="text-sm text-primary-600 dark:text-primary-400">
-              {info.title}
-            </p>
-            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
-              <MapPin size={12} className="mr-1" />
-              {info.location}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className={cardClasses}>
@@ -162,35 +120,33 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       </div>
 
       {/* Contact Information */}
-      {showContact && (
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Contact
-          </h3>
-          <div className="space-y-2">
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+          Contact
+        </h3>
+        <div className="space-y-2">
+          <a
+            href={`mailto:${info.email}`}
+            className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          >
+            <Mail size={18} />
+            <span>{info.email}</span>
+          </a>
+          
+          {info.phone && (
             <a
-              href={`mailto:${info.email}`}
+              href={`tel:${info.phone}`}
               className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
-              <Mail size={18} />
-              <span>{info.email}</span>
+              <Phone size={18} />
+              <span>{info.phone}</span>
             </a>
-            
-            {info.phone && (
-              <a
-                href={`tel:${info.phone}`}
-                className="flex items-center space-x-3 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              >
-                <Phone size={18} />
-                <span>{info.phone}</span>
-              </a>
-            )}
-          </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Interests & Hobbies */}
-      {showInterests && info.interests.length > 0 && (
+      {info.interests.length > 0 && (
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Interests
@@ -229,7 +185,7 @@ export const AboutCard: React.FC<AboutCardProps> = ({
       )}
 
       {/* Achievements */}
-      {showAchievements && info.achievements && info.achievements.length > 0 && (
+      {info.achievements && info.achievements.length > 0 && (
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
             Key Achievements

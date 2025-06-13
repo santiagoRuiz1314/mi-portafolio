@@ -7,22 +7,13 @@ import type { ContactFormData, FormState, FormErrors } from '@/types/global';
 interface ContactFormProps {
   onSubmit?: (data: ContactFormData) => Promise<{ success: boolean; message?: string }>;
   className?: string;
-  variant?: 'default' | 'inline' | 'modal';
   showSubject?: boolean;
-  placeholder?: {
-    name?: string;
-    email?: string;
-    subject?: string;
-    message?: string;
-  };
 }
 
 export const ContactForm: React.FC<ContactFormProps> = ({
   onSubmit,
   className,
-  variant = 'default',
   showSubject = true,
-  placeholder = {},
 }) => {
   const analytics = useAnalytics();
   const formRef = useRef<HTMLFormElement>(null);
@@ -203,22 +194,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
   };
 
-  const formClasses = cn(
-    'space-y-6',
-    {
-      'max-w-2xl': variant === 'default',
-      'max-w-md': variant === 'inline',
-      'w-full': variant === 'modal',
-    },
-    className
-  );
-
   const getFieldError = (field: keyof ContactFormData) => {
     return formState.touched[field] && formState.errors[field];
   };
 
   return (
-    <div className={formClasses}>
+    <div className={cn('space-y-6 max-w-2xl', className)}>
       {/* Status Message */}
       {submitStatus.type && (
         <div className={cn(
@@ -252,7 +233,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               onBlur={() => handleInputBlur('name')}
-              placeholder={placeholder.name || 'Tu nombre completo'}
+              placeholder="Tu nombre completo"
               className={cn(
                 'form-input',
                 getFieldError('name') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -277,7 +258,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               onBlur={() => handleInputBlur('email')}
-              placeholder={placeholder.email || 'tu@email.com'}
+              placeholder="tu@email.com"
               className={cn(
                 'form-input',
                 getFieldError('email') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -304,7 +285,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.subject}
               onChange={(e) => handleInputChange('subject', e.target.value)}
               onBlur={() => handleInputBlur('subject')}
-              placeholder={placeholder.subject || 'Asunto de tu mensaje'}
+              placeholder="Asunto de tu mensaje"
               className={cn(
                 'form-input',
                 getFieldError('subject') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -326,11 +307,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           <textarea
             id="message"
             name="message"
-            rows={variant === 'inline' ? 4 : 6}
+            rows={6}
             value={formState.values.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
             onBlur={() => handleInputBlur('message')}
-            placeholder={placeholder.message || 'Cuéntame sobre tu proyecto o consulta...'}
+            placeholder="Cuéntame sobre tu proyecto o consulta..."
             className={cn(
               'form-textarea',
               getFieldError('message') && 'border-red-500 focus:border-red-500 focus:ring-red-500'

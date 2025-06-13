@@ -26,17 +26,13 @@ export interface Project {
 
 interface ProjectCardProps {
   project: Project;
-  variant?: 'default' | 'featured' | 'compact';
-  showCategory?: boolean;
-  showStatus?: boolean;
+  variant?: 'default' | 'featured';
   className?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
   variant = 'default',
-  showCategory = true,
-  showStatus = true,
   className,
 }) => {
   const analytics = useAnalytics();
@@ -72,18 +68,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     'border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600',
     'overflow-hidden hover:transform hover:-translate-y-1',
     variant === 'featured' && 'lg:col-span-2',
-    variant === 'compact' && 'flex flex-row',
     className
   );
 
   const imageClasses = cn(
     'w-full object-cover transition-transform duration-300 group-hover:scale-105',
-    variant === 'compact' ? 'w-32 h-32 flex-shrink-0' : 'h-48'
-  );
-
-  const contentClasses = cn(
-    'p-6',
-    variant === 'compact' && 'flex-1 p-4'
+    'h-48'
   );
 
   return (
@@ -94,24 +84,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <Image
             src={project.image}
             alt={`Preview del proyecto ${project.title}`}
-            width={variant === 'compact' ? 128 : 400}
-            height={variant === 'compact' ? 128 : 200}
+            width={400}
+            height={200}
             className={imageClasses}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
 
           {/* Status Badge */}
-          {showStatus && (
-            <div className="absolute top-4 left-4">
-              <span className={cn(
-                'px-2 py-1 text-xs font-medium rounded-full',
-                statusColors[project.status]
-              )}>
-                {statusLabels[project.status]}
-              </span>
-            </div>
-          )}
+          <div className="absolute top-4 left-4">
+            <span className={cn(
+              'px-2 py-1 text-xs font-medium rounded-full',
+              statusColors[project.status]
+            )}>
+              {statusLabels[project.status]}
+            </span>
+          </div>
 
           {/* Featured Badge */}
           {project.featured && (
@@ -124,20 +112,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Content */}
-        <div className={contentClasses}>
+        <div className="p-6">
           {/* Category & Date */}
-          {showCategory && (
-            <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
-              <span className="flex items-center">
-                <Tag size={14} className="mr-1" />
-                {project.category}
-              </span>
-              <span className="flex items-center">
-                <Calendar size={14} className="mr-1" />
-                {new Date(project.startDate).getFullYear()}
-              </span>
-            </div>
-          )}
+          <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
+            <span className="flex items-center">
+              <Tag size={14} className="mr-1" />
+              {project.category}
+            </span>
+            <span className="flex items-center">
+              <Calendar size={14} className="mr-1" />
+              {new Date(project.startDate).getFullYear()}
+            </span>
+          </div>
 
           {/* Title */}
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
@@ -151,7 +137,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Technologies */}
           <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.slice(0, variant === 'compact' ? 3 : 5).map((tech) => (
+            {project.technologies.slice(0, 5).map((tech) => (
               <span
                 key={tech}
                 className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
@@ -159,9 +145,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 {tech}
               </span>
             ))}
-            {project.technologies.length > (variant === 'compact' ? 3 : 5) && (
+            {project.technologies.length > 5 && (
               <span className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full">
-                +{project.technologies.length - (variant === 'compact' ? 3 : 5)}
+                +{project.technologies.length - 5}
               </span>
             )}
           </div>
