@@ -2,15 +2,15 @@
   "name": "portafolio-web",
   "version": "1.0.0",
   "private": true,
-  "description": "Portafolio web personal con Next.js y TypeScript",
+  "description": "Portafolio personal de desarrollo web",
   "keywords": [
     "nextjs",
     "typescript",
     "tailwindcss",
     "portfolio",
-    "blog"
+    "react"
   ],
-  "author": "Tu Nombre",
+  "author": "Santiago Steven Ruiz Carreño",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -19,25 +19,16 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next out",
-    "analyze": "ANALYZE=true npm run build",
-    "export": "next build && next export"
+    "clean": "rm -rf .next out"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "critters": "^0.0.23",
     "framer-motion": "^11.3.8",
-    "gray-matter": "^4.0.3",
     "lucide-react": "^0.408.0",
     "next": "^14.2.5",
-    "nodemailer": "^6.9.14",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
-    "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "remark-prism": "^1.3.6",
-    "swr": "^2.2.5",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
@@ -46,7 +37,6 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.14.12",
-    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.17.0",
