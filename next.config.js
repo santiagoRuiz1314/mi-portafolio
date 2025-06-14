@@ -1,31 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   
-  // Configuración de imágenes mejorada
+  // Configuración de imágenes
   images: {
-    domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
-    unoptimized: false,
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  compress: true,
-  trailingSlash: false,
+  // Configuraciones básicas
   poweredByHeader: false,
+  trailingSlash: false,
 
+  // Variables de entorno
   env: {
     SITE_NAME: 'Mi Portafolio',
     SITE_URL: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   },
 
-  experimental: {
-    optimizeCss: false,
-  },
-
-  // Redirecciones para sitemap dinámico
+  // Redirección para sitemap dinámico
   async redirects() {
     return [
       {
@@ -36,7 +30,7 @@ const nextConfig = {
     ];
   },
 
-  // Headers de seguridad
+  // Headers de seguridad básicos
   async headers() {
     return [
       {
@@ -56,40 +50,7 @@ const nextConfig = {
           },
         ],
       },
-      // Headers específicos para sitemap
-      {
-        source: '/api/sitemap.xml',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/xml; charset=utf-8',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=3600',
-          },
-        ],
-      },
     ];
-  },
-
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          default: false,
-          vendors: false,
-          vendor: {
-            name: 'vendor',
-            chunks: 'all',
-            test: /node_modules/,
-          },
-        },
-      };
-    }
-    
-    return config;
   },
 };
 
