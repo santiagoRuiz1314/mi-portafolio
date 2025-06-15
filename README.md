@@ -1,209 +1,306 @@
-# 🚀 Configuración del Portafolio
+# 🚀 Santiago Ruiz - Portfolio Website
 
-Esta guía te ayudará a configurar y ejecutar tu portafolio personal correctamente.
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project showcases my skills as a Full Stack Developer and serves as a comprehensive platform to display my projects, technical expertise, and professional journey.
 
-## 📋 Requisitos previos
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.5-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.4-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.6-38B2AC)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB)](https://reactjs.org/)
 
-- Node.js 18+ 
-- npm 8+ (o yarn/pnpm)
-- Git
+## 🌟 Features
 
-## 🛠️ Instalación
+- **📱 Responsive Design**: Mobile-first approach with seamless adaptation across all devices
+- **🌙 Dark/Light Theme**: Automatic theme detection with manual toggle option
+- **⚡ Performance Optimized**: Built with Next.js for optimal loading speeds and SEO
+- **🎨 Modern UI/UX**: Clean, professional design with smooth animations
+- **📧 Contact Form**: Functional contact form with client-side validation
+- **🔍 SEO Optimized**: Meta tags, structured data, and dynamic sitemap generation
+- **♿ Accessibility**: WCAG compliant with keyboard navigation and screen reader support
+- **🚀 TypeScript**: Full type safety for better development experience
+- **📊 Analytics Ready**: Built-in analytics integration support
 
-1. **Clona el repositorio**
+## 🛠️ Tech Stack
+
+### Core Technologies
+- **[Next.js 14.2.5](https://nextjs.org/)** - React framework for production
+- **[React 18.3.1](https://reactjs.org/)** - UI library for building user interfaces
+- **[TypeScript 5.5.4](https://www.typescriptlang.org/)** - Static type checking
+- **[Tailwind CSS 3.4.6](https://tailwindcss.com/)** - Utility-first CSS framework
+
+### UI & Styling
+- **[Lucide React](https://lucide.dev/)** - Beautiful, customizable icons
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
+- **[Framer Motion](https://www.framer.com/motion/)** - Animation library
+- **[clsx](https://github.com/lukeed/clsx)** & **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Conditional styling utilities
+
+### Development Tools
+- **[ESLint](https://eslint.org/)** - Code linting and formatting
+- **[Prettier](https://prettier.io/)** - Code formatting
+- **[PostCSS](https://postcss.org/)** & **[Autoprefixer](https://autoprefixer.github.io/)** - CSS processing
+
+## 📁 Project Structure
+
+```
+portfolio-web/
+├── public/                     # Static assets
+│   ├── images/                # Images and media files
+│   ├── favicon.ico            # Site favicon
+│   ├── robots.txt             # Search engine directives
+│   └── sitemap.xml           # Static sitemap
+├── src/
+│   ├── components/            # Reusable React components
+│   │   ├── AboutCard.tsx      # Personal information display
+│   │   ├── BlogCard.tsx       # Blog post preview cards
+│   │   ├── ContactForm.tsx    # Contact form with validation
+│   │   ├── Footer.tsx         # Site footer component
+│   │   ├── HeroSection.tsx    # Landing page hero section
+│   │   ├── Layout.tsx         # Main layout wrapper
+│   │   ├── Navbar.tsx         # Navigation header
+│   │   ├── ProjectCard.tsx    # Project showcase cards
+│   │   ├── SEOHead.tsx        # SEO meta tags component
+│   │   └── SkillBadge.tsx     # Technology skill badges
+│   ├── lib/                   # Utility libraries
+│   │   ├── analytics.ts       # Analytics integration
+│   │   └── seo.ts            # SEO configuration and helpers
+│   ├── pages/                 # Next.js pages and API routes
+│   │   ├── api/              # API endpoints
+│   │   │   ├── contact.ts    # Contact form handler
+│   │   │   └── sitemap.xml.ts # Dynamic sitemap generation
+│   │   ├── _app.tsx          # Application wrapper
+│   │   ├── _document.tsx     # HTML document structure
+│   │   ├── index.tsx         # Homepage
+│   │   ├── about.tsx         # About page
+│   │   ├── contact.tsx       # Contact page
+│   │   ├── projects.tsx      # Projects showcase
+│   │   └── skills.tsx        # Skills & technologies
+│   ├── styles/
+│   │   └── globals.css       # Global styles and Tailwind imports
+│   ├── types/
+│   │   └── global.d.ts       # TypeScript type definitions
+│   └── utils/                # Utility functions and data
+│       ├── cn.ts             # Class name utility
+│       ├── constants.ts      # Site configuration
+│       └── sample-data.ts    # Portfolio data
+├── middleware.ts             # Next.js middleware for security
+├── next.config.js           # Next.js configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Dependencies and scripts
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** 18.17.0 or higher
+- **npm** 9.0.0 or higher (or yarn/pnpm)
+- **Git** for version control
+
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/santiagoRuiz1314/mi-portafolio
-   cd portafolio-web
+   git clone https://github.com/santiagoRuiz1314/mi-portafolio.git
+   cd portfolio-web
    ```
 
-2. **Instala las dependencias**
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Configura las variables de entorno**
+3. **Set up environment variables**
    ```bash
    cp .env.example .env.local
    ```
    
-   Edita `.env.local` con tu información:
-   ```bash
-   NEXT_PUBLIC_SITE_NAME="Tu Nombre"
-   NEXT_PUBLIC_CONTACT_EMAIL="tu@email.com"
-   NEXT_PUBLIC_GITHUB_URL="https://github.com/tu-usuario"
-   # ... resto de configuraciones
+   Update `.env.local` with your configuration:
+   ```env
+   NEXT_PUBLIC_SITE_NAME="Your Name"
+   NEXT_PUBLIC_CONTACT_EMAIL="your@email.com"
+   NEXT_PUBLIC_GITHUB_URL="https://github.com/yourusername"
+   NEXT_PUBLIC_LINKEDIN_URL="https://linkedin.com/in/yourprofile"
+   NEXT_PUBLIC_SITE_URL="https://yourdomain.com"
    ```
 
-4. **Ejecuta el servidor de desarrollo**
+4. **Start the development server**
    ```bash
    npm run dev
    ```
 
-5. **Abre tu navegador**
-   Ve a [http://localhost:3000](http://localhost:3000)
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🎨 Personalización
+## 🎨 Customization
 
-### 1. Información personal
-Edita `src/utils/constants.ts` para actualizar:
-- Nombre y título profesional
-- Información de contacto
-- Biografía y experiencia
-- Redes sociales
-
-### 2. Proyectos
-Actualiza `src/utils/sample-data.ts` en la sección `SAMPLE_PROJECTS`:
+### Personal Information
+Update your personal details in `src/utils/constants.ts`:
 ```typescript
-{
-  id: 'mi-proyecto',
-  title: 'Mi Proyecto Increíble',
-  description: 'Descripción del proyecto...',
-  image: '/images/proyectos/mi-proyecto.jpg',
-  technologies: ['React', 'Next.js', 'TypeScript'],
-  // ...
-}
+export const SITE_CONFIG = {
+  name: 'Your Name',
+  author: 'Your Full Name',
+  title: 'Your Professional Title',
+  description: 'Your professional description',
+  // ... other configurations
+};
 ```
 
-### 3. Habilidades
-Modifica `SAMPLE_SKILLS` en el mismo archivo:
+### Projects
+Add your projects in `src/utils/sample-data.ts`:
 ```typescript
-{
-  id: 'react',
-  name: 'React',
-  level: 5, // 1-5
-  category: 'Frontend',
-  icon: '⚛️',
-  // ...
-}
+export const SAMPLE_PROJECTS: Project[] = [
+  {
+    id: 'your-project',
+    title: 'Project Title',
+    description: 'Project description',
+    image: '/images/projects/project-image.jpg',
+    technologies: ['React', 'TypeScript', 'Next.js'],
+    githubUrl: 'https://github.com/username/project',
+    liveUrl: 'https://project-demo.com',
+    // ... other project details
+  }
+];
 ```
 
-### 4. Imágenes
-Coloca tus imágenes en:
-- `public/images/foto-perfil.jpg` - Tu foto de perfil
-- `public/images/proyectos/` - Capturas de tus proyectos
-- `public/images/blog/` - Imágenes para artículos
-- `public/favicon.ico` - Tu favicon
+### Skills
+Update your technical skills in the same file:
+```typescript
+export const SAMPLE_SKILLS: Skill[] = [
+  {
+    id: 'skill-id',
+    name: 'Skill Name',
+    level: 5, // 1-5 proficiency level
+    category: 'Frontend', // or Backend, Tools, etc.
+    description: 'Skill description',
+    projects: ['project-id'] // Projects using this skill
+  }
+];
+```
 
-### 5. Colores y tema
-Edita `tailwind.config.js` para cambiar la paleta de colores:
+### Styling & Theme
+Customize colors and theme in `tailwind.config.js`:
 ```javascript
-colors: {
-  primary: {
-    // Tus colores primarios
-    500: '#3b82f6', // Azul por defecto
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        // Your primary color palette
+        500: '#3b82f6',
+        600: '#2563eb',
+        // ...
+      }
+    }
   }
 }
 ```
 
-## 📝 Creando contenido
+## 📝 Available Scripts
 
-### Blog posts
-Crea archivos `.md` en `src/data/posts/`:
-```markdown
----
-title: "Mi artículo"
-date: "2025-01-15"
-excerpt: "Descripción breve..."
-tags: ["react", "tutorial"]
-featured: true
-published: true
----
+```bash
+# Development
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
 
-# Contenido del artículo...
+# Code Quality
+npm run lint         # Run ESLint
+npm run lint:fix     # Fix ESLint errors
+npm run type-check   # Run TypeScript checks
+
+# Utilities
+npm run clean        # Clean build artifacts
 ```
 
-### Nuevos proyectos
-1. Añade el proyecto a `SAMPLE_PROJECTS`
-2. Añade las imágenes correspondientes
-3. El proyecto aparecerá automáticamente
+## 🚀 Deployment
 
-## 🚀 Despliegue
-
-### Vercel (Recomendado)
-1. Conecta tu repositorio a [Vercel](https://vercel.com)
-2. Configura las variables de entorno
-3. Deploy automático en cada push
+### Vercel (Recommended)
+1. Connect your repository to [Vercel](https://vercel.com)
+2. Configure environment variables in Vercel dashboard
+3. Deploy automatically on every push
 
 ### Netlify
-1. Ejecuta `npm run build && npm run export`
-2. Sube la carpeta `out/` a Netlify
+1. Build the project: `npm run build`
+2. Upload the `out/` folder to Netlify
+3. Configure redirects and environment variables
 
-### GitHub Pages
-1. Habilita GitHub Pages en tu repositorio
-2. Configura GitHub Actions para deploy automático
+### Traditional Hosting
+1. Build the project: `npm run build`
+2. Export static files: `npm run export`
+3. Upload the generated files to your hosting provider
 
-## 📧 Configuración del formulario de contacto
+## 🔧 Configuration
 
-Para que el formulario funcione, configura las variables de email en `.env.local`:
+### Contact Form
+To enable the contact form functionality:
 
-```bash
-# Gmail (recomendado)
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT="587"
-SMTP_USER="tu-email@gmail.com"
-SMTP_PASS="tu-app-password"  # Contraseña de aplicación, no tu contraseña normal
+1. **For Gmail SMTP** (add to `.env.local`):
+   ```env
+   SMTP_HOST="smtp.gmail.com"
+   SMTP_PORT="587"
+   SMTP_USER="your-email@gmail.com"
+   SMTP_PASS="your-app-password"
+   ```
+
+2. **Generate Gmail App Password**:
+   - Enable 2FA on your Google account
+   - Generate an app-specific password
+   - Use this password in `SMTP_PASS`
+
+### Analytics
+Add your analytics IDs to environment variables:
+```env
+NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
+NEXT_PUBLIC_GTM_ID="GTM-XXXXXXX"
 ```
 
-**Nota**: Para Gmail, necesitas generar una "contraseña de aplicación" en tu cuenta de Google.
+### SEO Optimization
+- Update meta descriptions in each page component
+- Add your domain to `src/lib/seo.ts`
+- Generate a new sitemap after adding content
+- Submit your sitemap to Google Search Console
 
-## 🎯 Optimizaciones recomendadas
+## 🤝 Contributing
 
-### SEO
-- Actualiza `src/lib/seo.ts` con tu información
-- Añade Google Analytics en las variables de entorno
-- Genera un sitemap actualizado
+While this is a personal portfolio, contributions for improvements are welcome:
 
-### Performance
-- Optimiza imágenes (usa WebP cuando sea posible)
-- Las imágenes grandes deberían ser máximo 1920px de ancho
-- Comprime imágenes antes de subirlas
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -am 'Add some improvement'`)
+4. Push to the branch (`git push origin feature/improvement`)
+5. Open a Pull Request
 
-### Accesibilidad
-- Añade texto alternativo a todas las imágenes
-- Usa colores con suficiente contraste
-- Prueba la navegación con teclado
+### Development Guidelines
+- Follow the existing code style and conventions
+- Add TypeScript types for new components
+- Test responsiveness across different screen sizes
+- Ensure accessibility standards are maintained
+- Update documentation for new features
 
-## 🐛 Problemas comunes
+## 📄 License
 
-### Error de módulos no encontrados
-```bash
-# Limpia node_modules y reinstala
-rm -rf node_modules package-lock.json
-npm install
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Problemas con Tailwind CSS
-```bash
-# Verifica que tailwind.config.js esté correctamente configurado
-npm run build
-```
+## 👨‍💻 Author
 
-### Imágenes no cargan
-- Verifica que las rutas sean correctas (comienzan con `/`)
-- Asegúrate de que las imágenes estén en `public/`
+**Santiago Steven Ruiz Carreño**
+- 🌐 Website: [Your Portfolio URL]
+- 📧 Email: santiago06ruiz@gmail.com
+- 💼 LinkedIn: [santiago-steven-ruiz-carreño](https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369)
+- 🐱 GitHub: [@santiagoRuiz1314](https://github.com/santiagoRuiz1314)
+- 📍 Location: Bucaramanga, Colombia
 
-### Formulario de contacto no funciona
-- Verifica las variables de entorno de email
-- Revisa la consola del navegador para errores
-- Prueba primero en desarrollo local
+## 🙏 Acknowledgments
 
-## 📞 Soporte
+- **[Next.js](https://nextjs.org/)** - The React framework for production
+- **[Tailwind CSS](https://tailwindcss.com/)** - For the utility-first CSS framework
+- **[Lucide](https://lucide.dev/)** - For the beautiful icons
+- **[Vercel](https://vercel.com/)** - For hosting and deployment platform
 
-Si tienes problemas:
-1. Revisa la consola del navegador
-2. Verifica que todas las dependencias estén instaladas
-3. Asegúrate de que las variables de entorno estén configuradas
-4. Revisa que las imágenes existan en las rutas especificadas
+---
 
-## 🎉 ¡Listo!
-
-Tu portafolio debería estar funcionando. Personalízalo con tu información y proyectos, y tendrás un sitio web profesional en pocos minutos.
-
-### Próximos pasos
-- [ ] Personalizar información personal
-- [ ] Añadir tus proyectos reales
-- [ ] Configurar analytics
-- [ ] Optimizar SEO
-- [ ] Desplegar a producción
-
-¡Buena suerte con tu nuevo portafolio! 🚀
+<div align="center">
+  <p>Built with ❤️ by Santiago Ruiz</p>
+  <p>
+    <a href="#top">Back to top</a>
+  </p>
+</di
