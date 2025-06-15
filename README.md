@@ -1,4 +1,4 @@
-# 🚀 Santiago Ruiz - Portfolio Website
+# Santiago Ruiz - Portfolio Website
 
 A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project showcases my skills as a Full Stack Developer and serves as a comprehensive platform to display my projects, technical expertise, and professional journey.
 
@@ -7,7 +7,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.6-38B2AC)](https://tailwindcss.com/)
 [![React](https://img.shields.io/badge/React-18.3.1-61DAFB)](https://reactjs.org/)
 
-## 🌟 Features
+## Features
 
 - **📱 Responsive Design**: Mobile-first approach with seamless adaptation across all devices
 - **🌙 Dark/Light Theme**: Automatic theme detection with manual toggle option
@@ -19,7 +19,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **🚀 TypeScript**: Full type safety for better development experience
 - **📊 Analytics Ready**: Built-in analytics integration support
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **[Next.js 14.2.5](https://nextjs.org/)** - React framework for production
@@ -30,7 +30,6 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 ### UI & Styling
 - **[Lucide React](https://lucide.dev/)** - Beautiful, customizable icons
 - **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
-- **[Framer Motion](https://www.framer.com/motion/)** - Animation library
 - **[clsx](https://github.com/lukeed/clsx)** & **[tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Conditional styling utilities
 
 ### Development Tools
@@ -38,7 +37,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **[Prettier](https://prettier.io/)** - Code formatting
 - **[PostCSS](https://postcss.org/)** & **[Autoprefixer](https://autoprefixer.github.io/)** - CSS processing
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio-web/
@@ -46,11 +45,10 @@ portfolio-web/
 │   ├── images/                # Images and media files
 │   ├── favicon.ico            # Site favicon
 │   ├── robots.txt             # Search engine directives
-│   └── sitemap.xml           # Static sitemap
+│   └── site.webmanifest       # PWA manifest
 ├── src/
 │   ├── components/            # Reusable React components
 │   │   ├── AboutCard.tsx      # Personal information display
-│   │   ├── BlogCard.tsx       # Blog post preview cards
 │   │   ├── ContactForm.tsx    # Contact form with validation
 │   │   ├── Footer.tsx         # Site footer component
 │   │   ├── HeroSection.tsx    # Landing page hero section
@@ -59,6 +57,8 @@ portfolio-web/
 │   │   ├── ProjectCard.tsx    # Project showcase cards
 │   │   ├── SEOHead.tsx        # SEO meta tags component
 │   │   └── SkillBadge.tsx     # Technology skill badges
+│   ├── hooks/                 # Custom React hooks
+│   │   └── usePortfolioData.ts # Portfolio data management
 │   ├── lib/                   # Utility libraries
 │   │   ├── analytics.ts       # Analytics integration
 │   │   └── seo.ts            # SEO configuration and helpers
@@ -76,10 +76,12 @@ portfolio-web/
 │   ├── styles/
 │   │   └── globals.css       # Global styles and Tailwind imports
 │   ├── types/
-│   │   └── global.d.ts       # TypeScript type definitions
+│   │   ├── global.d.ts       # Global TypeScript definitions
+│   │   └── portfolio.ts      # Portfolio-specific types
 │   └── utils/                # Utility functions and data
 │       ├── cn.ts             # Class name utility
 │       ├── constants.ts      # Site configuration
+│       ├── portfolio-stats.ts # Statistics calculation
 │       └── sample-data.ts    # Portfolio data
 ├── middleware.ts             # Next.js middleware for security
 ├── next.config.js           # Next.js configuration
@@ -88,7 +90,7 @@ portfolio-web/
 └── package.json            # Dependencies and scripts
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -131,7 +133,7 @@ portfolio-web/
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 🎨 Customization
+## Customization
 
 ### Personal Information
 Update your personal details in `src/utils/constants.ts`:
@@ -194,7 +196,7 @@ theme: {
 }
 ```
 
-## 📝 Available Scripts
+## Available Scripts
 
 ```bash
 # Development
@@ -211,7 +213,7 @@ npm run type-check   # Run TypeScript checks
 npm run clean        # Clean build artifacts
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 1. Connect your repository to [Vercel](https://vercel.com)
@@ -220,31 +222,23 @@ npm run clean        # Clean build artifacts
 
 ### Netlify
 1. Build the project: `npm run build`
-2. Upload the `out/` folder to Netlify
+2. Upload the `.next/` folder to Netlify
 3. Configure redirects and environment variables
 
 ### Traditional Hosting
 1. Build the project: `npm run build`
-2. Export static files: `npm run export`
+2. Export static files: `npm run export` (if configured)
 3. Upload the generated files to your hosting provider
 
 ## 🔧 Configuration
 
 ### Contact Form
-To enable the contact form functionality:
+To enable the contact form functionality, the API route `/api/contact` is already configured. You can extend it to integrate with email services like:
 
-1. **For Gmail SMTP** (add to `.env.local`):
-   ```env
-   SMTP_HOST="smtp.gmail.com"
-   SMTP_PORT="587"
-   SMTP_USER="your-email@gmail.com"
-   SMTP_PASS="your-app-password"
-   ```
-
-2. **Generate Gmail App Password**:
-   - Enable 2FA on your Google account
-   - Generate an app-specific password
-   - Use this password in `SMTP_PASS`
+- **SendGrid**
+- **Nodemailer with SMTP**
+- **Resend**
+- **EmailJS**
 
 ### Analytics
 Add your analytics IDs to environment variables:
@@ -259,7 +253,29 @@ NEXT_PUBLIC_GTM_ID="GTM-XXXXXXX"
 - Generate a new sitemap after adding content
 - Submit your sitemap to Google Search Console
 
-## 🤝 Contributing
+## Key Features
+
+### Dynamic Portfolio Statistics
+The portfolio automatically calculates and displays:
+- Number of completed projects
+- Technologies used
+- Years of experience
+- Skills proficiency levels
+
+### SEO & Performance
+- Structured data with JSON-LD
+- Meta tags optimization
+- Sitemap generation
+- Performance optimized images
+- Accessibility compliance
+
+### Contact System
+- Form validation
+- Client-side and server-side validation
+- Error handling
+- Success/error feedback
+
+## Contributing
 
 While this is a personal portfolio, contributions for improvements are welcome:
 
@@ -276,20 +292,20 @@ While this is a personal portfolio, contributions for improvements are welcome:
 - Ensure accessibility standards are maintained
 - Update documentation for new features
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Santiago Steven Ruiz Carreño**
-- 🌐 Website: [In process...]
+- 🌐 Website: [En proceso..](https://your-domain.com)
 - 📧 Email: santiago06ruiz@gmail.com
 - 💼 LinkedIn: [santiago-steven-ruiz-carreño](https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369)
 - 🐱 GitHub: [@santiagoRuiz1314](https://github.com/santiagoRuiz1314)
 - 📍 Location: Bucaramanga, Colombia
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **[Next.js](https://nextjs.org/)** - The React framework for production
 - **[Tailwind CSS](https://tailwindcss.com/)** - For the utility-first CSS framework
@@ -303,4 +319,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   <p>
     <a href="#top">Back to top</a>
   </p>
-</di
+</div>
