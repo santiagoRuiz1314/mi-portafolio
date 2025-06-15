@@ -1,3 +1,4 @@
+// src/utils/constants.ts - Versión actualizada y centralizada
 // Información personal y configuración del sitio
 export const SITE_CONFIG = {
   name: 'Mi Portafolio',
@@ -98,4 +99,32 @@ export const SEO_CONFIG = {
     'bucaramanga',
     'colombia',
   ],
+};
+
+// Configuración de animaciones para diferentes secciones
+export const ANIMATION_CONFIG = {
+  hero: {
+    stagger: 0.2,
+    duration: 0.6,
+  },
+  stats: {
+    countUp: {
+      duration: 2,
+      preserveValue: true,
+    },
+  },
+  skills: {
+    hover: {
+      scale: 1.05,
+      duration: 0.2,
+    },
+  },
+};
+
+// Configuración de límites para vistas previas
+export const PREVIEW_LIMITS = {
+  skills: 8,
+  projects: 3,
+  interests: 6,
+  achievements: 3,
 };
