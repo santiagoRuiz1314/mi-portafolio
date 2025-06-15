@@ -97,8 +97,6 @@ const ProjectsPage: React.FC = () => {
                     key={project.id}
                     project={project}
                     variant="featured"
-                    showCategory={true}
-                    showStatus={true}
                   />
                 ))}
               </div>
@@ -134,8 +132,6 @@ const ProjectsPage: React.FC = () => {
                     key={project.id}
                     project={project}
                     variant="default"
-                    showCategory={true}
-                    showStatus={true}
                   />
                 ))}
               </div>
