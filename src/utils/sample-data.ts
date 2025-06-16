@@ -132,24 +132,24 @@ export const SAMPLE_SKILLS: Skill[] = [
     description: 'Advanced open-source relational database',
     projects: ['Webpage_Unab']
   },
-  {
-    id: 'mongodb',
-    name: 'MongoDB',
-    level: 4,
-    category: 'Databases',
-    description: 'NoSQL document database for flexible data storage',
-    projects: ['task-manager']
-  },
+  // {
+  //   id: 'mongodb',
+  //   name: 'MongoDB',
+  //   level: 4,
+  //   category: 'Databases',
+  //   description: 'NoSQL document database for flexible data storage',
+  //   projects: ['task-manager']
+  // },
 
   // DevOps and Tools
-  {
-    id: 'docker',
-    name: 'Docker',
-    level: 3,
-    category: 'DevOps',
-    description: 'Containerization platform for consistent deployments',
-    projects: ['Webpage_Unab']
-  },
+  // {
+  //   id: 'docker',
+  //   name: 'Docker',
+  //   level: 3,
+  //   category: 'DevOps',
+  //   description: 'Containerization platform for consistent deployments',
+  //   projects: ['Webpage_Unab']
+  // },
   {
     id: 'git',
     name: 'Git',
@@ -158,14 +158,14 @@ export const SAMPLE_SKILLS: Skill[] = [
     description: 'Distributed version control system',
     projects: ['Webpage_Unab', 'task-manager']
   },
-  {
-    id: 'vercel',
-    name: 'Vercel',
-    level: 4,
-    category: 'Cloud',
-    description: 'Modern deployment platform for frontend projects',
-    projects: ['Webpage_Unab']
-  }
+  // {
+  //   id: 'vercel',
+  //   name: 'Vercel',
+  //   level: 4,
+  //   category: 'Cloud',
+  //   description: 'Modern deployment platform for frontend projects',
+  //   projects: ['Webpage_Unab']
+  // }
 ];
 
 // Categorías de habilidades para organización
