@@ -78,8 +78,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <article className={cardClasses}>
-      <Link href={`/projects/${project.id}`} onClick={handleViewProject}>
-        {/* Image */}
+      {/* Enlace principal a la página de detalle */}
+      <Link href={`/projects/${project.id}`} onClick={handleViewProject} className="block">
         <div className="relative overflow-hidden">
           <Image
             src={project.image}
@@ -88,10 +88,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             height={200}
             className={imageClasses}
             placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..."
           />
 
-          {/* Status Badge */}
           <div className="absolute top-4 left-4">
             <span className={cn(
               'px-2 py-1 text-xs font-medium rounded-full',
@@ -101,7 +100,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           </div>
 
-          {/* Featured Badge */}
           {project.featured && (
             <div className="absolute top-4 right-4">
               <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary-100 text-primary-800 dark:bg-primary-800 dark:text-primary-100">
@@ -111,9 +109,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           )}
         </div>
 
-        {/* Content */}
         <div className="p-6">
-          {/* Category & Date */}
           <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-2">
             <span className="flex items-center">
               <Tag size={14} className="mr-1" />
@@ -125,63 +121,42 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </span>
           </div>
 
-          {/* Title */}
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
             {project.title}
           </h3>
-
-          {/* Description */}
-          <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             {project.description}
           </p>
-
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.slice(0, 5).map((tech) => (
-              <span
-                key={tech}
-                className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > 5 && (
-              <span className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full">
-                +{project.technologies.length - 5}
-              </span>
-            )}
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center space-x-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleLiveClick}
-                className="flex items-center space-x-1 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-              >
-                <ExternalLink size={16} />
-                <span>Ver demo</span>
-              </a>
-            )}
-
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleGithubClick}
-                className="flex items-center space-x-1 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                <Github size={16} />
-                <span>Código</span>
-              </a>
-            )}
-          </div>
         </div>
       </Link>
+
+      {/* Enlaces externos (GitHub / Demo) fuera del Link principal */}
+      <div className="px-6 pb-6 flex space-x-4">
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleGithubClick}
+            className="flex items-center space-x-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
+          >
+            <Github size={16} />
+            <span>GitHub</span>
+          </a>
+        )}
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleLiveClick}
+            className="flex items-center space-x-1 text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
+          >
+            <ExternalLink size={16} />
+            <span>Demo</span>
+          </a>
+        )}
+      </div>
     </article>
   );
 };
