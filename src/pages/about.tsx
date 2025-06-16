@@ -46,10 +46,6 @@ const AboutPage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             <AboutCard
               info={aboutInfo}
-              variant="detailed"
-              showContact={true}
-              showInterests={true}
-              showAchievements={true}
             />
           </div>
         </div>
@@ -75,8 +71,6 @@ const AboutPage: React.FC = () => {
                   key={skill.id}
                   skill={skill}
                   variant="default"
-                  showCategory={true}
-                  interactive={false}
                 />
               ))}
             </div>
