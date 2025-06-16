@@ -3,12 +3,10 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import '@/styles/globals.css';
 
-// Importar analytics de forma segura
 let analytics: any = null;
 try {
   analytics = require('@/lib/analytics').default;
 } catch (error) {
-  // Analytics no disponible en desarrollo
   if (process.env.NODE_ENV === 'development') {
     console.log('Analytics not available in development');
   }
@@ -17,19 +15,17 @@ try {
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
-  // Evitar hidration mismatch esperando a que el componente se monte
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   useEffect(() => {
-    // Inicializar analytics solo en el cliente
     if (analytics?.init && typeof window !== 'undefined') {
       analytics.init();
     }
 
-    // Manejar cambios de ruta para analytics
     const handleRouteChange = (url: string) => {
       if (analytics?.pageView) {
         analytics.pageView(url);
@@ -42,10 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
-  // Error boundary mejorado
-  const [hasError, setHasError] = React.useState(false);
-
-  React.useEffect(() => {
+  useEffect(() => {
     const handleError = (error: ErrorEvent) => {
       console.error('Global error:', error);
       setHasError(true);
@@ -59,15 +52,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (typeof window !== 'undefined') {
       window.addEventListener('error', handleError);
       window.addEventListener('unhandledrejection', handleUnhandledRejection);
-      
-      return () => {
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
         window.removeEventListener('error', handleError);
         window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      };
-    }
+      }
+    };
   }, []);
 
-  // Mostrar loading hasta que el componente esté montado
   if (!isMounted) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
