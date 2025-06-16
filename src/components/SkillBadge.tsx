@@ -83,6 +83,8 @@ interface SkillBadgeProps {
   skill: Skill;
   variant?: 'default' | 'compact';
   className?: string;
+  showCategory?: boolean;
+  interactive?: boolean;
 }
 
 export const SkillBadge: React.FC<SkillBadgeProps> = ({

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Layout } from '@/components/Layout';
 import { SkillBadge } from '@/components/SkillBadge';
 import { SAMPLE_SKILLS, SKILL_CATEGORIES } from '@/utils/sample-data';
-import { Code, Database, Palette, Wrench, Smartphone, Cloud, Filter, Search } from 'lucide-react';
+import { Code, Database, Palette, Wrench, Cloud, Filter, Search } from 'lucide-react';
 
 const SkillsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -212,7 +212,7 @@ const SkillsPage: React.FC = () => {
                           <SkillBadge
                             key={skill.id}
                             skill={skill}
-                            variant={viewMode === 'compact' ? 'compact' : 'large'}
+                            variant={viewMode === 'compact' ? 'compact' : 'default'}
                             showCategory={false}
                             interactive={true}
                           />
@@ -249,7 +249,7 @@ const SkillsPage: React.FC = () => {
                     <SkillBadge
                       key={skill.id}
                       skill={skill}
-                      variant={viewMode === 'compact' ? 'compact' : 'large'}
+                      variant={viewMode === 'compact' ? 'compact' : 'default'}
                       showCategory={selectedCategory === 'all'}
                       interactive={true}
                     />
