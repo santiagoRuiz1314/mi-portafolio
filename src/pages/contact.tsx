@@ -1,9 +1,8 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { Layout } from '@/components/Layout';
 import { ContactForm } from '@/components/ContactForm';
 import { SITE_CONFIG, SOCIAL_LINKS } from '@/utils/constants';
-import { cn } from '@/utils/cn';
 import type { ContactFormData } from '@/types/global';
 
 const ContactPage: React.FC = () => {
@@ -184,14 +183,7 @@ const ContactPage: React.FC = () => {
 
                 <ContactForm
                   onSubmit={handleFormSubmit}
-                  variant="default"
                   showSubject={true}
-                  placeholder={{
-                    name: 'Your full name',
-                    email: 'you@email.com',
-                    subject: 'What project are we working on together?',
-                    message: 'Tell me about your project, estimated budget, and timeline...'
-                  }}
                 />
               </div>
 

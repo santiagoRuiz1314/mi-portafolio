@@ -233,7 +233,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               onBlur={() => handleInputBlur('name')}
-              placeholder="Tu nombre completo"
+              placeholder="Full Name"
               className={cn(
                 'form-input',
                 getFieldError('name') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -258,7 +258,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               onBlur={() => handleInputBlur('email')}
-              placeholder="tu@email.com"
+              placeholder="you@email.com"
               className={cn(
                 'form-input',
                 getFieldError('email') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -285,7 +285,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               value={formState.values.subject}
               onChange={(e) => handleInputChange('subject', e.target.value)}
               onBlur={() => handleInputBlur('subject')}
-              placeholder="Asunto de tu mensaje"
+              placeholder="Subject of your message"
               className={cn(
                 'form-input',
                 getFieldError('subject') && 'border-red-500 focus:border-red-500 focus:ring-red-500'
@@ -311,7 +311,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             value={formState.values.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
             onBlur={() => handleInputBlur('message')}
-            placeholder="Cuéntame sobre tu proyecto o consulta..."
+            placeholder="Describe your project or question..."
             className={cn(
               'form-textarea',
               getFieldError('message') && 'border-red-500 focus:border-red-500 focus:ring-red-500'

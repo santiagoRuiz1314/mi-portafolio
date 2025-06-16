@@ -18,7 +18,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  name = 'Tu Nombre',
+  name = 'Santiago Ruiz',
   subtitle = 'Creando experiencias digitales excepcionales',
   description = 'Desarrollador apasionado especializado en React, Next.js y tecnologías modernas. Me enfoco en crear aplicaciones web escalables y experiencias de usuario intuitivas.',
   profileImage = '/images/foto-perfil.jpg',
