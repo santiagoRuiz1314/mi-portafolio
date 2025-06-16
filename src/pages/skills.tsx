@@ -266,10 +266,10 @@ const SkillsPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-12">
-              Technical Expertise
+              Key Stats
             </h2>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
                   {SAMPLE_SKILLS.length}+
@@ -280,77 +280,14 @@ const SkillsPage: React.FC = () => {
                 <div className="text-4xl font-bold text-white mb-2">
                   {SKILL_CATEGORIES.length}
                 </div>
-                <p className="text-primary-100">Specialization Areas</p>
+                <p className="text-primary-100">Courses</p>
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-white mb-2">
-                  {SAMPLE_SKILLS.reduce((sum, skill) => sum + (skill.projects?.length || 0), 0)}
+                  3
                 </div>
-                <p className="text-primary-100">Project Applications</p>
+                <p className="text-primary-100">Projects</p>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-white mb-2">
-                  {Math.max(...SAMPLE_SKILLS.map(s => s.level || 0))}
-                </div>
-                <p className="text-primary-100">Max Proficiency</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Learning & Growth Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Continuous Learning
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                Technology evolves rapidly, and I stay ahead of the curve. 
-                Here are some technologies I'm currently exploring and learning.
-              </p>
-            </div>
-            
-            {/* Learning Technologies */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-              {[
-                { name: 'Astro', category: 'Frontend' },
-                { name: 'Svelte', category: 'Frontend' },
-                { name: 'Rust', category: 'Systems' },
-                { name: 'Go', category: 'Backend' },
-                { name: 'WebAssembly', category: 'Performance' },
-                { name: 'Three.js', category: '3D Graphics' },
-                { name: 'GraphQL', category: 'API' },
-                { name: 'Supabase', category: 'Backend' }
-              ].map((tech, index) => (
-                <div
-                  key={index}
-                  className="group p-4 bg-white dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl text-center hover:border-primary-400 dark:hover:border-primary-500 transition-all duration-200 hover:shadow-md"
-                >
-                  <div className="text-2xl mb-2">🚀</div>
-                  <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
-                    {tech.name}
-                  </div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">
-                    {tech.category}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Learning Philosophy */}
-            <div className="bg-gradient-to-r from-primary-50 to-accent-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 text-center">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-                My Learning Philosophy
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I believe in staying curious and continuously expanding my technical toolkit. 
-                Every project is an opportunity to learn something new, whether it's a cutting-edge framework, 
-                a better development practice, or a more efficient way to solve problems. 
-                This mindset keeps me adaptable and ready for the ever-evolving landscape of technology.
-              </p>
             </div>
           </div>
         </div>
