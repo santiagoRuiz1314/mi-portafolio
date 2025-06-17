@@ -33,8 +33,7 @@ const quickLinks = [
 ];
 
 const resourceLinks = [
-  { href: '/contact', label: 'contact' },
-  { href: '/sitemap.xml', label: 'Sitemap' },
+  { href: '/contact', label: 'contact' }
 ];
 
 export const Footer: React.FC = () => {
