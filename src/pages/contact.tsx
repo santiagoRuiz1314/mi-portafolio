@@ -73,12 +73,6 @@ const ContactPage: React.FC = () => {
       url: SOCIAL_LINKS.linkedin,
       icon: '💼',
       description: 'Let’s connect professionally'
-    },
-    {
-      name: 'X',
-      url: SOCIAL_LINKS.twitter,
-      icon: '𝕏',
-      description: 'Follow me for updates'
     }
   ];
 
