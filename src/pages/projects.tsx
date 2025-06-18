@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Layout } from '@/components/Layout';
-import { ProjectCard } from '@/components/ProjectCard';
+import { ProjectCard, type Project } from '@/components/ProjectCard';
+import { ProjectModal } from '@/components/ProjectModal'; // Nuevo import
 import { SAMPLE_PROJECTS, PROJECT_CATEGORIES } from '@/utils/sample-data';
 import { Search, Filter } from 'lucide-react';
 
 const ProjectsPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Estados para el modal
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Filtrar proyectos
   const filteredProjects = SAMPLE_PROJECTS.filter(project => {
@@ -25,6 +30,17 @@ const ProjectsPage: React.FC = () => {
 
   const featuredProjects = filteredProjects.filter(p => p.featured);
   const otherProjects = filteredProjects.filter(p => !p.featured);
+
+  // Handlers para el modal
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <Layout
@@ -97,6 +113,7 @@ const ProjectsPage: React.FC = () => {
                     key={project.id}
                     project={project}
                     variant="featured"
+                    onProjectClick={handleProjectClick} // Pasar el handler
                   />
                 ))}
               </div>
@@ -132,6 +149,7 @@ const ProjectsPage: React.FC = () => {
                     key={project.id}
                     project={project}
                     variant="default"
+                    onProjectClick={handleProjectClick} // Pasar el handler
                   />
                 ))}
               </div>
@@ -157,7 +175,7 @@ const ProjectsPage: React.FC = () => {
               Like what you see?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              If you're planning a project, I’d be happy to collaborate with you.
+              If you're planning a project, I'd be happy to collaborate with you.
             </p>
             <a
               href="/contact"
@@ -169,6 +187,13 @@ const ProjectsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </Layout>
   );
 };

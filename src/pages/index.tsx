@@ -1,10 +1,11 @@
-// src/pages/index.tsx - Versión refactorizada y limpia
-import React from 'react';
+// src/pages/index.tsx - Versión refactorizada y limpia con Modal
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Code, Users, Coffee, Award } from 'lucide-react';
 import { Layout } from '@/components/Layout';
 import { HeroSection } from '@/components/HeroSection';
-import { ProjectCard } from '@/components/ProjectCard';
+import { ProjectCard, type Project } from '@/components/ProjectCard';
+import { ProjectModal } from '@/components/ProjectModal'; // Nuevo import
 import { SkillBadge } from '@/components/SkillBadge';
 import { useAnalytics } from '@/lib/analytics';
 import { usePortfolioData } from '@/hooks/usePortfolioData';
@@ -19,6 +20,10 @@ const STATS_ICONS = {
 
 const HomePage: React.FC = () => {
   const analytics = useAnalytics();
+  
+  // Estado para el modal
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   // Obtener todos los datos del hook centralizado
   const {
@@ -43,6 +48,17 @@ const HomePage: React.FC = () => {
     analytics.navigation.menuClick('contact');
   };
 
+  // Nuevos handlers para el modal
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <Layout seo={seoData}>
       {/* Hero Section */}
@@ -64,10 +80,18 @@ const HomePage: React.FC = () => {
       <ProjectsPreviewSection 
         featuredProjects={featuredProjects}
         onViewAll={handleViewAllProjects}
+        onProjectClick={handleProjectClick} // Pasar el handler
       />
 
       {/* CTA Section */}
       <CTASection onContactClick={handleContactClick} />
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </Layout>
   );
 };
@@ -204,15 +228,17 @@ const SkillsPreviewSection: React.FC<SkillsPreviewSectionProps> = ({
   </section>
 );
 
-// Componente de sección Projects
+// Componente de sección Projects - ACTUALIZADO
 interface ProjectsPreviewSectionProps {
   featuredProjects: any[];
   onViewAll: () => void;
+  onProjectClick: (project: Project) => void; // Nueva prop
 }
 
 const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({ 
   featuredProjects, 
-  onViewAll 
+  onViewAll,
+  onProjectClick // Nueva prop
 }) => (
   <section className="py-20 bg-gray-50 dark:bg-gray-900">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,6 +257,7 @@ const ProjectsPreviewSection: React.FC<ProjectsPreviewSectionProps> = ({
             key={project.id}
             project={project}
             variant="default"
+            onProjectClick={onProjectClick} // Pasar el handler
           />
         ))}
       </div>
