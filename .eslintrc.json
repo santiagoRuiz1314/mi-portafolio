@@ -14,7 +14,7 @@
     "@typescript-eslint"
   ],
   "rules": {
-    // TypeScript específicas
+    
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -33,17 +33,17 @@
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/prefer-optional-chain": "error",
     
-    // React específicas
+    
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/no-unescaped-entities": "warn",
     "react-hooks/exhaustive-deps": "warn",
     
-    // Next.js específicas
+    
     "@next/next/no-img-element": "error",
     "@next/next/no-html-link-for-pages": "error",
     
-    // Generales
+    
     "prefer-const": "error",
     "no-var": "error",
     "object-shorthand": "error",
@@ -68,7 +68,7 @@
       }
     ],
     
-    // Imports
+    
     "import/order": [
       "error",
       {
@@ -90,7 +90,7 @@
     "import/no-duplicates": "error",
     "import/no-unused-modules": "warn",
     
-    // Accesibilidad
+    
     "jsx-a11y/alt-text": "error",
     "jsx-a11y/anchor-has-content": "error",
     "jsx-a11y/anchor-is-valid": "error",

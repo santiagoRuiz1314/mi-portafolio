@@ -1,31 +1,27 @@
-// src/hooks/usePortfolioData.ts
+
 import { useMemo } from 'react';
 import { SITE_CONFIG, PERSONAL_INFO, PREVIEW_LIMITS } from '@/utils/constants';
 import { SAMPLE_PROJECTS, SAMPLE_SKILLS } from '@/utils/sample-data';
 import { calculatePortfolioStats } from '@/utils/portfolio-stats';
 import type { PortfolioData } from '@/types/portfolio';
 
-/**
- * Hook para centralizar y calcular dinámicamente los datos del portafolio
- * Evita duplicación de código y mantiene los datos sincronizados
- */
 export function usePortfolioData(): PortfolioData {
-  // Usar las utilidades de estadísticas para cálculos dinámicos
+  
   const portfolioStats = useMemo(() => calculatePortfolioStats(), []);
 
-  // Proyectos destacados y filtrados
+  
   const featuredProjects = useMemo(() => 
     SAMPLE_PROJECTS.filter(project => project.featured).slice(0, PREVIEW_LIMITS.projects),
     []
   );
 
-  // Habilidades principales
+  
   const topSkills = useMemo(() => 
     SAMPLE_SKILLS.filter(skill => skill.level >= 4).slice(0, PREVIEW_LIMITS.skills),
     []
   );
 
-  // Configuración de estadísticas para mostrar
+  
   const statsConfig = useMemo(() => [
     {
       icon: 'Code',
@@ -53,7 +49,7 @@ export function usePortfolioData(): PortfolioData {
     }
   ], [portfolioStats]);
 
-  // Hero section data
+  
   const heroData = useMemo(() => ({
     name: SITE_CONFIG.author,
     title: SITE_CONFIG.title,
@@ -65,7 +61,7 @@ export function usePortfolioData(): PortfolioData {
     cvUrl: SITE_CONFIG.cvUrl,
   }), []);
 
-  // About section data
+  
   const aboutData = useMemo(() => ({
     bio: PERSONAL_INFO.bio,
     interests: PERSONAL_INFO.interests.slice(0, PREVIEW_LIMITS.interests),
@@ -73,23 +69,23 @@ export function usePortfolioData(): PortfolioData {
   }), []);
 
   return {
-    // Datos principales
+    
     siteConfig: SITE_CONFIG,
     personalInfo: PERSONAL_INFO,
     
-    // Datos calculados
+    
     portfolioStats,
     statsConfig,
     
-    // Datos filtrados
+    
     featuredProjects,
     topSkills,
     
-    // Datos de secciones específicas
+    
     heroData,
     aboutData,
     
-    // Metadatos para SEO
+    
     seoData: {
       title: `${SITE_CONFIG.author} - ${SITE_CONFIG.title}`,
       description: SITE_CONFIG.description,

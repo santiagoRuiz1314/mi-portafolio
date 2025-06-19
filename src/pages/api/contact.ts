@@ -16,7 +16,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ApiResponse>
 ) {
-  // Solo permitir POST
+  
   if (req.method !== 'POST') {
     return res.status(405).json({
       success: false,
@@ -27,7 +27,7 @@ export default async function handler(
   try {
     const { name, email, subject, message }: ContactFormData = req.body;
 
-    // Validación básica
+    
     if (!name || !email || !subject || !message) {
       return res.status(400).json({
         success: false,
@@ -35,7 +35,7 @@ export default async function handler(
       });
     }
 
-    // Validar email
+    
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({
@@ -44,7 +44,7 @@ export default async function handler(
       });
     }
 
-    // Validar longitudes
+    
     if (name.length < 2 || name.length > 100) {
       return res.status(400).json({
         success: false,
@@ -66,8 +66,8 @@ export default async function handler(
       });
     }
 
-    // Aquí normalmente enviarías el email
-    // Por ahora solo logueamos la información
+    
+    
     console.log('Nuevo mensaje de contacto:', {
       name: name.trim(),
       email: email.trim(),
@@ -78,7 +78,7 @@ export default async function handler(
       userAgent: req.headers['user-agent']
     });
 
-    // Simular un pequeño delay
+    
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     return res.status(200).json({
@@ -96,7 +96,7 @@ export default async function handler(
   }
 }
 
-// Configuración para el manejo de CORS si es necesario
+
 export const config = {
   api: {
     bodyParser: {

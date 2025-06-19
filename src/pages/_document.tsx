@@ -12,7 +12,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
-        {/* Fonts - usando display=swap para evitar FOIT */}
+        {/* Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -23,7 +23,7 @@ export default function Document() {
         <meta name="theme-color" content="#3b82f6" />
         <meta name="msapplication-TileColor" content="#3b82f6" />
         
-        {/* Favicons - crear estos archivos si no existen */}
+        {/* Favicons */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -42,7 +42,6 @@ export default function Document() {
         }} />
       </Head>
       <body className="antialiased font-loading">
-        {/* Prevenir flash con script inline */}
         <script
           dangerouslySetInnerHTML={{
             __html: `

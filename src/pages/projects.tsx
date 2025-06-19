@@ -5,7 +5,7 @@ import { ProjectModal } from '@/components/ProjectModal';
 import { SAMPLE_PROJECTS, PROJECT_CATEGORIES } from '@/utils/sample-data';
 import { Search, Filter } from 'lucide-react';
 
-// Hook personalizado para lógica de filtrado
+
 const useProjectFilters = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -114,7 +114,7 @@ const ProjectsPage: React.FC = () => {
   );
 };
 
-// Componentes separados para mejor legibilidad
+
 const HeroSection: React.FC<{
   searchTerm: string;
   onSearchChange: (term: string) => void;

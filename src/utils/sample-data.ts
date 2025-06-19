@@ -1,7 +1,6 @@
 import type { Project } from '@/components/ProjectCard';
 import type { Skill } from '@/components/SkillBadge';
 
-// Proyectos realmente usados en el portafolio
 export const SAMPLE_PROJECTS: Project[] = [
   {
     id: 'Webpage_Unab',
@@ -45,7 +44,6 @@ export const SAMPLE_PROJECTS: Project[] = [
   }
 ];
 
-// Habilidades técnicas principales
 export const SAMPLE_SKILLS: Skill[] = [
   // Frontend
   {

@@ -1,8 +1,3 @@
-// Versión simplificada de analytics para funcionar sin dependencias externas
-
-/**
- * Hook simple para analytics que funciona sin configuración externa
- */
 export function useAnalytics() {
   const track = {
     pageView: (url: string, title?: string) => {
@@ -17,7 +12,7 @@ export function useAnalytics() {
       }
     },
 
-    // Navegación
+    
     navigation: {
       menuClick: (item: string) => {
         console.log('Navigation click:', item);
@@ -30,7 +25,7 @@ export function useAnalytics() {
       },
     },
 
-    // Proyectos
+    
     projects: {
       view: (projectId: string) => {
         console.log('Project viewed:', projectId);
@@ -46,7 +41,7 @@ export function useAnalytics() {
       },
     },
 
-    // Contacto
+    
     contact: {
       formSubmit: () => {
         console.log('Contact form submitted');
@@ -65,7 +60,7 @@ export function useAnalytics() {
       },
     },
 
-    // Descargas
+    
     downloads: {
       cv: () => {
         console.log('CV downloaded');
@@ -75,7 +70,7 @@ export function useAnalytics() {
       },
     },
 
-    // Interacciones
+    
     interactions: {
       themeToggle: (theme: string) => {
         console.log('Theme toggled to:', theme);
@@ -89,7 +84,7 @@ export function useAnalytics() {
   return track;
 }
 
-// Exportar por defecto un objeto simple
+
 export default {
   init: () => {
     console.log('Analytics initialized (mock)');

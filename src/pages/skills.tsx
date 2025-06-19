@@ -9,7 +9,7 @@ const SkillsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'compact'>('grid');
 
-  // Filtrar habilidades por categoría y búsqueda
+  
   const filteredSkills = SAMPLE_SKILLS.filter(skill => {
     const matchesCategory = selectedCategory === 'all' || 
       skill.category.toLowerCase() === selectedCategory.toLowerCase();
@@ -21,7 +21,7 @@ const SkillsPage: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
-  // Agrupar habilidades por categoría
+  
   const skillsByCategory = SKILL_CATEGORIES.reduce((acc, category) => {
     acc[category.id] = SAMPLE_SKILLS.filter(skill => 
       skill.category.toLowerCase() === category.name.toLowerCase()
@@ -147,7 +147,7 @@ const SkillsPage: React.FC = () => {
 
       {/* Skills Display */}
       {selectedCategory === 'all' ? (
-        // Mostrar todas las categorías organizadas
+        
         <div className="py-20">
           {SKILL_CATEGORIES.map((category, index) => {
             const skills = skillsByCategory[category.id] || [];
@@ -225,7 +225,7 @@ const SkillsPage: React.FC = () => {
           })}
         </div>
       ) : (
-        // Mostrar categoría específica
+        
         <section className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">

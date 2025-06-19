@@ -1,4 +1,4 @@
-// src/pages/api/sitemap.xml.ts
+
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { SAMPLE_PROJECTS } from '@/utils/sample-data';
 import { siteConfig } from '@/lib/seo';
@@ -11,7 +11,7 @@ interface SitemapUrl {
 }
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Solo permitir GET
+  
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -20,7 +20,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const sitemap = generateSitemap();
     
     res.setHeader('Content-Type', 'application/xml');
-    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600'); // Cache por 1 hora
+    res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600'); 
     res.status(200).send(sitemap);
   } catch (error) {
     console.error('Error generating sitemap:', error);
@@ -32,7 +32,7 @@ function generateSitemap(): string {
   const baseUrl = siteConfig.url;
   const currentDate = new Date().toISOString();
 
-  // URLs estáticas del sitio
+  
   const staticUrls: SitemapUrl[] = [
     {
       loc: `${baseUrl}/`,
@@ -66,7 +66,7 @@ function generateSitemap(): string {
     }
   ];
 
-  // URLs dinámicas de proyectos
+  
   const projectUrls: SitemapUrl[] = SAMPLE_PROJECTS.map(project => ({
     loc: `${baseUrl}/projects/${project.id}`,
     lastmod: project.endDate || project.startDate || currentDate,
@@ -74,10 +74,10 @@ function generateSitemap(): string {
     priority: project.featured ? 0.8 : 0.6
   }));
 
-  // Combinar todas las URLs
+  
   const allUrls = [...staticUrls, ...projectUrls];
 
-  // Generar XML del sitemap
+  
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allUrls.map(url => `  <url>

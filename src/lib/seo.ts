@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import type { SEOConfig } from '@/types/global';
 
-// Configuración base del sitio
+
 export const siteConfig = {
   name: process.env.NEXT_PUBLIC_SITE_NAME || 'Mi Portafolio',
   description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Portafolio personal de desarrollo web',
@@ -32,9 +32,7 @@ export const siteConfig = {
   },
 };
 
-/**
- * Genera metadatos base para todas las páginas
- */
+
 export function generateSEO(config: Partial<SEOConfig> = {}): Metadata {
   const {
     title = siteConfig.name,
@@ -131,9 +129,7 @@ export function generateSEO(config: Partial<SEOConfig> = {}): Metadata {
   };
 }
 
-/**
- * Genera metadatos específicos para páginas de blog
- */
+
 export function generateBlogSEO(config: {
   title: string;
   description: string;
@@ -168,9 +164,7 @@ export function generateBlogSEO(config: {
   });
 }
 
-/**
- * Genera metadatos específicos para páginas de proyectos
- */
+
 export function generateProjectSEO(config: {
   title: string;
   description: string;
@@ -195,9 +189,7 @@ export function generateProjectSEO(config: {
   });
 }
 
-/**
- * Genera datos estructurados JSON-LD
- */
+
 export function generateJSONLD(type: 'Person' | 'Article' | 'WebSite' | 'Organization', data: any = {}) {
   const baseData = {
     '@context': 'https://schema.org',
@@ -287,9 +279,6 @@ export function generateJSONLD(type: 'Person' | 'Article' | 'WebSite' | 'Organiz
   }
 }
 
-/**
- * Genera breadcrumbs estructurados
- */
 export function generateBreadcrumbsJSONLD(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',
@@ -303,9 +292,7 @@ export function generateBreadcrumbsJSONLD(items: Array<{ name: string; url: stri
   };
 }
 
-/**
- * Genera FAQs estructurados
- */
+
 export function generateFAQJSONLD(faqs: Array<{ question: string; answer: string }>) {
   return {
     '@context': 'https://schema.org',
@@ -321,9 +308,6 @@ export function generateFAQJSONLD(faqs: Array<{ question: string; answer: string
   };
 }
 
-/**
- * Utilidades para robots.txt y sitemap
- */
 export function generateRobotsTxt(): string {
   const baseUrl = siteConfig.url;
   
@@ -351,10 +335,8 @@ Sitemap: ${baseUrl}/sitemap.xml
   `.trim();
 }
 
-/**
- * Configuración de caché para metadatos
- */
+
 export const seoCache = {
-  revalidate: 3600, // 1 hora
+  revalidate: 3600, 
   tags: ['seo', 'metadata'],
 };

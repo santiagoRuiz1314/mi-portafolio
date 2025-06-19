@@ -1,4 +1,3 @@
-// src/types/portfolio.ts - Tipos específicos para el portafolio
 import type { Project } from '@/components/ProjectCard';
 import type { Skill } from '@/components/SkillBadge';
 

@@ -1,5 +1,3 @@
-// src/utils/constants.ts - Versión actualizada y centralizada
-// Información personal y configuración del sitio
 export const SITE_CONFIG = {
   name: 'Mi Portafolio',
   author: 'Santiago Steven Ruiz Carreño',
@@ -17,14 +15,13 @@ export const SITE_CONFIG = {
   cvUrl: '/cv.pdf',
 };
 
-// Redes sociales
 export const SOCIAL_LINKS = {
   github: process.env.NEXT_PUBLIC_GITHUB_URL || 'https://github.com/santiagoRuiz1314',
   linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL || 'https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369',
   twitter: process.env.NEXT_PUBLIC_TWITTER_URL || 'https://twitter.com',
 };
 
-// Información personal detallada
+
 export const PERSONAL_INFO = {
   bio: `I'm a full stack developer with over ${SITE_CONFIG.yearsOfExperience} years of experience building modern and scalable web applications.
   
@@ -69,7 +66,7 @@ export const PERSONAL_INFO = {
   ],
 };
 
-// Configuración de navegación
+//
 export const NAVIGATION = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Me' },
@@ -78,7 +75,7 @@ export const NAVIGATION = [
   { href: '/contact', label: 'Contact' },
 ];
 
-// Configuración de SEO
+
 export const SEO_CONFIG = {
   defaultTitle: SITE_CONFIG.name,
   titleTemplate: `%s | ${SITE_CONFIG.name}`,
@@ -101,7 +98,7 @@ export const SEO_CONFIG = {
   ],
 };
 
-// Configuración de animaciones para diferentes secciones
+
 export const ANIMATION_CONFIG = {
   hero: {
     stagger: 0.2,
@@ -121,7 +118,7 @@ export const ANIMATION_CONFIG = {
   },
 };
 
-// Configuración de límites para vistas previas
+
 export const PREVIEW_LIMITS = {
   skills: 8,
   projects: 3,

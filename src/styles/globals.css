@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset y configuración base */
 *,
 *::before,
 *::after {
@@ -21,7 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Mejoras de accesibilidad */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -33,13 +32,13 @@ body {
   }
 }
 
-/* Focus styles mejorados */
+
 *:focus-visible {
   outline: 2px solid rgb(59 130 246);
   outline-offset: 2px;
 }
 
-/* Skip to content link para accesibilidad */
+
 .skip-link {
   position: absolute;
   top: -40px;
@@ -56,7 +55,7 @@ body {
   top: 6px;
 }
 
-/* Animaciones del Modal */
+
 @keyframes modal-overlay-enter {
   from {
     opacity: 0;
@@ -97,7 +96,7 @@ body {
   }
 }
 
-/* Clases para animaciones del modal */
+
 .animate-in {
   animation: modal-overlay-enter 0.3s ease-out;
 }
@@ -114,7 +113,7 @@ body {
   animation: modal-content-exit 0.2s ease-in;
 }
 
-/* Utilidades de formularios - Usadas en ContactForm */
+
 .form-group {
   @apply mb-4;
 }
@@ -138,7 +137,7 @@ body {
   @apply text-red-600 dark:text-red-400 text-sm mt-1;
 }
 
-/* Botones - Usados en múltiples componentes */
+
 .btn {
   @apply px-4 py-2 rounded-md font-medium transition-all duration-200 cursor-pointer 
          inline-flex items-center justify-center text-center;
@@ -154,7 +153,7 @@ body {
          dark:text-white dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600;
 }
 
-/* Utilidades de sombra - Usadas en ProjectCard, SkillBadge, etc. */
+
 .shadow-soft {
   box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
 }
@@ -163,7 +162,7 @@ body {
   box-shadow: 0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
 }
 
-/* Scroll personalizado */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -180,13 +179,13 @@ body {
   @apply bg-gray-400 dark:bg-gray-500;
 }
 
-/* Estilos específicos para el modal */
+
 .modal-backdrop {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
-/* Animación suave para elementos que aparecen */
+
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -202,7 +201,7 @@ body {
   }
 }
 
-/* Mejoras para la experiencia del usuario en dispositivos táctiles */
+
 @media (hover: none) and (pointer: coarse) {
   .hover\:scale-105:hover {
     transform: none;
@@ -213,7 +212,7 @@ body {
   }
 }
 
-/* Animación de bounce suave para elementos flotantes */
+
 @keyframes bounce-gentle {
   0%, 100% {
     transform: translateY(0);
@@ -227,7 +226,7 @@ body {
   animation: bounce-gentle 2s infinite;
 }
 
-/* Animación de pulse suave */
+
 @keyframes pulse-gentle {
   0%, 100% {
     opacity: 1;
