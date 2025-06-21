@@ -20,7 +20,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Analytics Ready**: Built-in analytics integration support
 - **Multilingual Support**: Ready for English/Spanish localization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **[Next.js 14.2.5](https://nextjs.org/)** - React framework for production
