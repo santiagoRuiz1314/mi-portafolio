@@ -2,24 +2,25 @@
 
 A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project showcases my skills as a Full Stack Developer and serves as a comprehensive platform to display my projects, technical expertise, and professional journey.
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.2.5-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.4-blue)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.6-38B2AC)](https://tailwindcss.com/)
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB)](https://reactjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2.5-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.4-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.6-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
 ## Features
 
-- **📱 Responsive Design**: Mobile-first approach with seamless adaptation across all devices
-- **🌙 Dark/Light Theme**: Automatic theme detection with manual toggle option
-- **⚡ Performance Optimized**: Built with Next.js for optimal loading speeds and SEO
-- **🎨 Modern UI/UX**: Clean, professional design with smooth animations
-- **📧 Contact Form**: Functional contact form with client-side validation
-- **🔍 SEO Optimized**: Meta tags, structured data, and dynamic sitemap generation
-- **♿ Accessibility**: WCAG compliant with keyboard navigation and screen reader support
-- **🚀 TypeScript**: Full type safety for better development experience
-- **📊 Analytics Ready**: Built-in analytics integration support
+- **Responsive Design**: Mobile-first approach with seamless adaptation across all devices
+- **Dark/Light Theme**: Automatic theme detection with manual toggle option
+- **Performance Optimized**: Built with Next.js for optimal loading speeds and SEO
+- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Contact Form**: Functional contact form with Formspree integration
+- **SEO Optimized**: Meta tags, structured data, and dynamic sitemap generation
+- **Accessibility**: WCAG compliant with keyboard navigation and screen reader support
+- **TypeScript**: Full type safety for better development experience
+- **Analytics Ready**: Built-in analytics integration support
+- **Multilingual Support**: Ready for English/Spanish localization
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Core Technologies
 - **[Next.js 14.2.5](https://nextjs.org/)** - React framework for production
@@ -55,12 +56,14 @@ portfolio-web/
 │   │   ├── Layout.tsx         # Main layout wrapper
 │   │   ├── Navbar.tsx         # Navigation header
 │   │   ├── ProjectCard.tsx    # Project showcase cards
+│   │   ├── ProjectModal.tsx   # Project detail modal
 │   │   ├── SEOHead.tsx        # SEO meta tags component
 │   │   └── SkillBadge.tsx     # Technology skill badges
 │   ├── hooks/                 # Custom React hooks
 │   │   └── usePortfolioData.ts # Portfolio data management
 │   ├── lib/                   # Utility libraries
 │   │   ├── analytics.ts       # Analytics integration
+│   │   ├── formspree.ts       # Email service integration
 │   │   └── seo.ts            # SEO configuration and helpers
 │   ├── pages/                 # Next.js pages and API routes
 │   │   ├── api/              # API endpoints
@@ -123,6 +126,7 @@ portfolio-web/
    NEXT_PUBLIC_GITHUB_URL="https://github.com/yourusername"
    NEXT_PUBLIC_LINKEDIN_URL="https://linkedin.com/in/yourprofile"
    NEXT_PUBLIC_SITE_URL="https://yourdomain.com"
+   NEXT_PUBLIC_FORMSPREE_ENDPOINT="https://formspree.io/f/YOUR_FORM_ID"
    ```
 
 4. **Start the development server**
@@ -133,7 +137,7 @@ portfolio-web/
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## Customization
+## Configuration
 
 ### Personal Information
 Update your personal details in `src/utils/constants.ts`:
@@ -178,6 +182,16 @@ export const SAMPLE_SKILLS: Skill[] = [
   }
 ];
 ```
+
+### Contact Form
+To enable the contact form functionality:
+
+1. **Sign up for Formspree** at [formspree.io](https://formspree.io)
+2. **Create a new form** and get your endpoint URL
+3. **Add the endpoint** to your environment variables:
+   ```env
+   NEXT_PUBLIC_FORMSPREE_ENDPOINT="https://formspree.io/f/YOUR_FORM_ID"
+   ```
 
 ### Styling & Theme
 Customize colors and theme in `tailwind.config.js`:
@@ -230,30 +244,7 @@ npm run clean        # Clean build artifacts
 2. Export static files: `npm run export` (if configured)
 3. Upload the generated files to your hosting provider
 
-## 🔧 Configuration
-
-### Contact Form
-To enable the contact form functionality, the API route `/api/contact` is already configured. You can extend it to integrate with email services like:
-
-- **SendGrid**
-- **Nodemailer with SMTP**
-- **Resend**
-- **EmailJS**
-
-### Analytics
-Add your analytics IDs to environment variables:
-```env
-NEXT_PUBLIC_GA_ID="G-XXXXXXXXXX"
-NEXT_PUBLIC_GTM_ID="GTM-XXXXXXX"
-```
-
-### SEO Optimization
-- Update meta descriptions in each page component
-- Add your domain to `src/lib/seo.ts`
-- Generate a new sitemap after adding content
-- Submit your sitemap to Google Search Console
-
-## Key Features
+## Features Overview
 
 ### Dynamic Portfolio Statistics
 The portfolio automatically calculates and displays:
@@ -270,10 +261,16 @@ The portfolio automatically calculates and displays:
 - Accessibility compliance
 
 ### Contact System
-- Form validation
-- Client-side and server-side validation
-- Error handling
-- Success/error feedback
+- Form validation (client-side and server-side)
+- Formspree integration for email delivery
+- Error handling and user feedback
+- Spam protection with honeypot fields
+
+### Theme System
+- Automatic dark/light mode detection
+- Manual theme toggle
+- System preference respect
+- Smooth transitions between themes
 
 ## Contributing
 
@@ -299,11 +296,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Author
 
 **Santiago Steven Ruiz Carreño**
-- 🌐 Website: [En proceso..](https://your-domain.com)
-- 📧 Email: santiago06ruiz@gmail.com
-- 💼 LinkedIn: [santiago-steven-ruiz-carreño](https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369)
-- 🐱 GitHub: [@santiagoRuiz1314](https://github.com/santiagoRuiz1314)
-- 📍 Location: Bucaramanga, Colombia
+- Website: [Portfolio](https://mi-portafolio-khaki-nine.vercel.app)
+- Email: santiago06ruiz@gmail.com
+- LinkedIn: [santiago-steven-ruiz-carreño](https://linkedin.com/in/santiago-steven-ruiz-carreño-880571369)
+- GitHub: [@santiagoRuiz1314](https://github.com/santiagoRuiz1314)
+- Location: Bucaramanga, Colombia
 
 ## Acknowledgments
 
@@ -311,6 +308,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[Tailwind CSS](https://tailwindcss.com/)** - For the utility-first CSS framework
 - **[Lucide](https://lucide.dev/)** - For the beautiful icons
 - **[Vercel](https://vercel.com/)** - For hosting and deployment platform
+- **[Formspree](https://formspree.io/)** - For contact form handling
+
+## Project Status
+
+- **Core Features**: Complete
+- **Responsive Design**: Complete
+- **SEO Optimization**: Complete
+- **Contact Form**: Complete
+- **Dark/Light Theme**: Complete
+- **Blog Section**: Planned
+- **Internationalization**: In Progress
+- **CMS Integration**: Planned
 
 ---
 
