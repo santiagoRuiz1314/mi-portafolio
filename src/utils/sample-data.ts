@@ -15,7 +15,6 @@ export const SAMPLE_PROJECTS: Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'React Router', 'Headless UI', 'Vite', 'Docker'],
     githubUrl: 'https://github.com/santiagoRuiz1314/Webpage_Unab',
-    liveUrl: 'https://ecommerce-demo.vercel.app',
     featured: true,
     status: 'completed',
     startDate: '2025-04-04',
@@ -30,17 +29,32 @@ export const SAMPLE_PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'task-manager',
-    title: 'Soon',
-    description: '..',
+    id: 'ollama-calculus-solver',
+    title: 'Calculus Solver',
+    description: 'Web application that solves university-level calculus problems step by step using a local LLM (DeepSeek-R1) running on Ollama. The interface is built with OpenWebUI and the system is easily deployed using Docker',
     image: '/images/proyectos/proyecto-b-hero.png',
-    technologies: [],
-    githubUrl: 'https://github.com/santiagoRuiz1314',
-    featured: false,
-    status: 'in-progress',
-    startDate: '2025-07-01',
-    category: 'Productividad',
-    tags: ['Real-time'],
+    technologies: ['Python',
+    'FastAPI', 
+    'Ollama',
+    'DeepSeek-R1',
+    'Docker',
+    'OpenWebUI',
+    'REST API',
+    'LLM',
+    'Mathematical Computing'],
+    githubUrl: 'https://github.com/santiagoRuiz1314/calculus-llm-deepseek',
+    featured: true,
+    status: 'completed',
+    startDate: '2025-04-01',
+    category: 'Productivity',
+    tags: ['"AI", "NLP", "Calculus", "Step-by-step solutions", "Web Interface"'],
+        highlights: [
+        "Solves advanced calculus problems with detailed, step-by-step explanations",
+        "Powered by a local LLM (DeepSeek-R1) using Ollama for private and offline execution",
+        "Modern web interface built with OpenWebUI for seamless user experience",
+        "Easily deployable with Docker for quick local setup",
+        "Designed for university students and educators seeking AI-assisted problem solving"
+    ]
   }
 ];
 
