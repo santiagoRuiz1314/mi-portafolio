@@ -47,7 +47,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     status: 'completed',
     startDate: '2025-04-01',
     category: 'Productivity',
-    tags: ['"AI", "NLP", "Calculus", "Step-by-step solutions", "Web Interface"'],
+    tags: ['AI', 'NLP', 'Calculus', 'Step-by-step solutions"', 'Web Interface'],
         highlights: [
         "Solves advanced calculus problems with detailed, step-by-step explanations",
         "Powered by a local LLM (DeepSeek-R1) using Ollama for private and offline execution",
