@@ -343,7 +343,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             {formState.isSubmitting ? (
               <>
                 <Loader size={18} className="animate-spin" />
-                <span>Enviando...</span>
+                <span>Submitting...</span>
               </>
             ) : (
               <>

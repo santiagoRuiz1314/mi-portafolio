@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { MapPin, Calendar, Mail, Phone, Globe, Award, Heart, Coffee } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe, Award, Heart, Coffee } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 interface AboutInfo {
@@ -32,19 +32,6 @@ export const AboutCard: React.FC<AboutCardProps> = ({
   info,
   className,
 }) => {
-  const calculateAge = (birthDate: string) => {
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
-      age--;
-    }
-    
-    return age;
-  };
-
   const cardClasses = cn(
     'bg-white dark:bg-gray-800 rounded-xl shadow-soft border border-gray-200 dark:border-gray-700',
     'transition-all duration-300 hover:shadow-medium p-8',
@@ -85,15 +72,8 @@ export const AboutCard: React.FC<AboutCardProps> = ({
               <span>{info.yearsOfExperience}+ Yrs. exp.</span>
             </div>
             
-            {info.birthDate && (
-              <div className="flex items-center justify-center md:justify-start space-x-2 text-gray-600 dark:text-gray-400">
-                <Calendar size={16} />
-                <span>{calculateAge(info.birthDate)} years</span>
-              </div>
-            )}
-            
             {info.website && (
-              <div className="flex items-center justify-center md:justify-start space-x-2 text-gray-600 dark:text-gray-400">
+              <div className="flex items-center justify-center md:justify-start space-x-2 text-gray-600 dark:text-gray-400 col-span-2">
                 <Globe size={16} />
                 <a
                   href={info.website}
