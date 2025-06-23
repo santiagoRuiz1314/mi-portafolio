@@ -13,7 +13,6 @@ const AboutPage: React.FC = () => {
     location: SITE_CONFIG.location,
     email: SITE_CONFIG.email,
     phone: SITE_CONFIG.phone,
-    birthDate: SITE_CONFIG.birthDate,
     yearsOfExperience: SITE_CONFIG.yearsOfExperience,
     profileImage: SITE_CONFIG.profileImage,
     interests: PERSONAL_INFO.interests,

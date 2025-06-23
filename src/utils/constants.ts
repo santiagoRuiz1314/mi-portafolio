@@ -22,11 +22,10 @@ export const SOCIAL_LINKS = {
 
 
 export const PERSONAL_INFO = {
-  bio: `I'm a full stack developer with over ${SITE_CONFIG.yearsOfExperience} years of experience building modern and scalable web applications.
-  
-  I've worked on several projects using HTML, CSS, and JavaScript, and I'm always looking to learn new technologies and frameworks.
-  
-  I strongly believe in writing clean, maintainable, and well-documented code. I enjoy working in a team and am always eager to share knowledge and learn from other developers.`,
+  bio: `I'm a Systems Engineering student with a strong foundation in full-stack web development. Passionate about
+        technology, continuous learning, and teamwork. Recognized for adaptability, problem-solving skills, and
+        commitment to writing clean, maintainable code. Seeking opportunities to apply my knowledge and
+        continue growing professionally in an environment that values innovation and collaborative development.`,
   
   interests: [
     'Web Development',
