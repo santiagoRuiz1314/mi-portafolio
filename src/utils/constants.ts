@@ -30,10 +30,10 @@ export const PERSONAL_INFO = {
   interests: [
     'Web Development',
     'Learning Programming Languages',
-    'Photography',
-    'Teamwork',
-    'Music',
-    'Traveling',
+    'UX/UI Design',
+    'Performance Optimization',
+    'API Development & Integration',
+    'Prototyping & Design with Figma',
   ],
   
   values: [
