@@ -122,7 +122,7 @@ const AboutPreviewSection: React.FC<AboutPreviewSectionProps> = ({
             About me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Passionate developer with {aboutData.yearsOfExperience}+ years of experience 
+            Passionate Full Stack developer with {aboutData.yearsOfExperience}+ years of experience 
             creating innovative digital solutions.
           </p>
         </div>

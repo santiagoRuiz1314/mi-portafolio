@@ -19,8 +19,8 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   name = 'Santiago Ruiz',
-  subtitle = 'Creando experiencias digitales excepcionales',
-  description = 'Desarrollador apasionado especializado en React, Next.js y tecnologías modernas. Me enfoco en crear aplicaciones web escalables y experiencias de usuario intuitivas.',
+  subtitle = 'Crafting exceptional digital experiences',
+  description = 'Passionate developer specialized in React, Next.js, and modern technologies. Focused on building scalable web applications and intuitive user experiences.',
   profileImage = '/images/foto-perfil.jpg',
   location = 'Bucaramanga, Colombia',
   availableForWork = true,
@@ -133,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="text-center">
                 <div className="flex items-center justify-center space-x-1 text-2xl font-bold text-gray-900 dark:text-white">
                   <Code size={24} className="text-primary-600 dark:text-primary-400" />
-                  <span>3+</span>
+                  <span>2+</span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Projects</p>
               </div>

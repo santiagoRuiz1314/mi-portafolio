@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md">
-              Passionate web developer focused on creating exceptional digital experiences.
+              Passionate Full Stack developer focused on creating exceptional digital experiences.
               Specialized in React, Next.js, and modern technologies.
             </p>
             
