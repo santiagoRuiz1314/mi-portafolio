@@ -93,21 +93,29 @@ const AboutPage: React.FC = () => {
                 {[
                   {
                     year: '2025',
-                    title: 'Junior Developer ',
-                    company: 'Freelance',
-                    description: 'Currently working on a variety of projects using React, Next.js, Node.js, and Python.'
+                    title: 'Junior Developer',
+                    company: 'Freelance & Personal Projects',
+                    description: 'Currently working on diverse web development projects while continuously expanding my technical expertise.',
+                    details: [
+                      'Challenges: Learning to balance multiple technologies while maintaining code quality and meeting project deadlines.',
+                      'Growth: Developed strong problem-solving skills by tackling real-world development challenges independently.',
+                      'Achievements: Successfully built and deployed production-ready applications using modern tech stacks like React, Next.js, and TypeScript.',
+                      'Learning: Constantly exploring new frameworks and best practices, currently focusing on advanced React patterns and backend development with Node.js and Python.'
+                    ]
                   },
                   {
                     year: '2024',
                     title: 'Student',
-                    company: 'UNAB',
-                    description: 'Started my Systems Engineering degree at UNAB.'
-                  },
-                  {
-                    year: '2023',
-                    title: 'Graduate from high school',
-                    company: 'Agustiniano Tagaste High School',
-                    description: 'Finished my studies in school, and while exploring my interests, I discovered a passion for coding.'
+                    company: 'Universidad Autónoma de Bucaramanga (UNAB)',
+                    description: 'Started my Systems Engineering degree, combining academic learning with hands-on development experience.',
+                    details: [
+                      'Academic Focus: Studying fundamental computer science concepts including algorithms, data structures, and software engineering principles.',
+                      'Technical Courses: Completed specialized courses in JavaScript, C#/.NET, HTML/CSS, and Object-Oriented Programming through Platzi and Cisco.',
+                      'Key Projects: Voice Calculator - Developed a functional voice-controlled calculator using MIT App Inventor, focusing on mobile app development and user interface design.',
+                      'University Project: Student Event Registration System - Built a comprehensive web platform for university students to register for events and track free hours required for graduation, using React, TypeScript, and modern web technologies.',
+                      'Challenges: Balancing theoretical coursework with practical development projects while mastering multiple programming languages simultaneously.',
+                      'Growth: Transitioned from basic programming concepts to building complex, full-stack applications with real-world applications.'
+                    ]
                   }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-start">
@@ -121,12 +129,24 @@ const AboutPage: React.FC = () => {
                           {item.year}
                         </span>
                       </div>
-                      <p className="text-primary-600 dark:text-primary-400 mb-2">
+                      <p className="text-primary-600 dark:text-primary-400 mb-3">
                         {item.company}
                       </p>
-                      <p className="text-gray-600 dark:text-gray-300">
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
                         {item.description}
                       </p>
+                      
+                      {/* Detailed timeline items */}
+                      <div className="space-y-3">
+                        {item.details.map((detail, detailIndex) => (
+                          <div key={detailIndex} className="flex items-start space-x-3">
+                            <div className="w-2 h-2 bg-primary-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                              {detail}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
