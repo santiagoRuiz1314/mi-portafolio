@@ -90,33 +90,34 @@ const AboutPage: React.FC = () => {
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 dark:bg-gray-600"></div>
               
               <div className="space-y-8">
-                {[
-                  {
-                    year: '2025',
-                    title: 'Junior Developer',
-                    company: 'Freelance & Personal Projects',
-                    description: 'Currently working on diverse web development projects while continuously expanding my technical expertise.',
-                    details: [
-                      'Challenges: Learning to balance multiple technologies while maintaining code quality and meeting project deadlines.',
-                      'Growth: Developed strong problem-solving skills by tackling real-world development challenges independently.',
-                      'Achievements: Successfully built and deployed production-ready applications using modern tech stacks like React, Next.js, and TypeScript.',
-                      'Learning: Constantly exploring new frameworks and best practices, currently focusing on advanced React patterns and backend development with Node.js and Python.'
-                    ]
-                  },
-                  {
-                    year: '2024',
-                    title: 'Student',
-                    company: 'Universidad Autónoma de Bucaramanga (UNAB)',
-                    description: 'Started my Systems Engineering degree, combining academic learning with hands-on development experience.',
-                    details: [
-                      'Academic Focus: Studying fundamental computer science concepts including algorithms, data structures, and software engineering principles.',
-                      'Technical Courses: Completed specialized courses in JavaScript, C#/.NET, HTML/CSS, and Object-Oriented Programming through Platzi and Cisco.',
-                      'Key Projects: Voice Calculator - Developed a functional voice-controlled calculator using MIT App Inventor, focusing on mobile app development and user interface design.',
-                      'University Project: Student Event Registration System - Built a comprehensive web platform for university students to register for events and track free hours required for graduation, using React, TypeScript, and modern web technologies.',
-                      'Challenges: Balancing theoretical coursework with practical development projects while mastering multiple programming languages simultaneously.',
-                      'Growth: Transitioned from basic programming concepts to building complex, full-stack applications with real-world applications.'
-                    ]
-                  }
+                {[                
+                      {
+                        year: '2025',
+                        title: 'Expanding Horizons as a Junior Developer',
+                        company: 'Freelance & Personal Projects',
+                        description: 'Currently building diverse web applications while deepening my expertise in modern development practices and exploring new technologies.',
+                        details: [
+                          'Working on production-ready applications using React, Next.js, and TypeScript, focusing on creating scalable and maintainable codebases that solve real-world problems.',
+                          'Developing a sophisticated AI-powered calculus solver using local LLMs (DeepSeek-R1) with Ollama, combining my programming skills with cutting-edge artificial intelligence to help students tackle complex mathematical problems.',
+                          'Navigating the challenges of independent development: learning to balance multiple projects, manage client expectations, and deliver quality solutions within tight deadlines while maintaining high coding standards.',
+                          'Growing through hands-on experience: each project teaches me something new about architecture decisions, user experience design, and the importance of writing clean, documented code that others can understand and maintain.',
+                          'Building a professional network and learning the business side of development, from client communication and project scoping to deployment strategies and ongoing maintenance considerations.'
+                        ]
+                      },
+                      {
+                        year: '2024',
+                        title: 'From Student to Builder',
+                        company: 'Universidad Autónoma de Bucaramanga (UNAB)',
+                        description: 'A transformative year where I transitioned from learning programming concepts to building real applications that people actually use.',
+                        details: [
+                          'Started my Systems Engineering degree at UNAB, diving deep into computer science fundamentals while maintaining a hands-on approach to learning through practical projects and real-world applications.',
+                          'Completed intensive courses through Platzi covering the full development spectrum: from C# fundamentals and object-oriented programming to modern web technologies like HTML5, CSS3, and JavaScript ES6+.',
+                          'Built my first mobile application: a voice-controlled calculator using MIT App Inventor. This project taught me about user interface design, accessibility considerations, and the challenges of working with voice recognition technology.',
+                          'Developed the "Student Event Registration System" – a comprehensive web platform that allows university students to register for events and track their required free hours for graduation. This project marked my transition into full-stack development, using React, TypeScript, and PostgreSQL.',
+                          'Faced the steep learning curve of modern web development: understanding component lifecycle, state management, API integration, and database design. Each challenge felt overwhelming at first, but breaking them down into smaller problems made them manageable.',
+                          'Learned the importance of clean code and best practices through my C# and .NET courses, which shaped how I approach problem-solving and code organization in all my subsequent projects.'
+                        ]
+                      }
                 ].map((item, index) => (
                   <div key={index} className="relative flex items-start">
                     <div className="absolute left-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-900"></div>
