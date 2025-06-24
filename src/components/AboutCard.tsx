@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { MapPin, Mail, Phone, Globe, Award, Heart, Coffee } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe, Heart, Coffee } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
 interface AboutInfo {
@@ -16,11 +16,7 @@ interface AboutInfo {
   profileImage: string;
   interests: string[];
   values: string[];
-  achievements?: Array<{
-    title: string;
-    description: string;
-    date: string;
-  }>;
+  // Removed achievements - will be replaced with drives
 }
 
 interface AboutCardProps {
@@ -37,6 +33,30 @@ export const AboutCard: React.FC<AboutCardProps> = ({
     'transition-all duration-300 hover:shadow-medium p-8',
     className
   );
+
+  // What drives Santiago as a developer - replacing achievements
+  const drivingForces = [
+    {
+      icon: "💡",
+      title: "Problem Solving",
+      description: "I thrive on turning complex challenges into elegant, user-friendly solutions"
+    },
+    {
+      icon: "🤝",
+      title: "Collaborative Growth",
+      description: "Building amazing products while learning from diverse, talented teammates"
+    },
+    {
+      icon: "🎯",
+      title: "Impact-Driven Development",
+      description: "Creating tools and applications that genuinely improve people's daily experiences"
+    },
+    {
+      icon: "🚀",
+      title: "Continuous Innovation",
+      description: "Exploring cutting-edge technologies and contributing to the developer community"
+    }
+  ];
 
   return (
     <div className={cardClasses}>
@@ -164,35 +184,38 @@ export const AboutCard: React.FC<AboutCardProps> = ({
         </div>
       )}
 
-      {/* Achievements */}
-      {info.achievements && info.achievements.length > 0 && (
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Key Achievements
-          </h3>
-          <div className="space-y-3">
-            {info.achievements.slice(0, 3).map((achievement, index) => (
-              <div
-                key={index}
-                className="flex items-start space-x-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg"
+      {/* IMPROVED SECTION: What Drives Me - Replacing Key Achievements */}
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+          What Drives Me
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {drivingForces.map((drive, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg 
+                         hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-200
+                         hover:shadow-sm cursor-pointer group"
+            >
+              <span 
+                className="text-2xl flex-shrink-0 mt-1 group-hover:scale-110 transition-transform duration-200" 
+                role="img" 
+                aria-label={drive.title}
               >
-                <Award size={18} className="text-primary-600 dark:text-primary-400 flex-shrink-0 mt-0.5" />
-                <div className="flex-1">
-                  <h4 className="font-medium text-gray-900 dark:text-white">
-                    {achievement.title}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {achievement.description}
-                  </p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
-                    {achievement.date}
-                  </p>
-                </div>
+                {drive.icon}
+              </span>
+              <div className="flex-1">
+                <h4 className="font-medium text-gray-900 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  {drive.title}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {drive.description}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
