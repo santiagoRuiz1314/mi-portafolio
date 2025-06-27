@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   author: 'Santiago Steven Ruiz Carreño',
   title: 'Full Stack Developer',
   subtitle: 'Creating exceptional digital experiences',
-  description: "I'm a Full Stack developer. I've built projects with HTML, CSS, and JavaScript, and I'm always looking to learn more. Passionate about tech, teamwork, and continuous growth, I enjoy turning ideas into real solutions.",
+  description: "Full Stack developer who builds solutions that matter. Solving complex problems into intuitive digital experiences using modern web technologies.",
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://tu-dominio.com',
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'santiago06ruiz@gmail.com',
   phone: '+57 305 383 0143',
@@ -22,10 +22,9 @@ export const SOCIAL_LINKS = {
 
 
 export const PERSONAL_INFO = {
-  bio: `I'm a Systems Engineering student with a strong foundation in full-stack web development. Passionate about
-        technology, continuous learning, and teamwork. Recognized for adaptability, problem-solving skills, and
-        commitment to writing clean, maintainable code. Seeking opportunities to apply my knowledge and
-        continue growing professionally in an environment that values innovation and collaborative development.`,
+  bio: `I'm a Full Stack Developer creating scalable, efficient, and user-centered web applications, with a strong focus on accessibility and performance.
+   I enjoy collaborating with teams, learning from other professionals, and contributing solutions that make a real impact.
+    My goal is to build tech products that combine functionality, design, and purpose.`,
   
   interests: [
     'Web Development',
