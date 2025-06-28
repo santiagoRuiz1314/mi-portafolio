@@ -1,8 +1,22 @@
-import React, { useEffect, useCallback, useMemo } from 'react';
+import React, { useEffect, useCallback, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { X, Github, ExternalLink, Calendar, Tag, CheckCircle, Clock, Lightbulb, LucideIcon } from 'lucide-react';
+import { 
+  X, 
+  Github, 
+  ExternalLink, 
+  Calendar, 
+  Tag, 
+  CheckCircle, 
+  Clock, 
+  Lightbulb, 
+  LucideIcon,
+  Layers,
+  Info
+} from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { useAnalytics } from '@/lib/analytics';
+import { ArchitectureView } from '@/components/ArchitectureView';
+import { PROJECT_ARCHITECTURES } from '@/types/architecture';
 import type { Project } from '@/components/ProjectCard';
 
 interface ProjectModalProps {
@@ -11,7 +25,7 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-// Configuración constante con tipado correcto
+
 const STATUS_CONFIG = {
   completed: {
     label: 'Completado',
@@ -36,14 +50,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   onClose,
 }) => {
   const analytics = useAnalytics();
+  const [activeTab, setActiveTab] = useState<'overview' | 'architecture'>('overview');
 
-  // Memoizar configuración del status
+  // Find architecture data for this project
+  const projectArchitecture = useMemo(() => {
+    if (!project) return null;
+    return PROJECT_ARCHITECTURES.find(arch => arch.projectId === project.id) || null;
+  }, [project?.id]);
+
+  // Memoized status configuration
   const statusConfig = useMemo(() => {
     if (!project) return null;
     return STATUS_CONFIG[project.status];
   }, [project?.status]);
 
-  // Handlers memoizados
+  // Memoized event handlers
   const handleEscapeKey = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose();
   }, [onClose]);
@@ -66,7 +87,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     }
   }, [project?.liveUrl, project?.id, analytics]);
 
-  // Efectos
+  // Reset tab when project changes
+  useEffect(() => {
+    if (isOpen && project) {
+      setActiveTab('overview');
+    }
+  }, [isOpen, project?.id]);
+
+  // Keyboard and body scroll effects
   useEffect(() => {
     if (!isOpen) return;
 
@@ -81,6 +109,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   if (!isOpen || !project || !statusConfig) return null;
 
+  const tabs = [
+    { id: 'overview', label: 'Project Overview', icon: Info },
+    ...(projectArchitecture ? [{ id: 'architecture', label: 'Architecture', icon: Layers }] : [])
+  ];
+
   return (
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
@@ -91,7 +124,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
     >
       <div 
         className={cn(
-          "relative w-full max-w-4xl max-h-[90vh] overflow-auto",
+          "relative w-full max-w-6xl max-h-[90vh] overflow-auto",
           "bg-white dark:bg-gray-800 rounded-2xl shadow-2xl",
           "transform transition-all duration-300",
           "animate-in zoom-in-95 duration-300"
@@ -103,8 +136,43 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           statusConfig={statusConfig}
           onClose={onClose}
         />
+
+        {/* Navigation Tabs - Only show if architecture exists */}
+        {tabs.length > 1 && (
+          <div className="border-b border-gray-200 dark:border-gray-700 px-6">
+            <nav className="-mb-px flex space-x-8">
+              {tabs.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  onClick={() => setActiveTab(id as any)}
+                  className={cn(
+                    'group inline-flex items-center py-4 px-1 border-b-2 font-medium text-sm transition-colors',
+                    activeTab === id
+                      ? 'border-primary-500 text-primary-600 dark:text-primary-400'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 hover:border-gray-300'
+                  )}
+                >
+                  <Icon className="w-4 h-4 mr-2" />
+                  {label}
+                </button>
+              ))}
+            </nav>
+          </div>
+        )}
         
-        <ModalContent project={project} />
+        {/* Tab Content */}
+        <div className="p-6">
+          {activeTab === 'overview' && (
+            <ModalContent project={project} />
+          )}
+          
+          {activeTab === 'architecture' && projectArchitecture && (
+            <ArchitectureView 
+              architecture={projectArchitecture}
+              className="mt-4"
+            />
+          )}
+        </div>
         
         <ModalFooter 
           project={project}
@@ -116,7 +184,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
   );
 };
 
-// Componente del header
+// Component del header
 const ModalHeader: React.FC<{
   project: Project;
   statusConfig: typeof STATUS_CONFIG[keyof typeof STATUS_CONFIG];
@@ -171,9 +239,9 @@ const ProjectMetadata: React.FC<{ project: Project }> = ({ project }) => (
   </div>
 );
 
-// Contenido principal del modal
+// Contenido principal del modal (tab overview)
 const ModalContent: React.FC<{ project: Project }> = ({ project }) => (
-  <div className="p-6 space-y-6">
+  <div className="space-y-6">
     <ProjectImage project={project} />
     <ProjectDescription project={project} />
     <ProjectTechnologies project={project} />
