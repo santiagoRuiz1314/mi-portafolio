@@ -161,7 +161,7 @@ const ArchitectureOverview: React.FC<{ architecture: ProjectArchitecture }> = ({
         Architecture Layers ({architecture.layers.length})
       </h4>
       <div className="space-y-3">
-        {architecture.layers.map((layer, index) => (
+        {architecture.layers.map((layer) => (
           <div key={layer.id} className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <span className="text-2xl">{layer.icon}</span>
             <div>
@@ -199,7 +199,7 @@ const ArchitectureLayers: React.FC<{
   onToggleLayer: (layerId: string) => void;
 }> = ({ layers, expandedLayers, onToggleLayer }) => (
   <div className="space-y-4">
-    {layers.map((layer, index) => {
+    {layers.map((layer) => {
       const isExpanded = expandedLayers.includes(layer.id);
       
       return (
