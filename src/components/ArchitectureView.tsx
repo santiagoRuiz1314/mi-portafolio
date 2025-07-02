@@ -7,8 +7,7 @@ import {
   Info,
   ChevronDown,
   ChevronRight,
-  Eye,
-  List
+  Eye
 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { ArchitectureDiagram } from './ArchitectureDiagram';
