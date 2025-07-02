@@ -6,9 +6,11 @@ import {
   AlertTriangle, 
   Info,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  Eye
 } from 'lucide-react';
 import { cn } from '@/utils/cn';
+import { ArchitectureDiagram } from './ArchitectureDiagram';
 import type { ProjectArchitecture, ArchitectureLayer } from '@/types/architecture';
 
 interface ArchitectureViewProps {
@@ -21,7 +23,7 @@ export const ArchitectureView: React.FC<ArchitectureViewProps> = ({
   className
 }) => {
   const [expandedLayers, setExpandedLayers] = useState<string[]>([]);
-  const [activeTab, setActiveTab] = useState<'overview' | 'layers' | 'flow' | 'analysis'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'diagram' | 'layers' | 'flow' | 'analysis'>('overview');
 
   const toggleLayer = (layerId: string) => {
     setExpandedLayers(prev => 
@@ -101,6 +103,7 @@ export const ArchitectureView: React.FC<ArchitectureViewProps> = ({
         <nav className="-mb-px flex space-x-8">
           {[
             { id: 'overview', label: 'Overview', icon: Info },
+            { id: 'diagram', label: 'Visual Diagram', icon: Eye },
             { id: 'layers', label: 'Architecture Layers', icon: Layers },
             { id: 'flow', label: 'Data Flow', icon: ArrowDown },
             { id: 'analysis', label: 'Analysis', icon: CheckCircle }
@@ -126,6 +129,10 @@ export const ArchitectureView: React.FC<ArchitectureViewProps> = ({
       <div className="mt-6">
         {activeTab === 'overview' && (
           <ArchitectureOverview architecture={architecture} />
+        )}
+        
+        {activeTab === 'diagram' && (
+          <ArchitectureDiagram architecture={architecture} />
         )}
         
         {activeTab === 'layers' && (

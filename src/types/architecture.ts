@@ -25,7 +25,7 @@ export interface ArchitecturePattern {
   benefits: string[];
 }
 
-// Datos de arquitectura para los proyectos existentes
+// Datos de arquitectura para tus proyectos reales
 export const PROJECT_ARCHITECTURES: ProjectArchitecture[] = [
   {
     id: 'arch-webpage-unab',
@@ -222,5 +222,27 @@ export const PROJECT_ARCHITECTURES: ProjectArchitecture[] = [
       'Network latency between services',
       'GPU requirements for optimal AI performance'
     ]
+  }
+];
+
+// Patrones de arquitectura comunes (solo como referencia educativa)
+export const ARCHITECTURE_PATTERNS: ArchitecturePattern[] = [
+  {
+    name: 'Component-Based Architecture',
+    description: 'Modular design using reusable components as building blocks',
+    usedIn: ['React Applications', 'Vue.js Projects', 'Angular Apps'],
+    benefits: ['Reusability', 'Maintainability', 'Testability', 'Separation of Concerns']
+  },
+  {
+    name: 'Microservices Pattern',
+    description: 'Distributed architecture with independently deployable services',
+    usedIn: ['Large-scale Applications', 'Enterprise Systems', 'Cloud-native Apps'],
+    benefits: ['Scalability', 'Technology Diversity', 'Fault Isolation', 'Team Independence']
+  },
+  {
+    name: 'Layered Architecture',
+    description: 'Hierarchical organization with clear separation between layers',
+    usedIn: ['Enterprise Applications', 'Web APIs', 'Desktop Applications'],
+    benefits: ['Clear Separation', 'Easy Testing', 'Code Organization', 'Maintainability']
   }
 ];
