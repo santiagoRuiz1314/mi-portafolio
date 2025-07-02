@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowDown, ArrowRight, Server, Database, Globe, Cog, Cloud } from 'lucide-react';
+import { ArrowDown, Server, Database, Globe, Cog, Cloud } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import type { ArchitectureLayer, ProjectArchitecture } from '@/types/architecture';
 
