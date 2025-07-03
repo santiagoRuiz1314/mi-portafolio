@@ -54,21 +54,21 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({
   };
 
   return (
-    <div className={cn('space-y-8', className)}>
+    <div className={cn('space-y-6 sm:space-y-8 w-full min-w-0', className)}>
       {/* Architecture Type Header */}
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
           Architecture Diagram
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 break-words">
           {architecture.description}
         </p>
       </div>
 
-      {/* Main Diagram */}
-      <div className="relative">
+      {/* Main Diagram - FIXED: Mejorado para móvil */}
+      <div className="relative w-full min-w-0">
         {/* Layers */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {architecture.layers.map((layer, index) => {
             const IconComponent = getLayerIcon(layer);
             const isHovered = hoveredLayer === layer.id;
@@ -76,77 +76,77 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({
             
             return (
               <div key={layer.id} className="relative">
-                {/* Layer Card */}
+                {/* Layer Card - FIXED: Mejor responsive y overflow control */}
                 <div
                   className={cn(
-                    'relative p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700',
+                    'relative p-4 sm:p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700',
                     'bg-gradient-to-r transition-all duration-300 cursor-pointer',
-                    'hover:shadow-xl transform',
+                    'hover:shadow-xl transform w-full min-w-0',
                     getLayerColor(index, isHovered, isSelected)
                   )}
                   onMouseEnter={() => setHoveredLayer(layer.id)}
                   onMouseLeave={() => setHoveredLayer(null)}
                   onClick={() => setSelectedLayer(selectedLayer === layer.id ? null : layer.id)}
                 >
-                  {/* Layer Header */}
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl" role="img" aria-label={layer.name}>
+                  {/* Layer Header - FIXED: Mejorado para móvil */}
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4">
+                    <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl" role="img" aria-label={layer.name}>
                         {layer.icon}
                       </span>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-white mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-base sm:text-lg font-semibold text-white mb-1 break-words">
                         {layer.name}
                       </h4>
-                      <p className="text-white/80 text-sm">
+                      <p className="text-white/80 text-xs sm:text-sm break-words">
                         {layer.description}
                       </p>
                     </div>
-                    <IconComponent className="w-6 h-6 text-white/80" />
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 text-white/80 flex-shrink-0" />
                   </div>
 
-                  {/* Technologies Preview */}
-                  <div className="flex flex-wrap gap-2">
-                    {layer.technologies.slice(0, 4).map((tech, techIndex) => (
+                  {/* Technologies Preview - FIXED: Mejor manejo en móvil */}
+                  <div className="flex flex-wrap gap-1 sm:gap-2">
+                    {layer.technologies.slice(0, 3).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 bg-white/20 text-white text-xs rounded-full"
+                        className="px-2 py-1 bg-white/20 text-white text-xs rounded-full break-all"
                       >
                         {tech}
                       </span>
                     ))}
-                    {layer.technologies.length > 4 && (
+                    {layer.technologies.length > 3 && (
                       <span className="px-2 py-1 bg-white/20 text-white text-xs rounded-full">
-                        +{layer.technologies.length - 4} more
+                        +{layer.technologies.length - 3} more
                       </span>
                     )}
                   </div>
 
-                  {/* Expanded Details */}
+                  {/* Expanded Details - FIXED: Mejorado grid responsive */}
                   {isSelected && (
                     <div className="mt-4 pt-4 border-t border-white/20">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <h5 className="text-white font-medium mb-2">All Technologies</h5>
+                      <div className="grid grid-cols-1 gap-4">
+                        <div className="min-w-0">
+                          <h5 className="text-white font-medium mb-2 text-sm sm:text-base">All Technologies</h5>
                           <div className="flex flex-wrap gap-1">
                             {layer.technologies.map((tech, techIndex) => (
                               <span
                                 key={techIndex}
-                                className="px-2 py-1 bg-white/30 text-white text-xs rounded"
+                                className="px-2 py-1 bg-white/30 text-white text-xs rounded break-all"
                               >
                                 {tech}
                               </span>
                             ))}
                           </div>
                         </div>
-                        <div>
-                          <h5 className="text-white font-medium mb-2">Responsibilities</h5>
+                        <div className="min-w-0">
+                          <h5 className="text-white font-medium mb-2 text-sm sm:text-base">Responsibilities</h5>
                           <ul className="space-y-1">
                             {layer.responsibilities.slice(0, 3).map((resp, respIndex) => (
-                              <li key={respIndex} className="text-white/90 text-xs flex items-start">
+                              <li key={respIndex} className="text-white/90 text-xs flex items-start min-w-0">
                                 <span className="w-1 h-1 bg-white rounded-full mt-1.5 mr-2 flex-shrink-0" />
-                                {resp}
+                                <span className="break-words">{resp}</span>
                               </li>
                             ))}
                           </ul>
@@ -156,11 +156,11 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({
                   )}
                 </div>
 
-                {/* Connection Arrow */}
+                {/* Connection Arrow - FIXED: Responsive para móvil */}
                 {index < architecture.layers.length - 1 && (
-                  <div className="flex justify-center my-4">
-                    <div className="w-8 h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                      <ArrowDown className="w-4 h-4 text-gray-600 dark:text-gray-400" />
+                  <div className="flex justify-center my-3 sm:my-4">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                      <ArrowDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 dark:text-gray-400" />
                     </div>
                   </div>
                 )}
@@ -169,25 +169,25 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({
           })}
         </div>
 
-        {/* Data Flow Indicator */}
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-400 to-primary-600 rounded-full opacity-30" />
+        {/* Data Flow Indicator - FIXED: Responsive */}
+        <div className="absolute left-2 sm:left-0 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-primary-400 to-primary-600 rounded-full opacity-30" />
       </div>
 
-      {/* Interactive Legend */}
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-        <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+      {/* Interactive Legend - FIXED: Mejorado para móvil */}
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6">
+        <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4">
           💡 Interactive Guide
         </h4>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <div className="grid grid-cols-1 gap-4 text-xs sm:text-sm">
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-primary-500 rounded-full" />
-            <span className="text-gray-600 dark:text-gray-400">
+            <div className="w-3 h-3 bg-primary-500 rounded-full flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-400 break-words">
               Click on layers to see detailed information
             </span>
           </div>
           <div className="flex items-center space-x-2">
-            <ArrowDown className="w-4 h-4 text-gray-500" />
-            <span className="text-gray-600 dark:text-gray-400">
+            <ArrowDown className="w-4 h-4 text-gray-500 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-400 break-words">
               Data flows from top to bottom
             </span>
           </div>
